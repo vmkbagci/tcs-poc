@@ -108,9 +108,9 @@ poetry run gunicorn src.trade_api.main:app -w 4 -k uvicorn.workers.UvicornWorker
 
 ## Documentation
 
-- [Requirements](../.kiro/specs/trade-api/requirements.md)
-- [Design Document](../.kiro/specs/trade-api/design.md)
-- [Implementation Tasks](../.kiro/specs/trade-api/tasks.md)
+- [Requirements](./.kiro/specs/trade-api/requirements.md)
+- [Design Document](./.kiro/specs/trade-api/design.md)
+- [Implementation Tasks](./.kiro/specs/trade-api/tasks.md)
 - [Swap Analysis](../json-examples/swap-analysis.md)
 
 ## Contributing

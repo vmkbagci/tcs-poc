@@ -28,12 +28,12 @@ This project demonstrates enterprise-grade Python API development using:
 ```
 tcs-poc/
 ├── tcs-api/                 # Trade API (FastAPI backend)
+│   ├── .kiro/specs/        # API specifications and design docs
 │   ├── src/trade_api/      # API source code
 │   ├── tests/              # API tests
 │   ├── pyproject.toml      # Poetry configuration
 │   └── README.md           # API-specific documentation
-├── json-examples/          # Sample trade data
-├── .kiro/specs/           # Design specifications
+├── json-examples/          # Sample trade data (shared)
 └── README.md              # This file
 ```
 
