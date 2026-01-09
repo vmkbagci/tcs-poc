@@ -26,19 +26,60 @@ This API demonstrates enterprise-grade Python development using:
 
 ### Installation
 
+#### Option 1: Quick Setup Script (Recommended)
 ```bash
 # Navigate to API directory
 cd tcs-api
 
+# Run the automated setup script
+./setup.sh
+
+# Start the development server
+poetry run uvicorn trade_api.main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+#### Option 2: Docker (Easiest)
+```bash
+# Navigate to API directory
+cd tcs-api
+
+# Run the Docker setup script
+./docker-setup.sh
+
+# Choose your deployment option when prompted
+```
+
+#### Option 3: Manual Installation
+```bash
 # Install dependencies with Poetry
 poetry install
 
-# Activate virtual environment
-poetry shell
+# Copy environment configuration
+cp .env.example .env
 
 # Run the development server
-uvicorn src.trade_api.main:app --reload
+poetry run uvicorn trade_api.main:app --reload
 ```
+
+For detailed setup instructions on Debian/Ubuntu systems, see [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md).
+
+## Deployment
+
+### Files Included
+
+- **`DEPLOYMENT_GUIDE.md`** - Comprehensive setup guide for Debian/Ubuntu systems
+- **`setup.sh`** - Automated setup script for native installation
+- **`docker-setup.sh`** - Automated Docker deployment script
+- **`Dockerfile`** - Multi-stage Docker build configuration
+- **`docker-compose.yml`** - Docker Compose configuration with optional nginx
+- **`nginx.conf`** - Nginx reverse proxy configuration
+
+### Quick Deployment Options
+
+1. **Native Installation**: `./setup.sh`
+2. **Docker Simple**: `./docker-setup.sh` (choose option 1)
+3. **Docker with Compose**: `./docker-setup.sh` (choose option 2)
+4. **Production with nginx**: `./docker-setup.sh` (choose option 3)
 
 ### API Endpoints
 
@@ -60,16 +101,18 @@ uvicorn src.trade_api.main:app --reload
 tcs-api/
 ├── src/
 │   └── trade_api/
-│       ├── core/           # Core Trade class and interfaces
-│       ├── pipeline/       # Pipeline engine and stages
-│       ├── storage/        # Trade persistence layer
-│       ├── api/           # FastAPI endpoints
-│       └── main.py        # Application entry point
+│       ├── __init__.py
+│       ├── main.py        # Application entry point and factory
+│       ├── config.py      # Configuration management
+│       ├── api/           # FastAPI endpoints and routes
+│       ├── models/        # Data models and trade classes
+│       ├── pipeline/      # Pipeline engine and stages
+│       └── store/         # Trade persistence layer
 ├── tests/
-│   ├── unit/              # Unit tests
-│   ├── property/          # Property-based tests
-│   └── integration/       # Integration tests
+│   ├── __init__.py
+│   └── test_setup.py      # Basic setup verification tests
 ├── pyproject.toml         # Poetry configuration
+├── .env.example          # Environment configuration template
 └── README.md             # This file
 ```
 
@@ -82,7 +125,7 @@ tcs-api/
 poetry run pytest
 
 # Run with coverage
-poetry run pytest --cov=src/trade_api
+poetry run pytest --cov=trade_api
 
 # Run property-based tests only
 poetry run pytest tests/property/
@@ -92,10 +135,10 @@ poetry run pytest tests/property/
 
 ```bash
 # Development with auto-reload
-poetry run uvicorn src.trade_api.main:app --reload
+poetry run uvicorn trade_api.main:app --reload
 
 # Production-like setup
-poetry run gunicorn src.trade_api.main:app -w 4 -k uvicorn.workers.UvicornWorker
+poetry run gunicorn trade_api.main:app -w 4 -k uvicorn.workers.UvicornWorker
 ```
 
 ## Enterprise Features
