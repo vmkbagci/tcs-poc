@@ -1,0 +1,72 @@
+{
+  "tradeId": "SWAP-20260108-IRS-0001",
+  "tradeType": "InterestRateSwap",
+  "assetClass": "Rates",
+  "version": 2,
+  "tradeDate": "2026-01-08",
+  "intermediary": "Macquarie Global",
+  "counterparties": {
+    "partyA": { "id": "FUND_XYZ", "role": "Client" },
+    "partyB": { "id": "BANK_ABC", "role": "Client" }
+  },
+  "terms": {
+    "clearing": "Bilateral",
+    "effectiveDate": "2026-01-10",
+    "maturityDate": "2031-01-10",
+    "priceConvention": "Par"
+  },
+  "legs": [
+    {
+      "legId": "FIXED",
+      "payReceive": "Receive",
+      "currency": "USD",
+      "notional": 10000000,
+      "legType": "Fixed",
+      "fixedRate": 0.0425,
+      "dayCount": "30/360",
+      "paymentFrequency": "6M",
+      "businessCalendar": "NYC",
+      "businessDayConvention": "ModifiedFollowing"
+    },
+    {
+      "legId": "FLOAT",
+      "payReceive": "Pay",
+      "currency": "USD",
+      "notional": 10000000,
+      "legType": "Floating",
+      "index": "SOFR",
+      "spread": 0.0008,
+      "dayCount": "ACT/360",
+      "resetFrequency": "3M",
+      "paymentFrequency": "3M",
+      "businessCalendar": "NYC",
+      "businessDayConvention": "ModifiedFollowing"
+    }
+  ],
+  "specific": {
+    "rateFamily": "VanillaIRS"
+  },
+  "status": "Confirmed",
+  "lifecycles": [
+    {
+      "version": 1,
+      "correlationId": "6f3c1e3a-9b2a-4c5d-9f41-7e6a0b8e1f21",
+      "timestamp": "2026-01-08T14:22:10Z",
+      "intent": "BOOK_NEW_TRADE",
+      "eventType": "Create",
+      "executedBy": "jdoe01",
+      "platform": "TRADE_CAPTURE_DESKTOP",
+      "comment": "Initial booking of 5Y USD IRS: receive fixed 4.25% vs pay SOFR flat, 10mm notional."
+    },
+    {
+      "version": 2,
+      "correlationId": "a91d4f0b-2c7a-4d9b-8e62-1b0f5c3a9e44",
+      "timestamp": "2026-01-08T15:03:44Z",
+      "intent": "AMEND_ECONOMICS",
+      "eventType": "Amend",
+      "executedBy": "asmith07",
+      "platform": "POST_TRADE_OPS_WEB",
+      "comment": "Post-trade amendment: floating leg spread updated to SOFR +8 bps; no other terms changed."
+    }
+  ]
+}

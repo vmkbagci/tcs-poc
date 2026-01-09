@@ -1,0 +1,72 @@
+{
+  "tradeId": "SWAP-20260108-XCCY-0001",
+  "tradeType": "CrossCurrencySwap",
+  "assetClass": "RatesFX",
+  "version": 1,
+  "tradeDate": "2026-01-08",
+  "intermediary": "Macquarie Global",
+  "counterparties": {
+    "partyA": { "id": "CORP_TREASURY_01", "role": "Client" },
+    "partyB": { "id": "BANK_ABC", "role": "Client" }
+  },
+  "terms": {
+    "clearing": "Bilateral",
+    "effectiveDate": "2026-01-12",
+    "maturityDate": "2031-01-12",
+    "priceConvention": "Par"
+  },
+  "legs": [
+    {
+      "legId": "USD",
+      "payReceive": "Pay",
+      "currency": "USD",
+      "notional": 10000000,
+      "legType": "Floating",
+      "index": "SOFR",
+      "spread": 0.0005,
+      "dayCount": "ACT/360",
+      "resetFrequency": "3M",
+      "paymentFrequency": "3M",
+      "businessCalendar": "NYC",
+      "businessDayConvention": "ModifiedFollowing"
+    },
+    {
+      "legId": "EUR",
+      "payReceive": "Receive",
+      "currency": "EUR",
+      "notional": 9200000,
+      "legType": "Floating",
+      "index": "ESTR",
+      "spread": 0.0,
+      "dayCount": "ACT/360",
+      "resetFrequency": "3M",
+      "paymentFrequency": "3M",
+      "businessCalendar": "TARGET",
+      "businessDayConvention": "ModifiedFollowing"
+    }
+  ],
+  "specific": {
+    "fxPair": "EUR/USD",
+    "spotDate": "2026-01-10",
+    "spotRate": 0.92,
+    "fxRateConvention": "EURperUSD",
+    "notionalExchanges": {
+      "initialExchange": true,
+      "finalExchange": true,
+      "intermediateExchanges": false
+    }
+  },
+  "status": "Confirmed",
+  "lifecycles": [
+    {
+      "version": 1,
+      "correlationId": "c1c6efc2-9c62-4d0c-b4a2-4c2c562bb83c",
+      "timestamp": "2026-01-08T16:05:00Z",
+      "intent": "BOOK_NEW_TRADE",
+      "eventType": "Create",
+      "executedBy": "jdoe01",
+      "platform": "TRADE_CAPTURE_DESKTOP",
+      "comment": "Book EUR/USD XCCY: pay USD SOFR+5bps on 10mm vs receive EUR ESTR flat on 9.2mm; initial+final notionals exchanged."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "tradeId": "SWAP-20260108-OIS-0001",
+  "tradeType": "OvernightIndexSwap",
+  "assetClass": "Rates",
+  "version": 1,
+  "tradeDate": "2026-01-08",
+  "intermediary": "Macquarie Global",
+  "counterparties": {
+    "partyA": { "id": "FUND_XYZ", "role": "Client" },
+    "partyB": { "id": "BANK_ABC", "role": "Client" }
+  },
+  "terms": {
+    "clearing": "Bilateral",
+    "effectiveDate": "2026-01-10",
+    "maturityDate": "2031-01-10",
+    "priceConvention": "Par"
+  },
+  "legs": [
+    {
+      "legId": "FIXED",
+      "payReceive": "Receive",
+      "currency": "USD",
+      "notional": 10000000,
+      "legType": "Fixed",
+      "fixedRate": 0.0415,
+      "dayCount": "30/360",
+      "paymentFrequency": "1Y",
+      "businessCalendar": "NYC",
+      "businessDayConvention": "ModifiedFollowing"
+    },
+    {
+      "legId": "OIS_FLOAT",
+      "payReceive": "Pay",
+      "currency": "USD",
+      "notional": 10000000,
+      "legType": "Floating",
+      "index": "SOFR",
+      "spread": 0.0,
+      "dayCount": "ACT/360",
+      "paymentFrequency": "1Y",
+      "businessCalendar": "NYC",
+      "businessDayConvention": "ModifiedFollowing"
+    }
+  ],
+  "specific": {
+    "rateFamily": "OIS",
+    "compounding": "CompoundedInArrears",
+    "overnightIndexMethod": "DailyCompounded",
+    "lookbackDays": 0,
+    "lockoutDays": 0
+  },
+  "status": "Confirmed",
+  "lifecycles": [
+    {
+      "version": 1,
+      "correlationId": "9f29b43e-12f4-46df-b0af-8a34a1a3aa9d",
+      "timestamp": "2026-01-08T14:40:00Z",
+      "intent": "BOOK_NEW_TRADE",
+      "eventType": "Create",
+      "executedBy": "jdoe01",
+      "platform": "TRADE_CAPTURE_DESKTOP",
+      "comment": "Book USD OIS: receive fixed 4.15% vs pay compounded SOFR, 10mm, 5Y, annual pay."
+    }
+  ]
+}
