@@ -1,0 +1,835 @@
+{
+    "general": {
+        "tradeKey": {
+            "tradeId": "",
+            "label": ""
+        },
+        "transactionInformation": {
+            "transactionRoles": {
+                "marketer": {
+                    "nothing": null
+                },
+                "transactionOriginator": {
+                    "just": "atran12"
+                },
+                "priceMaker": "atran12",
+                "transactionAcceptor": {
+                    "just": "atran12"
+                },
+                "parameterGrantor": {
+                    "nothing": null
+                }
+            },
+            "executionDetails": {
+                "executionDateTime": {
+                    "date": {
+                        "date": "2026-01-07",
+                        "expr": {
+                            "nothing": null
+                        }
+                    },
+                    "time": {
+                        "hours": 16,
+                        "minutes": 35,
+                        "seconds": 17,
+                        "milliSeconds": 0
+                    }
+                },
+                "bestExecutionApplicable": {
+                    "nothing": null
+                },
+                "executionVenue": {
+                    "just": {
+                        "executionVenue": {
+                            "nothing": null
+                        },
+                        "venueTransactionID": {
+                            "nothing": null
+                        },
+                        "executionBroker": {
+                            "nothing": null
+                        },
+                        "executionBrokeragePayer": {
+                            "wePay": null
+                        },
+                        "executionVenueMIC": {
+                            "nothing": null
+                        },
+                        "executionVenueType": {
+                            "just": "OffFacility"
+                        }
+                    }
+                },
+                "clearingVenue": {
+                    "nothing": null
+                },
+                "reportTrackingNumber": {
+                    "nothing": null
+                },
+                "omsOrderID": {
+                    "nothing": null
+                },
+                "isOffMarketPrice": {
+                    "just": false
+                },
+                "clientInstructionTime": {
+                    "nothing": null
+                }
+            },
+            "packageTradeDetails": {
+                "isPackageTrade": {
+                    "just": false
+                },
+                "packageIdentifier": {
+                    "nothing": null
+                },
+                "packagePriceOrSpread": {
+                    "nothing": null
+                },
+                "packageType": {
+                    "nothing": null
+                },
+                "packagePrice": {
+                    "nothing": null
+                },
+                "packagePriceCcy": {
+                    "nothing": null
+                },
+                "priceNotation": {
+                    "nothing": null
+                },
+                "useTradeIdAsPackageId": {
+                    "just": true
+                }
+            },
+            "blockAllocationDetails": {
+                "nothing": null
+            }
+        },
+        "common": {
+            "book": "FXDCIOPSY",
+            "accountReference": {
+                "nothing": null
+            },
+            "tradeDate": {
+                "date": "2026-01-07",
+                "expr": {
+                    "nothing": null
+                }
+            },
+            "counterparty": "00040477",
+            "novatedToCounterparty": {
+                "nothing": null
+            },
+            "counterpartyAccountReference": {
+                "nothing": null
+            },
+            "inputDate": {
+                "date": "2026-01-07",
+                "expr": {
+                    "nothing": null
+                }
+            },
+            "orderTime": {
+                "nothing": null
+            },
+            "comment": {
+                "nothing": null
+            },
+            "initialMargin": {
+                "nothing": null
+            },
+            "backoutBook": {
+                "nothing": null
+            },
+            "tradingStrategy": {
+                "nothing": null
+            },
+            "ddeEligible": {
+                "No": null
+            },
+            "backoutTradingStrategy": {
+                "nothing": null
+            },
+            "externalReference": {
+                "nothing": null
+            },
+            "internalReference": {
+                "nothing": null
+            },
+            "initialMarginDeliveryDate": {
+                "nothing": null
+            },
+            "initialMarginDescription": {
+                "nothing": null
+            },
+            "structureDetails": {
+                "nothing": null
+            },
+            "backoutEntity": {
+                "nothing": null
+            },
+            "salesGroup": {
+                "nothing": null
+            },
+            "includeFeeEngine": {
+                "just": {
+                    "allLegs": false,
+                    "nearLeg": false,
+                    "farLeg": false,
+                    "none": true
+                }
+            },
+            "acsLinkType": {
+                "nothing": null
+            },
+            "regionOrAccount": {
+                "nothing": null
+            },
+            "originatingSystem": {
+                "nothing": null
+            },
+            "stp": {
+                "No": null
+            },
+            "sourceSystem": {
+                "nothing": null
+            },
+            "cashflowHedgeNotification": {
+                "just": false
+            },
+            "IRDAdvisory": {
+                "just": false
+            },
+            "isCustomBasket": {
+                "nothing": null
+            }
+        },
+        "events": [],
+        "fees": [],
+        "cvr": {
+            "nothing": null
+        },
+        "rightToBreakDetails": {
+            "nothing": null
+        },
+        "capitalSharing": [],
+        "tagMap": [],
+        "tradeIdentifiers": [],
+        "ISDADefinition": {
+            "just": "ISDA2021"
+        }
+    },
+    "swapDetails": {
+        "underlying": "AUD/USD",
+        "physicalOrNDS": {
+            "physical": null
+        },
+        "swapType": {
+            "ccs": null
+        },
+        "clearedTrade": false,
+        "markitSingleSided": {
+            "just": false
+        },
+        "principalExchange": {
+            "just": {
+                "occurs": {
+                    "firstLastLegs": null
+                },
+                "params": {
+                    "just": {
+                        "contractCurrency": "AUD",
+                        "dealCurrency": "USD",
+                        "fxSpotRate": {
+                            "just": 0.65
+                        },
+                        "fxRateMarketOrder": {
+                            "just": true
+                        },
+                        "resetParams": {
+                            "nothing": null
+                        }
+                    }
+                },
+                "schedule": {
+                    "principalExchangeSchedule": [
+                        {
+                            "v1": 0,
+                            "v2": {
+                                "paymentDate": {
+                                    "date": "2026-01-09",
+                                    "modified": false
+                                },
+                                "contractCcyPayment": 1000000,
+                                "dealCcyPayment": -650000,
+                                "fixingDate": {
+                                    "date": {
+                                        "nothing": null
+                                    },
+                                    "modified": false
+                                },
+                                "fxRate": {
+                                    "nothing": null
+                                },
+                                "fxRateMarketOrder": {
+                                    "nothing": null
+                                },
+                                "settlementCcyPayment": {
+                                    "nothing": null
+                                }
+                            }
+                        },
+                        {
+                            "v1": 1,
+                            "v2": {
+                                "paymentDate": {
+                                    "date": "2026-07-09",
+                                    "modified": false
+                                },
+                                "contractCcyPayment": -1000000,
+                                "dealCcyPayment": 650000,
+                                "fixingDate": {
+                                    "date": {
+                                        "nothing": null
+                                    },
+                                    "modified": false
+                                },
+                                "fxRate": {
+                                    "nothing": null
+                                },
+                                "fxRateMarketOrder": {
+                                    "nothing": null
+                                },
+                                "settlementCcyPayment": {
+                                    "nothing": null
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "isIsdaFallback": {
+            "just": false
+        }
+    },
+    "swapLegs": [
+        {
+            "v1": 0,
+            "v2": {
+                "bookPayReceive": {
+                    "pay": null
+                },
+                "notionalCurrency": "AUD",
+                "rateType": {
+                    "fixed": null
+                },
+                "swapStream": [
+                    {
+                        "v1": 0,
+                        "v2": {
+                            "notional": {
+                                "just": 1000000
+                            },
+                            "scheduleType": {
+                                "constant": null
+                            },
+                            "swapStreamDetails": {
+                                "pricingDetails": {
+                                    "interestRate": {
+                                        "just": 1.2
+                                    },
+                                    "ratesetRef": {
+                                        "nothing": null
+                                    },
+                                    "referenceTenor": {
+                                        "nothing": null
+                                    },
+                                    "margin": {
+                                        "marginNone": null
+                                    },
+                                    "ratesetOffset": {
+                                        "nothing": null
+                                    },
+                                    "paymentOffset": {
+                                        "just": 0
+                                    },
+                                    "ratesetCalendars": [],
+                                    "formula": "ARR",
+                                    "dayCountBasis": "A365FIX",
+                                    "dayCountBasisIsda": {
+                                        "just": "ACT/365.FIXED"
+                                    },
+                                    "observationMethod": {
+                                        "notApplicable": null
+                                    },
+                                    "averagingMethod": {
+                                        "notApplicable": null
+                                    }
+                                },
+                                "swapPeriods": {
+                                    "periods": {
+                                        "monthly": null
+                                    },
+                                    "periodMultiplier": 1,
+                                    "startDate": {
+                                        "date": "2026-01-07",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "endDate": {
+                                        "date": "2026-07-07",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "isAdjusted": true,
+                                    "stubDate": {
+                                        "nothing": null
+                                    },
+                                    "stubDayCountBasis": {
+                                        "nothing": null
+                                    },
+                                    "stubType": {
+                                        "none": null
+                                    },
+                                    "alignAtEom": {
+                                        "notEom": null
+                                    },
+                                    "style": {
+                                        "notApplicable": null
+                                    },
+                                    "rolloverDay": 7,
+                                    "rollConvention": {
+                                        "nothing": null
+                                    }
+                                },
+                                "schedule": [
+                                    {
+                                        "v1": 0,
+                                        "v2": {
+                                            "commonSchedule": {
+                                                "startDate": "2026-01-07",
+                                                "endDate": "2026-02-09",
+                                                "closedDate": {
+                                                    "nothing": null
+                                                },
+                                                "ratesetDate": {
+                                                    "date": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "paymentDate": {
+                                                    "date": "2026-02-09",
+                                                    "modified": false
+                                                },
+                                                "rate": {
+                                                    "price": {
+                                                        "just": 1.2
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "discountRate": {
+                                                    "price": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "floatingRate": {
+                                                    "nothing": null
+                                                },
+                                                "notional": {
+                                                    "amount": {
+                                                        "just": -1000000
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "interest": {
+                                                    "just": -1084.93
+                                                },
+                                                "reval": true
+                                            },
+                                            "additionalFloatingSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalNDSSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalResetSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalFixedSchedule": {
+                                                "nothing": null
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "v1": 1,
+                                        "v2": {
+                                            "commonSchedule": {
+                                                "startDate": "2026-02-09",
+                                                "endDate": "2026-03-09",
+                                                "closedDate": {
+                                                    "nothing": null
+                                                },
+                                                "ratesetDate": {
+                                                    "date": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "paymentDate": {
+                                                    "date": "2026-03-09",
+                                                    "modified": false
+                                                },
+                                                "rate": {
+                                                    "price": {
+                                                        "just": 1.2
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "discountRate": {
+                                                    "price": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "floatingRate": {
+                                                    "nothing": null
+                                                },
+                                                "notional": {
+                                                    "amount": {
+                                                        "just": -1000000
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "interest": {
+                                                    "just": -920.55
+                                                },
+                                                "reval": true
+                                            },
+                                            "additionalFloatingSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalNDSSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalResetSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalFixedSchedule": {
+                                                "nothing": null
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "settlement": {
+                    "settlementCurrency": "AUD",
+                    "offset": {
+                        "just": 2
+                    },
+                    "fxSettlement": {
+                        "nothing": null
+                    },
+                    "paymentCalendars": [
+                        "SY",
+                        "NY"
+                    ],
+                    "rollDateConvention": {
+                        "MFBD": null
+                    }
+                },
+                "nonStandard": {
+                    "nothing": null
+                }
+            }
+        },
+        {
+            "v1": 1,
+            "v2": {
+                "bookPayReceive": {
+                    "receive": null
+                },
+                "notionalCurrency": "USD",
+                "rateType": {
+                    "floating": null
+                },
+                "swapStream": [
+                    {
+                        "v1": 0,
+                        "v2": {
+                            "notional": {
+                                "just": 650000
+                            },
+                            "scheduleType": {
+                                "constant": null
+                            },
+                            "swapStreamDetails": {
+                                "pricingDetails": {
+                                    "interestRate": {
+                                        "nothing": null
+                                    },
+                                    "ratesetRef": {
+                                        "just": "SOFR"
+                                    },
+                                    "referenceTenor": {
+                                        "just": "1D"
+                                    },
+                                    "margin": {
+                                        "marginAdditive": 0
+                                    },
+                                    "ratesetOffset": {
+                                        "nothing": null
+                                    },
+                                    "paymentOffset": {
+                                        "just": 2
+                                    },
+                                    "ratesetCalendars": [
+                                        "US"
+                                    ],
+                                    "formula": "OIS",
+                                    "dayCountBasis": "ACT/360",
+                                    "dayCountBasisIsda": {
+                                        "just": "ACT/360"
+                                    },
+                                    "observationMethod": {
+                                        "plain": null
+                                    },
+                                    "averagingMethod": {
+                                        "compound": null
+                                    }
+                                },
+                                "swapPeriods": {
+                                    "periods": {
+                                        "monthly": null
+                                    },
+                                    "periodMultiplier": 1,
+                                    "startDate": {
+                                        "date": "2026-01-07",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "endDate": {
+                                        "date": "2026-07-07",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "isAdjusted": true,
+                                    "stubDate": {
+                                        "nothing": null
+                                    },
+                                    "stubDayCountBasis": {
+                                        "nothing": null
+                                    },
+                                    "stubType": {
+                                        "none": null
+                                    },
+                                    "alignAtEom": {
+                                        "notEom": null
+                                    },
+                                    "style": {
+                                        "floating": {
+                                            "average": {
+                                                "daily": null
+                                            }
+                                        }
+                                    },
+                                    "rolloverDay": 7,
+                                    "rollConvention": {
+                                        "nothing": null
+                                    }
+                                },
+                                "schedule": [
+                                    {
+                                        "v1": 0,
+                                        "v2": {
+                                            "commonSchedule": {
+                                                "startDate": "2026-01-07",
+                                                "endDate": "2026-02-09",
+                                                "closedDate": {
+                                                    "nothing": null
+                                                },
+                                                "ratesetDate": {
+                                                    "date": {
+                                                        "just": "2026-02-09"
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "paymentDate": {
+                                                    "date": "2026-02-11",
+                                                    "modified": false
+                                                },
+                                                "rate": {
+                                                    "price": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "discountRate": {
+                                                    "price": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "floatingRate": {
+                                                    "just": {
+                                                        "ratesets": [
+                                                            {
+                                                                "ratesetRef": "SOFR",
+                                                                "referenceTenor": "1D"
+                                                            }
+                                                        ],
+                                                        "interpolation": {
+                                                            "na": null
+                                                        },
+                                                        "modified": false
+                                                    }
+                                                },
+                                                "notional": {
+                                                    "amount": {
+                                                        "just": 650000
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "interest": {
+                                                    "nothing": null
+                                                },
+                                                "reval": true
+                                            },
+                                            "additionalFloatingSchedule": {
+                                                "just": {
+                                                    "margin": {
+                                                        "price": 0,
+                                                        "modified": false
+                                                    },
+                                                    "averagingSchedules": {
+                                                        "nothing": null
+                                                    }
+                                                }
+                                            },
+                                            "additionalNDSSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalResetSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalFixedSchedule": {
+                                                "nothing": null
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "v1": 1,
+                                        "v2": {
+                                            "commonSchedule": {
+                                                "startDate": "2026-02-09",
+                                                "endDate": "2026-03-09",
+                                                "closedDate": {
+                                                    "nothing": null
+                                                },
+                                                "ratesetDate": {
+                                                    "date": {
+                                                        "just": "2026-03-09"
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "paymentDate": {
+                                                    "date": "2026-03-11",
+                                                    "modified": false
+                                                },
+                                                "rate": {
+                                                    "price": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "discountRate": {
+                                                    "price": {
+                                                        "nothing": null
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "floatingRate": {
+                                                    "just": {
+                                                        "ratesets": [
+                                                            {
+                                                                "ratesetRef": "SOFR",
+                                                                "referenceTenor": "1D"
+                                                            }
+                                                        ],
+                                                        "interpolation": {
+                                                            "na": null
+                                                        },
+                                                        "modified": false
+                                                    }
+                                                },
+                                                "notional": {
+                                                    "amount": {
+                                                        "just": 650000
+                                                    },
+                                                    "modified": false
+                                                },
+                                                "interest": {
+                                                    "nothing": null
+                                                },
+                                                "reval": true
+                                            },
+                                            "additionalFloatingSchedule": {
+                                                "just": {
+                                                    "margin": {
+                                                        "price": 0,
+                                                        "modified": false
+                                                    },
+                                                    "averagingSchedules": {
+                                                        "nothing": null
+                                                    }
+                                                }
+                                            },
+                                            "additionalNDSSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalResetSchedule": {
+                                                "nothing": null
+                                            },
+                                            "additionalFixedSchedule": {
+                                                "nothing": null
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "settlement": {
+                    "settlementCurrency": "USD",
+                    "offset": {
+                        "just": 2
+                    },
+                    "fxSettlement": {
+                        "nothing": null
+                    },
+                    "paymentCalendars": [
+                        "SY",
+                        "NY"
+                    ],
+                    "rollDateConvention": {
+                        "MFBD": null
+                    }
+                },
+                "nonStandard": {
+                    "nothing": null
+                }
+            }
+        }
+    ]
+}

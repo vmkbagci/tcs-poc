@@ -1,0 +1,115 @@
+{
+  "tradeId": "1f0e1b33-6f8f-4a1b-9b5e-1a3d7a5f8a1c",
+  "tradeExtId": "ORE:DIGCMS-20260107-0009",
+  "label": "digitalCmsSpread",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Abandoned",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "0d9c1f70-1c8b-4a7b-b5d6-2b7f2a9c1f33",
+    "timestamp": "2026-01-08T16:44:12Z",
+    "intent": "CANCEL_TRADE",
+    "eventType": "Cancel",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "Trade canceled during controls review (structure deemed out-of-scope for the book)."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "BANK_ABC",
+      "nettingSetId": "NettingSet#CMS01",
+      "additionalFields": { "Desk": "Rates Exotics", "Book": "CMS-SPRD-EXO" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "kbagci",
+        "priceMaker": "kbagci",
+        "transactionAcceptor": "vmenon",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T13:20:04.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": true
+      }
+    },
+    "parties": [
+      { "code": "MACQ_UK", "lei": "549300MACQUKEXAMP55", "name": "Macquarie Bank Limited (UK)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" }
+    ],
+    "common": {
+      "book": "CMS-SPRD-EXO",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "digitalCmsSpread", "currency": "GBP" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_UK",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "GBP",
+      "rateType": "fixed",
+      "notional": 10000000,
+      "pricing": { "interestRate": 1.10, "dayCountBasisIsda": "ACT/ACT" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-03-01",
+        "endDate": "2029-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2027-03-01" },
+          { "start": "2027-03-01", "end": "2028-03-01" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_UK",
+      "currency": "GBP",
+      "rateType": "digitalCmsSpread",
+      "notional": 10000000,
+      "pricing": {
+        "index1": "EUR-CMS-10Y",
+        "index2": "EUR-CMS-2Y",
+        "spread": 10,
+        "gearing": 8.0,
+        "caps": [5.0],
+        "floors": [1.0],
+        "nakedOption": "N",
+        "digital": {
+          "callPosition": "Long",
+          "isCallATMIncluded": false,
+          "callStrikes": [0.01],
+          "callPayoffs": [0.01],
+          "putPosition": "Long",
+          "isPutATMIncluded": false,
+          "putStrikes": [0.10],
+          "putPayoffs": [0.10]
+        }
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-03-01",
+        "endDate": "2029-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2027-03-01" },
+          { "start": "2027-03-01", "end": "2028-03-01" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "status=Abandoned",
+    "swapLegs[1].rateType=digitalCmsSpread",
+    "swapLegs[1].pricing.digital",
+    "swapLegs[1].pricing.nakedOption",
+    "general.transactionInformation.executionDetails.isOffMarketPrice=true"
+  ]
+}

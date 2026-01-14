@@ -1,0 +1,348 @@
+TRADE 1 — USD Vanilla IRS (schedule/fixing controls: roll/stub/payment offset/fixing offset/reset knobs)
+
+{
+  "tradeId": "a6bdf0c7-6a12-4d1b-b4a2-2f1d1d6c3f1a",
+  "tradeExtId": "STRATA:CSV:OG:9901001",
+  "label": "vanilla",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "b1bdbb4c-1e3e-46bf-9c2a-6d2d5c7e3f11",
+    "timestamp": "2026-01-07T23:01:12Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "kbagci",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "USD IRS: pay fixed vs receive 3M IBOR; includes explicit roll/stub/payment offset and fixing offset fields."
+  },
+  "parties": [
+    { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie (Example US)", "role": "Dealer" },
+    { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+  ],
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "kbagci",
+        "priceMaker": "kbagci",
+        "transactionAcceptor": "vmenon",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T22:35:17.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "common": {
+      "book": "IR-USD-BOOK-01",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    },
+    "sourceIdentifiers": { "scheme": "OG", "id": "9901001" }
+  },
+  "swapDetails": {
+    "swapType": "irs",
+    "currency": "USD",
+    "underlying": "USD-IBOR-3M"
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payer": "MACQ_US",
+      "receiver": "FUND_XYZ",
+      "currency": "USD",
+      "rateType": "fixed",
+      "notional": 25000000,
+      "pricing": {
+        "interestRate": 0.0425,
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "P6M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09",
+        "rollConvention": "Day1",
+        "stubConvention": "ShortInitial",
+        "paymentRelativeTo": "PeriodEnd",
+        "paymentOffset": {
+          "days": 2,
+          "calendar": "USNY",
+          "adjustmentConvention": "Following",
+          "adjustmentCalendar": "USNY"
+        }
+      }
+    },
+    {
+      "legType": "Receive",
+      "payer": "FUND_XYZ",
+      "receiver": "MACQ_US",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 25000000,
+      "pricing": {
+        "ratesetRef": "USD-IBOR-3M",
+        "referenceTenor": "3M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "fixingRelativeTo": "PeriodStart",
+        "fixingOffset": {
+          "days": 2,
+          "calendar": "USNY",
+          "adjustmentConvention": "Following",
+          "adjustmentCalendar": "USNY"
+        },
+        "resetFrequency": "P1M",
+        "resetMethod": "Weighted",
+        "negativeRateMethod": "AllowNegative",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "P3M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.sourceIdentifiers",
+    "swapLegs[0].schedule.rollConvention",
+    "swapLegs[0].schedule.stubConvention",
+    "swapLegs[0].schedule.paymentRelativeTo",
+    "swapLegs[0].schedule.paymentOffset",
+    "swapLegs[1].pricing.fixingRelativeTo",
+    "swapLegs[1].pricing.fixingOffset",
+    "swapLegs[1].pricing.resetFrequency",
+    "swapLegs[1].pricing.resetMethod",
+    "swapLegs[1].pricing.negativeRateMethod"
+  ]
+}
+
+
+TRADE 2 — EUR Vanilla IRS (ORE-style envelope metadata: netting + portfolio ids + additional fields)
+
+{
+  "tradeId": "0f3f1c9a-2d0e-4d4d-a9b8-3f1b1d9f0a67",
+  "tradeExtId": "ORE:SWAP:PF#IR#01:000045",
+  "label": "vanilla",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "c3ccf2f5-1d1d-49ae-9db0-4f2a3f4e8f0b",
+    "timestamp": "2026-01-07T20:22:58Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "atran12",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "EUR IRS: receive fixed vs pay 6M IBOR; trade carries envelope/netting/portfolio metadata."
+  },
+  "parties": [
+    { "code": "MACQ_EU", "lei": "549300MACQEXAMPLE99", "name": "Macquarie (Example EU)", "role": "Dealer" },
+    { "code": "CORP_TREASURY_01", "lei": "549300CORPTREXAMP3", "name": "Corporate Treasury Co.", "role": "Client" }
+  ],
+  "general": {
+    "envelope": {
+      "counterparty": "CORP_TREASURY_01",
+      "nettingSetId": "NETSET_CORP_TREASURY_01",
+      "portfolioIds": ["PF#IR#01", "PF#HEDGE#EUR"],
+      "additionalFields": {
+        "Desk": "Rates",
+        "Book": "IR-EUR-HDG-02",
+        "Sector": "Corporate",
+        "Strategy": "Hedge"
+      }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "atran12",
+        "priceMaker": "atran12",
+        "transactionAcceptor": "aajay1",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T20:15:40.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "common": {
+      "book": "IR-EUR-HDG-02",
+      "tradeDate": "2026-01-07",
+      "counterparty": "CORP_TREASURY_01",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "irs",
+    "currency": "EUR",
+    "underlying": "EUR-EURIBOR-6M"
+  },
+  "swapLegs": [
+    {
+      "legType": "Receive",
+      "payer": "MACQ_EU",
+      "receiver": "CORP_TREASURY_01",
+      "currency": "EUR",
+      "rateType": "fixed",
+      "notional": 100000000,
+      "pricing": {
+        "interestRate": 0.028,
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "P1Y",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    },
+    {
+      "legType": "Pay",
+      "payer": "CORP_TREASURY_01",
+      "receiver": "MACQ_EU",
+      "currency": "EUR",
+      "rateType": "floating",
+      "notional": 100000000,
+      "pricing": {
+        "ratesetRef": "EUR-EURIBOR-6M",
+        "referenceTenor": "6M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "P6M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.envelope",
+    "general.envelope.nettingSetId",
+    "general.envelope.portfolioIds",
+    "general.envelope.additionalFields"
+  ]
+}
+
+
+TRADE 3 — GBP Vanilla IRS (valuation snapshot + regulatory identifiers UTI/UPI)
+
+{
+  "tradeId": "5c4e7d1d-66f7-47b0-8a14-2f4f3b9b10d2",
+  "tradeExtId": "TR:UTI:UK:9G7H-20260107-000077",
+  "label": "vanilla",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "9e2a3c11-77c5-4f54-9b61-0a1c2d3e4f55",
+    "timestamp": "2026-01-08T01:12:30Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "vmenon",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "GBP IRS: pay fixed vs receive 3M IBOR; includes optional valuation snapshot and UTI/UPI identifiers."
+  },
+  "parties": [
+    { "code": "MACQ_UK", "lei": "549300MACQUKEXAMP55", "name": "Macquarie (Example UK)", "role": "Dealer" },
+    { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" }
+  ],
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "vmenon",
+        "priceMaker": "vmenon",
+        "transactionAcceptor": "kbagci",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T18:05:00.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "common": {
+      "book": "IR-GBP-BOOK-03",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "Yes",
+      "includeFeeEngine": "standard",
+      "isdaDefinition": "ISDA2021"
+    },
+    "regulatoryIdentifiers": {
+      "uti": "UTI-9G7H-20260107-000077",
+      "upi": "UPI-IRSWAP-FIXFLOAT-GBP-3M",
+      "reportingRegime": "UK",
+      "tradeRepository": "ExampleTR"
+    }
+  },
+  "swapDetails": {
+    "swapType": "irs",
+    "currency": "GBP",
+    "underlying": "GBP-IBOR-3M"
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payer": "MACQ_UK",
+      "receiver": "BANK_ABC",
+      "currency": "GBP",
+      "rateType": "fixed",
+      "notional": 30000000,
+      "pricing": {
+        "interestRate": 0.0395,
+        "dayCountBasisIsda": "ACT/365.FIXED"
+      },
+      "schedule": {
+        "frequency": "P6M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    },
+    {
+      "legType": "Receive",
+      "payer": "BANK_ABC",
+      "receiver": "MACQ_UK",
+      "currency": "GBP",
+      "rateType": "floating",
+      "notional": 30000000,
+      "pricing": {
+        "ratesetRef": "GBP-IBOR-3M",
+        "referenceTenor": "3M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/365.FIXED",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "P3M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    }
+  ],
+  "valuationSnapshot": {
+    "pricingEngine": "DiscountingSwapEngine",
+    "valuationTimestamp": "2026-01-08T02:00:00Z",
+    "fairRate": 0.03205,
+    "npv": -343527.872,
+    "currency": "GBP"
+  },
+  "x_nonCommonFields": [
+    "general.regulatoryIdentifiers",
+    "general.regulatoryIdentifiers.uti",
+    "general.regulatoryIdentifiers.upi",
+    "valuationSnapshot"
+  ]
+}

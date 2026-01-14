@@ -1,0 +1,3451 @@
+{
+  "general": {
+    "tradeKey": {
+      "tradeId": {},
+      "label": {},
+      "coLocatedId": {
+        "baseScenario": {},
+        "coLocatedPosition": {}
+      }
+    },
+    "transactionInformation": {
+      "transactionRoles": {
+        "marketer": {},
+        "transactionOriginator": {},
+        "priceMaker": {},
+        "transactionAcceptor": {},
+        "parameterGrantor": {}
+      },
+      "executionDetails": {
+        "executionDateTime": {
+          "date": {
+            "date": {},
+            "expr": {}
+          },
+          "time": {
+            "hours": {},
+            "minutes": {},
+            "seconds": {},
+            "milliSeconds": {}
+          }
+        },
+        "bestExecutionApplicable": {},
+        "executionVenue": {
+          "executionVenue": {},
+          "venueTransactionID": {},
+          "executionBroker": {},
+          "executionBrokeragePayer": {
+            "wePay": {},
+            "counterpartyPays": {}
+          },
+          "executionVenueMIC": {},
+          "executionVenueType": {}
+        },
+        "clearingVenue": {
+          "clearingVenue": {},
+          "clearingDate": {
+            "date": {
+              "date": {},
+              "expr": {}
+            },
+            "time": {
+              "hours": {},
+              "minutes": {},
+              "seconds": {},
+              "milliSeconds": {}
+            }
+          },
+          "clearingBroker": {},
+          "clearingExecutionBroker": {},
+          "clearingVenueTransactionID": {}
+        },
+        "reportTrackingNumber": {},
+        "omsOrderID": {},
+        "isOffMarketPrice": {},
+        "clientInstructionTime": {
+          "date": {
+            "date": {},
+            "expr": {}
+          },
+          "time": {
+            "hours": {},
+            "minutes": {},
+            "seconds": {}
+          }
+        }
+      },
+      "packageTradeDetails": {
+        "isPackageTrade": {},
+        "packageIdentifier": {},
+        "packagePriceOrSpread": {},
+        "packageType": {},
+        "packagePrice": {},
+        "packagePriceCcy": {},
+        "priceNotation": {},
+        "useTradeIdAsPackageId": {}
+      },
+      "blockAllocationDetails": {
+        "blockAllocationType": {
+          "blockTrade": {},
+          "allocatedTrade": {
+            "blockTradeId": {}
+          }
+        }
+      }
+    },
+    "common": {
+      "book": {},
+      "accountReference": {},
+      "tradeDate": {
+        "date": {},
+        "expr": {}
+      },
+      "counterparty": {},
+      "novatedToCounterparty": {},
+      "counterpartyAccountReference": {},
+      "inputDate": {
+        "date": {},
+        "expr": {}
+      },
+      "orderTime": {
+        "hours": {},
+        "minutes": {},
+        "seconds": {}
+      },
+      "comment": {},
+      "initialMargin": {
+        "margin": {
+          "absolute": {
+            "ccy": {},
+            "amount": {}
+          },
+          "percentage": {
+            "ccy": {},
+            "amount": {}
+          }
+        }
+      },
+      "backoutBook": {},
+      "tradingStrategy": {},
+      "ddeEligible": {
+        "Yes": {},
+        "No": {}
+      },
+      "backoutTradingStrategy": {},
+      "externalReference": {},
+      "internalReference": {},
+      "initialMarginDeliveryDate": {
+        "date": {},
+        "expr": {}
+      },
+      "initialMarginDescription": {},
+      "structureDetails": {
+        "structureNotes": {}
+      },
+      "backoutEntity": {},
+      "salesGroup": {},
+      "includeFeeEngine": {
+        "allLegs": {},
+        "nearLeg": {},
+        "farLeg": {},
+        "none": {}
+      },
+      "acsLinkType": {},
+      "regionOrAccount": {},
+      "originatingSystem": {},
+      "stp": {
+        "Yes": {},
+        "No": {}
+      },
+      "sourceSystem": {},
+      "cashflowHedgeNotification": {},
+      "IRDAdvisory": {},
+      "isCustomBasket": {}
+    },
+    "events": {
+      "schemaVersion": {
+        "major": {},
+        "minor": {}
+      },
+      "event": {
+        "eventCode": {
+          "execute": {
+            "tradeLink": {
+              "tradeId": {},
+              "label": {},
+              "coLocatedId": {
+                "baseScenario": {},
+                "coLocatedPosition": {}
+              },
+              "dealRef": {
+                "globalRef": {},
+                "stripLegRef": {
+                  "dealContainerPath": {},
+                  "dealContainerElementKey": {},
+                  "mtsAttributeRef": {
+                    "attributeLevel": {
+                      "trade": {},
+                      "parent": {},
+                      "leg": {
+                        "legId": {},
+                        "legContainerId": {}
+                      }
+                    },
+                    "attributeCode": {}
+                  }
+                },
+                "feeRef": {},
+                "genericRef": {
+                  "dealContainerPath": {},
+                  "dealContainerElementKey": {},
+                  "mtsAttributeRef": {
+                    "attributeLevel": {
+                      "trade": {},
+                      "parent": {},
+                      "leg": {
+                        "legId": {},
+                        "legContainerId": {}
+                      }
+                    },
+                    "attributeCode": {}
+                  }
+                },
+                "optionScheduleRef": {},
+                "mtsAttributeRef": {
+                  "attributeLevel": {
+                    "trade": {},
+                    "parent": {},
+                    "leg": {
+                      "legId": {},
+                      "legContainerId": {}
+                    }
+                  },
+                  "attributeCode": {}
+                }
+              },
+              "tradeLinkType": {
+                "direction": {
+                  "originOf": {},
+                  "descendantOf": {},
+                  "none": {}
+                },
+                "relationship": {
+                  "EXERCISED": {},
+                  "CASHFLOW": {},
+                  "FEE": {},
+                  "UNDO": {},
+                  "NET_ZERO_EXERCISE": {},
+                  "CHANGE_TERMS": {},
+                  "EXTEND": {},
+                  "ROLL": {},
+                  "BATCH": {},
+                  "RESTRUCTURE": {},
+                  "ALLOCATION": {}
+                }
+              }
+            },
+            "splitDeals": {
+              "book": {},
+              "counterparty": {},
+              "lots": {
+                "total": {},
+                "allotted": {},
+                "allottedPerLeg": {}
+              },
+              "effectiveVolumes": {},
+              "originalVolumes": {},
+              "accountNumber": {}
+            }
+          },
+          "createNovation": {
+            "novations": {
+              "isApplicable": {
+                "details": {
+                  "eventType": {
+                    "fullNovation": {},
+                    "partialNovation": {}
+                  },
+                  "novationType": {
+                    "macquarieStepsIn": {},
+                    "macquarieStepsOut": {},
+                    "counterpartyStepsOut": {}
+                  },
+                  "prenovationCpty": {},
+                  "priorUti": {},
+                  "preNovationTradeId": {}
+                },
+                "none": {}
+              }
+            }
+          },
+          "unwindNovation": {
+            "closeoutDate": {
+              "date": {},
+              "expr": {}
+            },
+            "eventType": {
+              "fullNovation": {},
+              "partialNovation": {
+                "amount": {},
+                "units": {},
+                "excludeCurrentPeriod": {}
+              }
+            },
+            "novationType": {
+              "macquarieStepsIn": {},
+              "macquarieStepsOut": {},
+              "counterpartyStepsOut": {}
+            },
+            "postnovationCpty": {},
+            "executionTime": {},
+            "fees": {
+              "feeType": {},
+              "amount": {},
+              "currency": {},
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "counterparty": {}
+            },
+            "comment": {},
+            "additionalScenariosActions": {
+              "none": {},
+              "irSwap": {
+                "schedules": {
+                  "payUnwindSchedule": {
+                    "unwindCashflow": {
+                      "startDate": {},
+                      "endDate": {},
+                      "paymentDate": {},
+                      "notional": {},
+                      "newNotional": {}
+                    }
+                  },
+                  "recUnwindSchedule": {
+                    "unwindCashflow": {
+                      "startDate": {},
+                      "endDate": {},
+                      "paymentDate": {},
+                      "notional": {},
+                      "newNotional": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "partialNovation": {
+            "closeoutDate": {
+              "date": {},
+              "expr": {}
+            },
+            "eventType": {
+              "fullNovation": {},
+              "partialNovation": {
+                "amount": {},
+                "units": {},
+                "excludeCurrentPeriod": {}
+              }
+            },
+            "novationType": {
+              "macquarieStepsIn": {},
+              "macquarieStepsOut": {},
+              "counterpartyStepsOut": {}
+            },
+            "postnovationCpty": {},
+            "executionTime": {},
+            "fees": {
+              "feeType": {},
+              "amount": {},
+              "currency": {},
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "counterparty": {}
+            },
+            "comment": {},
+            "additionalScenariosActions": {
+              "none": {},
+              "irSwap": {
+                "schedules": {
+                  "payUnwindSchedule": {
+                    "unwindCashflow": {
+                      "startDate": {},
+                      "endDate": {},
+                      "paymentDate": {},
+                      "notional": {},
+                      "newNotional": {}
+                    }
+                  },
+                  "recUnwindSchedule": {
+                    "unwindCashflow": {
+                      "startDate": {},
+                      "endDate": {},
+                      "paymentDate": {},
+                      "notional": {},
+                      "newNotional": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "pseudoClose": {
+            "isMatured": {
+              "Yes": {},
+              "No": {}
+            },
+            "date": {}
+          },
+          "optionExercise": {
+            "exerciseDate": {
+              "date": {},
+              "expr": {}
+            },
+            "exerciseTime": {
+              "hours": {},
+              "minutes": {},
+              "seconds": {}
+            },
+            "exerciseLocation": {
+              "locationCode": {},
+              "timeZoneCode": {},
+              "timeZoneOffsetFromUTC": {}
+            },
+            "exerciseVolume": {
+              "optionVolume": {
+                "volume": {},
+                "numberContracts": {}
+              },
+              "units": {}
+            },
+            "exerciseInto": {
+              "cashflow": {},
+              "cashflowPremiumBooked": {},
+              "commoditySwap": {},
+              "clearedFwd": {},
+              "clearedSwap": {},
+              "deliverableMetal": {},
+              "equityShares": {},
+              "foreignExchangeForward": {},
+              "foreignExchangeNDF": {},
+              "foreignExchangeSpot": {},
+              "forwardRateAgreement": {},
+              "futures": {},
+              "manual": {},
+              "physicalFwd": {},
+              "interestRateSwap": {},
+              "interestRateCapfloor": {},
+              "auto": {}
+            },
+            "underlyingAssets": {
+              "assetCode": {},
+              "currency": {},
+              "pricePerUnit": {},
+              "priceUnits": {}
+            },
+            "createResidual": {},
+            "ref": {
+              "tradeId": {},
+              "label": {},
+              "coLocatedId": {
+                "baseScenario": {},
+                "coLocatedPosition": {}
+              },
+              "mtsVersion": {},
+              "scheduleRef": {
+                "leg": {},
+                "period": {}
+              }
+            }
+          },
+          "optionAbandon": {
+            "abandonDate": {
+              "date": {},
+              "expr": {}
+            },
+            "abandonTime": {
+              "hours": {},
+              "minutes": {},
+              "seconds": {}
+            },
+            "abandonLocation": {
+              "locationCode": {},
+              "timeZoneCode": {},
+              "timeZoneOffsetFromUTC": {}
+            },
+            "abandonVolume": {
+              "optionVolume": {
+                "volume": {},
+                "numberContracts": {}
+              },
+              "units": {}
+            },
+            "underlyingAssets": {
+              "assetCode": {},
+              "currency": {},
+              "pricePerUnit": {},
+              "priceUnits": {}
+            },
+            "createResidual": {},
+            "ref": {
+              "tradeId": {},
+              "label": {},
+              "coLocatedId": {
+                "baseScenario": {},
+                "coLocatedPosition": {}
+              },
+              "mtsVersion": {},
+              "scheduleRef": {
+                "leg": {},
+                "period": {}
+              }
+            }
+          },
+          "rightToBreak": {
+            "breakDate": {
+              "date": {},
+              "expr": {}
+            },
+            "exercisedBy": {},
+            "fee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "comment": {},
+            "executionTime": {}
+          },
+          "restructure": {
+            "restructureType": {
+              "none": {},
+              "generic": {}
+            },
+            "additionalActions": {
+              "affectedComponent": {
+                "baseScenario": {},
+                "coLocatedPosition": {}
+              },
+              "code": {
+                "terminate": {
+                  "comment": {},
+                  "terminateDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "dealScope": {
+                    "scheduleRef": {},
+                    "amountDetails": {
+                      "keep": {},
+                      "full": {},
+                      "partial": {
+                        "terminated": {},
+                        "remaining": {}
+                      },
+                      "matured": {}
+                    }
+                  },
+                  "feesBeingTerminated": {},
+                  "fee": {
+                    "paymentDate": {
+                      "date": {},
+                      "expr": {}
+                    },
+                    "amount": {},
+                    "currency": {}
+                  },
+                  "keepDeferredPremium": {},
+                  "deferredPremium": {
+                    "premiumRef": {},
+                    "retain": {},
+                    "dealtPrice": {},
+                    "valueDate": {},
+                    "amount": {}
+                  },
+                  "transactionMargin": {},
+                  "softCredit": {},
+                  "originalTradeDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "exclCurrentPeriod": {},
+                  "executionTime": {},
+                  "eventTransactionRoles": {
+                    "marketer": {},
+                    "transactionOriginator": {},
+                    "priceMaker": {},
+                    "transactionAcceptor": {},
+                    "parameterGrantor": {}
+                  }
+                },
+                "restructure": {},
+                "execute": {
+                  "tradeLink": {
+                    "tradeId": {},
+                    "label": {},
+                    "coLocatedId": {
+                      "baseScenario": {},
+                      "coLocatedPosition": {}
+                    },
+                    "dealRef": {
+                      "globalRef": {},
+                      "stripLegRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "feeRef": {},
+                      "genericRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "optionScheduleRef": {},
+                      "mtsAttributeRef": {
+                        "attributeLevel": {
+                          "trade": {},
+                          "parent": {},
+                          "leg": {
+                            "legId": {},
+                            "legContainerId": {}
+                          }
+                        },
+                        "attributeCode": {}
+                      }
+                    },
+                    "tradeLinkType": {
+                      "direction": {
+                        "originOf": {},
+                        "descendantOf": {},
+                        "none": {}
+                      },
+                      "relationship": {
+                        "EXERCISED": {},
+                        "CASHFLOW": {},
+                        "FEE": {},
+                        "UNDO": {},
+                        "NET_ZERO_EXERCISE": {},
+                        "CHANGE_TERMS": {},
+                        "EXTEND": {},
+                        "ROLL": {},
+                        "BATCH": {},
+                        "RESTRUCTURE": {},
+                        "ALLOCATION": {}
+                      }
+                    }
+                  },
+                  "splitDeals": {
+                    "book": {},
+                    "counterparty": {},
+                    "lots": {
+                      "total": {},
+                      "allotted": {},
+                      "allottedPerLeg": {}
+                    },
+                    "effectiveVolumes": {},
+                    "originalVolumes": {},
+                    "accountNumber": {}
+                  }
+                },
+                "addDelivery": {
+                  "executionTime": {}
+                },
+                "cancelDelivery": {
+                  "updateType": {
+                    "preDeliverCancel": {},
+                    "preDeliverAmendment": {}
+                  },
+                  "executionTime": {}
+                },
+                "updateDelivery": {
+                  "updateType": {
+                    "preDeliverCancel": {},
+                    "preDeliverAmendment": {}
+                  },
+                  "executionTime": {}
+                },
+                "metalRoll": {
+                  "executionDateTime": {
+                    "date": {
+                      "date": {},
+                      "expr": {}
+                    },
+                    "time": {
+                      "hours": {},
+                      "minutes": {},
+                      "seconds": {},
+                      "milliSeconds": {}
+                    }
+                  },
+                  "tradeDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "effectiveDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "rollMode": {
+                    "full": {},
+                    "partial": {}
+                  },
+                  "volume": {},
+                  "rollType": {
+                    "rateType": {
+                      "rate": {},
+                      "resetDate": {
+                        "date": {},
+                        "expr": {}
+                      }
+                    },
+                    "priceType": {
+                      "price": {}
+                    }
+                  },
+                  "paymentDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "priceMaker": {},
+                  "ref": {
+                    "tradeId": {},
+                    "label": {},
+                    "coLocatedId": {
+                      "baseScenario": {},
+                      "coLocatedPosition": {}
+                    },
+                    "mtsVersion": {},
+                    "stripLegReference": {
+                      "globalRef": {},
+                      "stripLegRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "feeRef": {},
+                      "genericRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "optionScheduleRef": {},
+                      "mtsAttributeRef": {
+                        "attributeLevel": {
+                          "trade": {},
+                          "parent": {},
+                          "leg": {
+                            "legId": {},
+                            "legContainerId": {}
+                          }
+                        },
+                        "attributeCode": {}
+                      }
+                    }
+                  },
+                  "eventTransactionRoles": {
+                    "marketer": {},
+                    "transactionOriginator": {},
+                    "priceMaker": {},
+                    "transactionAcceptor": {},
+                    "parameterGrantor": {}
+                  }
+                }
+              }
+            },
+            "effectiveDate": {},
+            "executionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            },
+            "additionalScenariosActions": {
+              "none": {},
+              "foreignExchangeOption": {
+                "discardTodayPremium": {}
+              },
+              "foreignExchangeForward": {
+                "terminateClearing": {},
+                "copyExtras": {}
+              },
+              "foreignExchangeSpot": {
+                "terminateClearing": {},
+                "copyExtras": {}
+              }
+            }
+          },
+          "genericRestructure": {
+            "restructureType": {
+              "none": {},
+              "generic": {}
+            },
+            "additionalActions": {
+              "affectedComponent": {
+                "baseScenario": {},
+                "coLocatedPosition": {}
+              },
+              "code": {
+                "terminate": {
+                  "comment": {},
+                  "terminateDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "dealScope": {
+                    "scheduleRef": {},
+                    "amountDetails": {
+                      "keep": {},
+                      "full": {},
+                      "partial": {
+                        "terminated": {},
+                        "remaining": {}
+                      },
+                      "matured": {}
+                    }
+                  },
+                  "feesBeingTerminated": {},
+                  "fee": {
+                    "paymentDate": {
+                      "date": {},
+                      "expr": {}
+                    },
+                    "amount": {},
+                    "currency": {}
+                  },
+                  "keepDeferredPremium": {},
+                  "deferredPremium": {
+                    "premiumRef": {},
+                    "retain": {},
+                    "dealtPrice": {},
+                    "valueDate": {},
+                    "amount": {}
+                  },
+                  "transactionMargin": {},
+                  "softCredit": {},
+                  "originalTradeDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "exclCurrentPeriod": {},
+                  "executionTime": {},
+                  "eventTransactionRoles": {
+                    "marketer": {},
+                    "transactionOriginator": {},
+                    "priceMaker": {},
+                    "transactionAcceptor": {},
+                    "parameterGrantor": {}
+                  }
+                },
+                "restructure": {},
+                "execute": {
+                  "tradeLink": {
+                    "tradeId": {},
+                    "label": {},
+                    "coLocatedId": {
+                      "baseScenario": {},
+                      "coLocatedPosition": {}
+                    },
+                    "dealRef": {
+                      "globalRef": {},
+                      "stripLegRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "feeRef": {},
+                      "genericRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "optionScheduleRef": {},
+                      "mtsAttributeRef": {
+                        "attributeLevel": {
+                          "trade": {},
+                          "parent": {},
+                          "leg": {
+                            "legId": {},
+                            "legContainerId": {}
+                          }
+                        },
+                        "attributeCode": {}
+                      }
+                    },
+                    "tradeLinkType": {
+                      "direction": {
+                        "originOf": {},
+                        "descendantOf": {},
+                        "none": {}
+                      },
+                      "relationship": {
+                        "EXERCISED": {},
+                        "CASHFLOW": {},
+                        "FEE": {},
+                        "UNDO": {},
+                        "NET_ZERO_EXERCISE": {},
+                        "CHANGE_TERMS": {},
+                        "EXTEND": {},
+                        "ROLL": {},
+                        "BATCH": {},
+                        "RESTRUCTURE": {},
+                        "ALLOCATION": {}
+                      }
+                    }
+                  },
+                  "splitDeals": {
+                    "book": {},
+                    "counterparty": {},
+                    "lots": {
+                      "total": {},
+                      "allotted": {},
+                      "allottedPerLeg": {}
+                    },
+                    "effectiveVolumes": {},
+                    "originalVolumes": {},
+                    "accountNumber": {}
+                  }
+                },
+                "addDelivery": {
+                  "executionTime": {}
+                },
+                "cancelDelivery": {
+                  "updateType": {
+                    "preDeliverCancel": {},
+                    "preDeliverAmendment": {}
+                  },
+                  "executionTime": {}
+                },
+                "updateDelivery": {
+                  "updateType": {
+                    "preDeliverCancel": {},
+                    "preDeliverAmendment": {}
+                  },
+                  "executionTime": {}
+                },
+                "metalRoll": {
+                  "executionDateTime": {
+                    "date": {
+                      "date": {},
+                      "expr": {}
+                    },
+                    "time": {
+                      "hours": {},
+                      "minutes": {},
+                      "seconds": {},
+                      "milliSeconds": {}
+                    }
+                  },
+                  "tradeDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "effectiveDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "rollMode": {
+                    "full": {},
+                    "partial": {}
+                  },
+                  "volume": {},
+                  "rollType": {
+                    "rateType": {
+                      "rate": {},
+                      "resetDate": {
+                        "date": {},
+                        "expr": {}
+                      }
+                    },
+                    "priceType": {
+                      "price": {}
+                    }
+                  },
+                  "paymentDate": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "priceMaker": {},
+                  "ref": {
+                    "tradeId": {},
+                    "label": {},
+                    "coLocatedId": {
+                      "baseScenario": {},
+                      "coLocatedPosition": {}
+                    },
+                    "mtsVersion": {},
+                    "stripLegReference": {
+                      "globalRef": {},
+                      "stripLegRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "feeRef": {},
+                      "genericRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "optionScheduleRef": {},
+                      "mtsAttributeRef": {
+                        "attributeLevel": {
+                          "trade": {},
+                          "parent": {},
+                          "leg": {
+                            "legId": {},
+                            "legContainerId": {}
+                          }
+                        },
+                        "attributeCode": {}
+                      }
+                    }
+                  },
+                  "eventTransactionRoles": {
+                    "marketer": {},
+                    "transactionOriginator": {},
+                    "priceMaker": {},
+                    "transactionAcceptor": {},
+                    "parameterGrantor": {}
+                  }
+                }
+              }
+            },
+            "effectiveDate": {},
+            "executionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            },
+            "additionalScenariosActions": {
+              "none": {},
+              "foreignExchangeOption": {
+                "discardTodayPremium": {}
+              },
+              "foreignExchangeForward": {
+                "terminateClearing": {},
+                "copyExtras": {}
+              },
+              "foreignExchangeSpot": {
+                "terminateClearing": {},
+                "copyExtras": {}
+              }
+            }
+          },
+          "correct": {
+            "additionalActions": {
+              "affectedComponent": {
+                "baseScenario": {},
+                "coLocatedPosition": {}
+              },
+              "code": {
+                "cancel": {
+                  "comment": {}
+                },
+                "correct": {},
+                "execute": {
+                  "tradeLink": {
+                    "tradeId": {},
+                    "label": {},
+                    "coLocatedId": {
+                      "baseScenario": {},
+                      "coLocatedPosition": {}
+                    },
+                    "dealRef": {
+                      "globalRef": {},
+                      "stripLegRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "feeRef": {},
+                      "genericRef": {
+                        "dealContainerPath": {},
+                        "dealContainerElementKey": {},
+                        "mtsAttributeRef": {
+                          "attributeLevel": {
+                            "trade": {},
+                            "parent": {},
+                            "leg": {
+                              "legId": {},
+                              "legContainerId": {}
+                            }
+                          },
+                          "attributeCode": {}
+                        }
+                      },
+                      "optionScheduleRef": {},
+                      "mtsAttributeRef": {
+                        "attributeLevel": {
+                          "trade": {},
+                          "parent": {},
+                          "leg": {
+                            "legId": {},
+                            "legContainerId": {}
+                          }
+                        },
+                        "attributeCode": {}
+                      }
+                    },
+                    "tradeLinkType": {
+                      "direction": {
+                        "originOf": {},
+                        "descendantOf": {},
+                        "none": {}
+                      },
+                      "relationship": {
+                        "EXERCISED": {},
+                        "CASHFLOW": {},
+                        "FEE": {},
+                        "UNDO": {},
+                        "NET_ZERO_EXERCISE": {},
+                        "CHANGE_TERMS": {},
+                        "EXTEND": {},
+                        "ROLL": {},
+                        "BATCH": {},
+                        "RESTRUCTURE": {},
+                        "ALLOCATION": {}
+                      }
+                    }
+                  },
+                  "splitDeals": {
+                    "book": {},
+                    "counterparty": {},
+                    "lots": {
+                      "total": {},
+                      "allotted": {},
+                      "allottedPerLeg": {}
+                    },
+                    "effectiveVolumes": {},
+                    "originalVolumes": {},
+                    "accountNumber": {}
+                  }
+                }
+              }
+            }
+          },
+          "cancel": {
+            "comment": {}
+          },
+          "terminate": {
+            "comment": {},
+            "terminateDate": {
+              "date": {},
+              "expr": {}
+            },
+            "dealScope": {
+              "scheduleRef": {},
+              "amountDetails": {
+                "keep": {},
+                "full": {},
+                "partial": {
+                  "terminated": {},
+                  "remaining": {}
+                },
+                "matured": {}
+              }
+            },
+            "feesBeingTerminated": {},
+            "fee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "keepDeferredPremium": {},
+            "deferredPremium": {
+              "premiumRef": {},
+              "retain": {},
+              "dealtPrice": {},
+              "valueDate": {},
+              "amount": {}
+            },
+            "transactionMargin": {},
+            "softCredit": {},
+            "originalTradeDate": {
+              "date": {},
+              "expr": {}
+            },
+            "exclCurrentPeriod": {},
+            "executionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            }
+          },
+          "partialTerminate": {
+            "comment": {},
+            "terminateDate": {
+              "date": {},
+              "expr": {}
+            },
+            "dealScope": {
+              "scheduleRef": {},
+              "amountDetails": {
+                "keep": {},
+                "full": {},
+                "partial": {
+                  "terminated": {},
+                  "remaining": {}
+                },
+                "matured": {}
+              }
+            },
+            "feesBeingTerminated": {},
+            "fee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "keepDeferredPremium": {},
+            "deferredPremium": {
+              "premiumRef": {},
+              "retain": {},
+              "dealtPrice": {},
+              "valueDate": {},
+              "amount": {}
+            },
+            "transactionMargin": {},
+            "softCredit": {},
+            "originalTradeDate": {
+              "date": {},
+              "expr": {}
+            },
+            "exclCurrentPeriod": {},
+            "executionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            }
+          },
+          "cmdSettlement": {
+            "settlementParams": {
+              "scheduleRef": {},
+              "settlementDate": {
+                "date": {},
+                "expr": {}
+              },
+              "allocationFinalSettlementDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amountDetails": {
+                "none": {},
+                "full": {
+                  "settled": {},
+                  "remaining": {},
+                  "settlementPrice": {}
+                },
+                "partial": {
+                  "settled": {},
+                  "remaining": {},
+                  "settlementPrice": {}
+                }
+              },
+              "currentCommitment": {},
+              "minimumDaysWaived": {}
+            }
+          },
+          "cmdExtension": {
+            "extensionParams": {
+              "scheduleRef": {},
+              "extensionDate": {
+                "date": {},
+                "expr": {}
+              },
+              "originalSettlementDate": {
+                "date": {},
+                "expr": {}
+              }
+            }
+          },
+          "unwind": {
+            "comment": {},
+            "unwindDate": {
+              "date": {},
+              "expr": {}
+            },
+            "exclCurrentPeriod": {},
+            "fee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "principalPaymentDate": {},
+            "additionalCmdIndexSwapDetails": {
+              "applyBeforeReset": {
+                "Yes": {},
+                "No": {}
+              },
+              "settlementRate": {
+                "fixedRate": {},
+                "fixedDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  },
+                  "referenceDate": {}
+                },
+                "atExpiry": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                },
+                "atEventDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                }
+              },
+              "settlementDate": {
+                "relativeToResetDate": {},
+                "relativeToEventDate": {},
+                "eventDate": {
+                  "date": {},
+                  "expr": {}
+                },
+                "fixedDate": {
+                  "date": {},
+                  "expr": {}
+                }
+              }
+            },
+            "executionTime": {},
+            "clientInstructionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            }
+          },
+          "partialUnwind": {
+            "comment": {},
+            "effectiveDate": {
+              "date": {},
+              "expr": {}
+            },
+            "amountDetails": {
+              "ccy": {},
+              "amount": {},
+              "volumeType": {
+                "swapType": {
+                  "indexUnits": {},
+                  "notional": {},
+                  "notionalAsOfToday": {}
+                }
+              }
+            },
+            "amountDetails2": {
+              "ccy": {},
+              "amount": {}
+            },
+            "fxRate": {},
+            "fee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "additionalIrDetails": {
+              "appendAdditionalPrincipalExchange": {
+                "yes": {},
+                "no": {}
+              },
+              "exclCurrentPeriod": {},
+              "newFixedRate": {},
+              "customUnwind": {
+                "payUnwindSchedule": {
+                  "unwindCashflow": {
+                    "startDate": {},
+                    "endDate": {},
+                    "paymentDate": {},
+                    "notional": {},
+                    "newNotional": {}
+                  }
+                },
+                "recUnwindSchedule": {
+                  "unwindCashflow": {
+                    "startDate": {},
+                    "endDate": {},
+                    "paymentDate": {},
+                    "notional": {},
+                    "newNotional": {}
+                  }
+                }
+              }
+            },
+            "additionalCmdIndexSwapDetails": {
+              "applyBeforeReset": {
+                "Yes": {},
+                "No": {}
+              },
+              "settlementRate": {
+                "fixedRate": {},
+                "fixedDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  },
+                  "referenceDate": {}
+                },
+                "atExpiry": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                },
+                "atEventDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                }
+              },
+              "settlementDate": {
+                "relativeToResetDate": {},
+                "relativeToEventDate": {},
+                "eventDate": {
+                  "date": {},
+                  "expr": {}
+                },
+                "fixedDate": {
+                  "date": {},
+                  "expr": {}
+                }
+              }
+            },
+            "executionTime": {},
+            "clientInstructionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            }
+          },
+          "upsize": {
+            "comment": {},
+            "effectiveDate": {
+              "date": {},
+              "expr": {}
+            },
+            "amountDetails": {
+              "ccy": {},
+              "amount": {},
+              "volumeType": {
+                "swapType": {
+                  "indexUnits": {},
+                  "notional": {},
+                  "notionalAsOfToday": {}
+                }
+              }
+            },
+            "amountDetails2": {
+              "ccy": {},
+              "amount": {}
+            },
+            "fxRate": {},
+            "fee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "additionalIrDetails": {
+              "appendAdditionalPrincipalExchange": {
+                "yes": {},
+                "no": {}
+              },
+              "exclCurrentPeriod": {},
+              "newFixedRate": {},
+              "customUnwind": {
+                "payUnwindSchedule": {
+                  "unwindCashflow": {
+                    "startDate": {},
+                    "endDate": {},
+                    "paymentDate": {},
+                    "notional": {},
+                    "newNotional": {}
+                  }
+                },
+                "recUnwindSchedule": {
+                  "unwindCashflow": {
+                    "startDate": {},
+                    "endDate": {},
+                    "paymentDate": {},
+                    "notional": {},
+                    "newNotional": {}
+                  }
+                }
+              }
+            },
+            "additionalCmdIndexSwapDetails": {
+              "applyBeforeReset": {
+                "Yes": {},
+                "No": {}
+              },
+              "settlementRate": {
+                "fixedRate": {},
+                "fixedDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  },
+                  "referenceDate": {}
+                },
+                "atExpiry": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                },
+                "atEventDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                }
+              },
+              "settlementDate": {
+                "relativeToResetDate": {},
+                "relativeToEventDate": {},
+                "eventDate": {
+                  "date": {},
+                  "expr": {}
+                },
+                "fixedDate": {
+                  "date": {},
+                  "expr": {}
+                }
+              }
+            },
+            "executionTime": {},
+            "clientInstructionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            }
+          },
+          "amendSalesCredit": {},
+          "updateSettlementData": {
+            "settlementCustodian": {}
+          },
+          "undo": {
+            "asOfBusinessDateTime": {},
+            "undoDate": {
+              "date": {},
+              "expr": {}
+            }
+          },
+          "undoIndividual": {
+            "correlationId": {
+              "string": {}
+            },
+            "undoDate": {
+              "date": {},
+              "expr": {}
+            },
+            "eventCodes": {}
+          },
+          "call": {
+            "callDate": {
+              "date": {},
+              "expr": {}
+            },
+            "comment": {},
+            "executionTime": {}
+          },
+          "extend": {
+            "priceType": {
+              "price": {
+                "cleanPrice": {},
+                "dirtyPrice": {}
+              },
+              "yield": {},
+              "none": {}
+            },
+            "fxRate": {},
+            "rateType": {
+              "fixed": {},
+              "floating": {}
+            },
+            "priceAdjustment": {
+              "rateAdjustment": {},
+              "marginAdjustment": {},
+              "absoluteRate": {},
+              "absoluteMargin": {}
+            },
+            "quantityAdjustment": {},
+            "newStartDate": {
+              "date": {},
+              "expr": {}
+            },
+            "repoExtendible": {
+              "endDate": {
+                "date": {},
+                "expr": {}
+              },
+              "rolloverDate": {
+                "date": {},
+                "expr": {}
+              },
+              "noticePeriod": {
+                "noticeDays": {},
+                "rollConvention": {
+                  "CBD": {},
+                  "PBD": {},
+                  "FBD": {},
+                  "MFBD": {}
+                }
+              }
+            },
+            "comment": {},
+            "executionTime": {}
+          },
+          "notExtend": {},
+          "metalRoll": {
+            "executionDateTime": {
+              "date": {
+                "date": {},
+                "expr": {}
+              },
+              "time": {
+                "hours": {},
+                "minutes": {},
+                "seconds": {},
+                "milliSeconds": {}
+              }
+            },
+            "tradeDate": {
+              "date": {},
+              "expr": {}
+            },
+            "effectiveDate": {
+              "date": {},
+              "expr": {}
+            },
+            "rollMode": {
+              "full": {},
+              "partial": {}
+            },
+            "volume": {},
+            "rollType": {
+              "rateType": {
+                "rate": {},
+                "resetDate": {
+                  "date": {},
+                  "expr": {}
+                }
+              },
+              "priceType": {
+                "price": {}
+              }
+            },
+            "paymentDate": {
+              "date": {},
+              "expr": {}
+            },
+            "priceMaker": {},
+            "ref": {
+              "tradeId": {},
+              "label": {},
+              "coLocatedId": {
+                "baseScenario": {},
+                "coLocatedPosition": {}
+              },
+              "mtsVersion": {},
+              "stripLegReference": {
+                "globalRef": {},
+                "stripLegRef": {
+                  "dealContainerPath": {},
+                  "dealContainerElementKey": {},
+                  "mtsAttributeRef": {
+                    "attributeLevel": {
+                      "trade": {},
+                      "parent": {},
+                      "leg": {
+                        "legId": {},
+                        "legContainerId": {}
+                      }
+                    },
+                    "attributeCode": {}
+                  }
+                },
+                "feeRef": {},
+                "genericRef": {
+                  "dealContainerPath": {},
+                  "dealContainerElementKey": {},
+                  "mtsAttributeRef": {
+                    "attributeLevel": {
+                      "trade": {},
+                      "parent": {},
+                      "leg": {
+                        "legId": {},
+                        "legContainerId": {}
+                      }
+                    },
+                    "attributeCode": {}
+                  }
+                },
+                "optionScheduleRef": {},
+                "mtsAttributeRef": {
+                  "attributeLevel": {
+                    "trade": {},
+                    "parent": {},
+                    "leg": {
+                      "legId": {},
+                      "legContainerId": {}
+                    }
+                  },
+                  "attributeCode": {}
+                }
+              }
+            },
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            }
+          },
+          "addDelivery": {
+            "executionTime": {}
+          },
+          "cancelDelivery": {
+            "updateType": {
+              "preDeliverCancel": {},
+              "preDeliverAmendment": {}
+            },
+            "executionTime": {}
+          },
+          "updateDelivery": {
+            "updateType": {
+              "preDeliverCancel": {},
+              "preDeliverAmendment": {}
+            },
+            "executionTime": {}
+          },
+          "stopLossUnwind": {
+            "unwindDate": {
+              "date": {},
+              "expr": {}
+            },
+            "stopLossDetectedDate": {
+              "date": {},
+              "expr": {}
+            },
+            "settlementRate": {
+              "fixedRate": {},
+              "fixedDate": {
+                "margin": {
+                  "marginNone": {},
+                  "marginAdditive": {},
+                  "marginMultiplicative": {}
+                },
+                "referenceDate": {}
+              },
+              "atExpiry": {
+                "margin": {
+                  "marginNone": {},
+                  "marginAdditive": {},
+                  "marginMultiplicative": {}
+                }
+              },
+              "atEventDate": {
+                "margin": {
+                  "marginNone": {},
+                  "marginAdditive": {},
+                  "marginMultiplicative": {}
+                }
+              }
+            },
+            "settlementDate": {
+              "relativeToResetDate": {},
+              "relativeToEventDate": {},
+              "eventDate": {
+                "date": {},
+                "expr": {}
+              },
+              "fixedDate": {
+                "date": {},
+                "expr": {}
+              }
+            },
+            "comment": {}
+          },
+          "rerate": {
+            "effectiveDate": {
+              "date": {},
+              "expr": {}
+            },
+            "rateAdjustmentType": {
+              "absolute": {},
+              "relative": {}
+            },
+            "rateAdjustment": {},
+            "repoRate": {},
+            "comment": {},
+            "isCorrection": {}
+          },
+          "adjustRate": {},
+          "changeTerms": {
+            "book": {},
+            "trader": {},
+            "newStartDate": {},
+            "repoTenorType": {
+              "open": {},
+              "term": {
+                "endDate": {
+                  "date": {},
+                  "expr": {}
+                }
+              },
+              "evergreen": {
+                "noticePeriod": {
+                  "noticeDays": {},
+                  "rollConvention": {
+                    "CBD": {},
+                    "PBD": {},
+                    "FBD": {},
+                    "MFBD": {}
+                  }
+                },
+                "minimumEndDate": {
+                  "date": {},
+                  "expr": {}
+                }
+              },
+              "extendible": {
+                "endDate": {
+                  "date": {},
+                  "expr": {}
+                },
+                "rolloverDate": {
+                  "date": {},
+                  "expr": {}
+                },
+                "noticePeriod": {
+                  "noticeDays": {},
+                  "rollConvention": {
+                    "CBD": {},
+                    "PBD": {},
+                    "FBD": {},
+                    "MFBD": {}
+                  }
+                }
+              }
+            },
+            "priceType": {
+              "price": {
+                "cleanPrice": {},
+                "dirtyPrice": {}
+              },
+              "yield": {},
+              "none": {}
+            },
+            "priceAdjustment": {
+              "rateAdjustment": {},
+              "marginAdjustment": {},
+              "absoluteRate": {},
+              "absoluteMargin": {}
+            },
+            "quantityAdjustment": {},
+            "absoluteQuantity": {},
+            "comment": {},
+            "executionTime": {}
+          },
+          "release": {
+            "releaseType": {
+              "addDelivery": {},
+              "updateDelivery": {}
+            }
+          },
+          "unknown": {},
+          "ratesetOverride": {
+            "effectiveDate": {
+              "date": {},
+              "expr": {}
+            },
+            "ratesetDate": {
+              "date": {},
+              "expr": {}
+            },
+            "rate": {},
+            "removeSpreadOnClose": {},
+            "comment": {}
+          },
+          "traderValidate": {
+            "comment": {},
+            "executionTime": {},
+            "structureLegIds": {
+              "baseScenario": {},
+              "coLocatedPosition": {}
+            }
+          },
+          "fixing": {
+            "fixingReference": {},
+            "fixingPrice": {},
+            "fixingDate": {},
+            "currencyPair": {
+              "ccy1": {},
+              "ccy2": {},
+              "quoteBasis": {
+                "ccy1PerCcy2": {},
+                "ccy2PerCcy1": {}
+              }
+            }
+          },
+          "amendAttributes": {
+            "amendAttributeSpecs": {
+              "attributePath": {
+                "attributeLevel": {
+                  "trade": {},
+                  "parent": {},
+                  "leg": {
+                    "legId": {},
+                    "legContainerId": {}
+                  }
+                },
+                "attributeCode": {}
+              },
+              "attributeValue": {
+                "text": {},
+                "int": {},
+                "utcDate": {},
+                "utcTime": {},
+                "isoDate": {},
+                "isoDateTime": {},
+                "deleted": {}
+              }
+            },
+            "executionTime": {}
+          },
+          "stpBookAllocation": {
+            "stpBookAllocationAttributeSpecs": {
+              "attributePath": {
+                "attributeLevel": {
+                  "trade": {},
+                  "parent": {},
+                  "leg": {
+                    "legId": {},
+                    "legContainerId": {}
+                  }
+                },
+                "attributeCode": {}
+              },
+              "attributeValue": {
+                "text": {},
+                "int": {},
+                "utcDate": {},
+                "utcTime": {},
+                "isoDate": {},
+                "isoDateTime": {},
+                "deleted": {}
+              }
+            },
+            "executionTime": {}
+          },
+          "uncloseout": {
+            "uncloseoutAttributeSpecs": {
+              "legId": {},
+              "legContainerId": {}
+            },
+            "executionTime": {}
+          },
+          "bulkCorrect": {
+            "bulkCorrectAttributeSpecs": {
+              "attributePath": {
+                "attributeLevel": {
+                  "trade": {},
+                  "parent": {},
+                  "leg": {
+                    "legId": {},
+                    "legContainerId": {}
+                  }
+                },
+                "attributeCode": {}
+              },
+              "attributeValue": {
+                "text": {},
+                "int": {},
+                "utcDate": {},
+                "utcTime": {},
+                "isoDate": {},
+                "isoDateTime": {},
+                "deleted": {}
+              }
+            },
+            "executionTime": {}
+          },
+          "bulkAmendSalesCredit": {
+            "bulkAmendSalesCreditAttributeSpecs": {
+              "attributePath": {
+                "attributeLevel": {
+                  "trade": {},
+                  "parent": {},
+                  "leg": {
+                    "legId": {},
+                    "legContainerId": {}
+                  }
+                },
+                "attributeCode": {}
+              },
+              "attributeValue": {
+                "text": {},
+                "int": {},
+                "utcDate": {},
+                "utcTime": {},
+                "isoDate": {},
+                "isoDateTime": {},
+                "deleted": {}
+              }
+            },
+            "executionTime": {}
+          },
+          "increaseByX": {
+            "x": {}
+          },
+          "correctUnwind": {},
+          "correctUpsize": {},
+          "correctRatesetOverride": {}
+        },
+        "masterEvent": {
+          "none": {},
+          "bulkRestructure": {
+            "bulkRestructDate": {
+              "date": {},
+              "expr": {}
+            },
+            "bulkRestructFee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            }
+          },
+          "upsize": {
+            "comment": {},
+            "effectiveDate": {
+              "date": {},
+              "expr": {}
+            },
+            "amountDetails": {
+              "ccy": {},
+              "amount": {},
+              "volumeType": {
+                "swapType": {
+                  "indexUnits": {},
+                  "notional": {},
+                  "notionalAsOfToday": {}
+                }
+              }
+            },
+            "amountDetails2": {
+              "ccy": {},
+              "amount": {}
+            },
+            "fxRate": {},
+            "fee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "additionalIrDetails": {
+              "appendAdditionalPrincipalExchange": {
+                "yes": {},
+                "no": {}
+              },
+              "exclCurrentPeriod": {},
+              "newFixedRate": {},
+              "customUnwind": {
+                "payUnwindSchedule": {
+                  "unwindCashflow": {
+                    "startDate": {},
+                    "endDate": {},
+                    "paymentDate": {},
+                    "notional": {},
+                    "newNotional": {}
+                  }
+                },
+                "recUnwindSchedule": {
+                  "unwindCashflow": {
+                    "startDate": {},
+                    "endDate": {},
+                    "paymentDate": {},
+                    "notional": {},
+                    "newNotional": {}
+                  }
+                }
+              }
+            },
+            "additionalCmdIndexSwapDetails": {
+              "applyBeforeReset": {
+                "Yes": {},
+                "No": {}
+              },
+              "settlementRate": {
+                "fixedRate": {},
+                "fixedDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  },
+                  "referenceDate": {}
+                },
+                "atExpiry": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                },
+                "atEventDate": {
+                  "margin": {
+                    "marginNone": {},
+                    "marginAdditive": {},
+                    "marginMultiplicative": {}
+                  }
+                }
+              },
+              "settlementDate": {
+                "relativeToResetDate": {},
+                "relativeToEventDate": {},
+                "eventDate": {
+                  "date": {},
+                  "expr": {}
+                },
+                "fixedDate": {
+                  "date": {},
+                  "expr": {}
+                }
+              }
+            },
+            "executionTime": {},
+            "clientInstructionTime": {},
+            "eventTransactionRoles": {
+              "marketer": {},
+              "transactionOriginator": {},
+              "priceMaker": {},
+              "transactionAcceptor": {},
+              "parameterGrantor": {}
+            }
+          },
+          "efrp": {
+            "efrpDate": {
+              "date": {},
+              "expr": {}
+            },
+            "efrpType": {
+              "efp": {},
+              "efr": {},
+              "eoo": {}
+            },
+            "efrpDetails": {
+              "quantity": {},
+              "asset": {},
+              "contract": {},
+              "strike": {},
+              "volume": {},
+              "units": {}
+            },
+            "efrpFee": {
+              "paymentDate": {
+                "date": {},
+                "expr": {}
+              },
+              "amount": {},
+              "currency": {}
+            },
+            "efrpIsPartial": {},
+            "efrpOtcVolEqualsFutures": {},
+            "efrpSwapIsOffset": {},
+            "executionDateTime": {
+              "date": {
+                "date": {},
+                "expr": {}
+              },
+              "time": {
+                "hours": {},
+                "minutes": {},
+                "seconds": {},
+                "milliSeconds": {}
+              }
+            }
+          },
+          "compression": {
+            "compressionReference": {},
+            "compressionDate": {
+              "date": {},
+              "expr": {}
+            }
+          },
+          "allocations": {
+            "allocationType": {},
+            "allocations": {
+              "deal": {
+                "tradeId": {},
+                "label": {},
+                "coLocatedId": {
+                  "baseScenario": {},
+                  "coLocatedPosition": {}
+                }
+              },
+              "splitDealDetail": {
+                "book": {},
+                "counterparty": {},
+                "lots": {
+                  "total": {},
+                  "allotted": {},
+                  "allottedPerLeg": {}
+                },
+                "effectiveVolumes": {},
+                "originalVolumes": {},
+                "accountNumber": {}
+              }
+            }
+          }
+        },
+        "structuredDealScope": {
+          "globalRef": {},
+          "stripLegRef": {
+            "dealContainerPath": {},
+            "dealContainerElementKey": {},
+            "mtsAttributeRef": {
+              "attributeLevel": {
+                "trade": {},
+                "parent": {},
+                "leg": {
+                  "legId": {},
+                  "legContainerId": {}
+                }
+              },
+              "attributeCode": {}
+            }
+          },
+          "feeRef": {},
+          "genericRef": {
+            "dealContainerPath": {},
+            "dealContainerElementKey": {},
+            "mtsAttributeRef": {
+              "attributeLevel": {
+                "trade": {},
+                "parent": {},
+                "leg": {
+                  "legId": {},
+                  "legContainerId": {}
+                }
+              },
+              "attributeCode": {}
+            }
+          },
+          "optionScheduleRef": {},
+          "mtsAttributeRef": {
+            "attributeLevel": {
+              "trade": {},
+              "parent": {},
+              "leg": {
+                "legId": {},
+                "legContainerId": {}
+              }
+            },
+            "attributeCode": {}
+          }
+        },
+        "description": {},
+        "systemDateTime": {},
+        "businessDateTime": {},
+        "application": {},
+        "transactionRoles": {
+          "marketer": {},
+          "transactionOriginator": {},
+          "priceMaker": {},
+          "transactionAcceptor": {},
+          "parameterGrantor": {}
+        },
+        "tradeLinks": {
+          "tradeId": {},
+          "label": {},
+          "coLocatedId": {
+            "baseScenario": {},
+            "coLocatedPosition": {}
+          },
+          "dealRef": {
+            "globalRef": {},
+            "stripLegRef": {
+              "dealContainerPath": {},
+              "dealContainerElementKey": {},
+              "mtsAttributeRef": {
+                "attributeLevel": {
+                  "trade": {},
+                  "parent": {},
+                  "leg": {
+                    "legId": {},
+                    "legContainerId": {}
+                  }
+                },
+                "attributeCode": {}
+              }
+            },
+            "feeRef": {},
+            "genericRef": {
+              "dealContainerPath": {},
+              "dealContainerElementKey": {},
+              "mtsAttributeRef": {
+                "attributeLevel": {
+                  "trade": {},
+                  "parent": {},
+                  "leg": {
+                    "legId": {},
+                    "legContainerId": {}
+                  }
+                },
+                "attributeCode": {}
+              }
+            },
+            "optionScheduleRef": {},
+            "mtsAttributeRef": {
+              "attributeLevel": {
+                "trade": {},
+                "parent": {},
+                "leg": {
+                  "legId": {},
+                  "legContainerId": {}
+                }
+              },
+              "attributeCode": {}
+            }
+          },
+          "tradeLinkType": {
+            "direction": {
+              "originOf": {},
+              "descendantOf": {},
+              "none": {}
+            },
+            "relationship": {
+              "EXERCISED": {},
+              "CASHFLOW": {},
+              "FEE": {},
+              "UNDO": {},
+              "NET_ZERO_EXERCISE": {},
+              "CHANGE_TERMS": {},
+              "EXTEND": {},
+              "ROLL": {},
+              "BATCH": {},
+              "RESTRUCTURE": {},
+              "ALLOCATION": {}
+            }
+          }
+        },
+        "correlationId": {
+          "string": {}
+        },
+        "actionedMtsDealVersion": {}
+      },
+      "eventLog": {
+        "action": {
+          "confirmation": {
+            "status": {
+              "confirmed": {},
+              "unconfirmed": {},
+              "notRequired": {}
+            },
+            "confirmationType": {
+              "none": {},
+              "electronic": {},
+              "nonElectronic": {}
+            }
+          },
+          "settlement": {
+            "status": {
+              "settled": {},
+              "unsettled": {}
+            }
+          }
+        },
+        "systemDateTime": {},
+        "actionDateTime": {},
+        "comment": {},
+        "application": {},
+        "structuredDealScope": {
+          "globalRef": {},
+          "stripLegRef": {
+            "dealContainerPath": {},
+            "dealContainerElementKey": {},
+            "mtsAttributeRef": {
+              "attributeLevel": {
+                "trade": {},
+                "parent": {},
+                "leg": {
+                  "legId": {},
+                  "legContainerId": {}
+                }
+              },
+              "attributeCode": {}
+            }
+          },
+          "feeRef": {},
+          "genericRef": {
+            "dealContainerPath": {},
+            "dealContainerElementKey": {},
+            "mtsAttributeRef": {
+              "attributeLevel": {
+                "trade": {},
+                "parent": {},
+                "leg": {
+                  "legId": {},
+                  "legContainerId": {}
+                }
+              },
+              "attributeCode": {}
+            }
+          },
+          "optionScheduleRef": {},
+          "mtsAttributeRef": {
+            "attributeLevel": {
+              "trade": {},
+              "parent": {},
+              "leg": {
+                "legId": {},
+                "legContainerId": {}
+              }
+            },
+            "attributeCode": {}
+          }
+        }
+      }
+    },
+    "fees": {
+      "tradeDate": {
+        "date": {},
+        "expr": {}
+      },
+      "feeType": {},
+      "feeSubCategory": {},
+      "fee": {
+        "simpleFee": {
+          "counterparty": {},
+          "rate": {},
+          "amount": {},
+          "currency": {},
+          "units": {},
+          "paymentDate": {
+            "date": {},
+            "expr": {}
+          },
+          "taxType": {},
+          "jurisdiction": {},
+          "accrueParams": {
+            "accrueParam": {
+              "accrueAmount": {},
+              "accrueStartDate": {
+                "date": {},
+                "expr": {}
+              },
+              "accrueEndDate": {
+                "date": {},
+                "expr": {}
+              },
+              "accrualType": {
+                "advance": {},
+                "arrears": {
+                  "mtm": {},
+                  "flat": {}
+                },
+                "notApplicable": {}
+              }
+            },
+            "isAccrueOnly": {}
+          },
+          "tagMap": {}
+        },
+        "structuredFee": {
+          "counterparty": {},
+          "pricing": {
+            "priceMode": {
+              "fixed": {},
+              "floating": {
+                "referenceAsset": {
+                  "commodityCode": {},
+                  "exchangeInstrument": {}
+                },
+                "observable": {
+                  "asset": {
+                    "commodityCode": {},
+                    "exchangeInstrument": {}
+                  },
+                  "physicalIndex": {
+                    "commodityCode": {},
+                    "exchangeInstrument": {}
+                  },
+                  "index": {
+                    "commodityCode": {},
+                    "exchangeInstrument": {}
+                  },
+                  "futures": {
+                    "futures": {
+                      "commodity": {},
+                      "year": {},
+                      "month": {}
+                    },
+                    "rollingFutures": {
+                      "commodity": {},
+                      "line": {}
+                    },
+                    "futuresRelativeDeliveryMonth": {
+                      "commodity": {},
+                      "line": {}
+                    },
+                    "rollingFuturesWithSpec": {
+                      "commodity": {},
+                      "line": {},
+                      "rollAlignment": {
+                        "etoExpiry": {
+                          "offset": {},
+                          "offsetRateset": {}
+                        },
+                        "firstNoticeDate": {
+                          "offset": {},
+                          "offsetRateset": {}
+                        },
+                        "futuresExpiryDate": {
+                          "offset": {},
+                          "offsetRateset": {}
+                        },
+                        "customDate": {
+                          "roll": {
+                            "date": {},
+                            "expr": {}
+                          }
+                        }
+                      }
+                    },
+                    "asset": {},
+                    "futures_L1D": {},
+                    "futures_L3D": {},
+                    "futures_PUL": {},
+                    "futuresRollingMonth": {
+                      "commodity": {},
+                      "month": {},
+                      "line": {}
+                    }
+                  },
+                  "none": {}
+                },
+                "observationDates": {
+                  "deliveryDate": {},
+                  "allDatesInCurrentMonth": {},
+                  "lastDateInCurrentMonth": {},
+                  "allDatesInPrevMonth": {},
+                  "lastDateInPrevMonth": {},
+                  "physicalCommodityIndexDates": {},
+                  "dateExpression": {},
+                  "default": {},
+                  "none": {}
+                },
+                "margin": {},
+                "weight": {}
+              }
+            },
+            "currency": {},
+            "units": {},
+            "fxFixingRef": {},
+            "fxObservationDates": {
+              "deliveryDate": {},
+              "allDatesInCurrentMonth": {},
+              "lastDateInCurrentMonth": {},
+              "allDatesInPrevMonth": {},
+              "lastDateInPrevMonth": {},
+              "physicalCommodityIndexDates": {},
+              "dateExpression": {},
+              "default": {},
+              "none": {}
+            }
+          },
+          "quantity": {
+            "quantity": {},
+            "quantityUnit": {},
+            "quantityFrequency": {
+              "Period": {},
+              "Day": {},
+              "Block": {},
+              "Hour": {}
+            }
+          },
+          "chargeType": {
+            "dailyAtActualVolume": {},
+            "dailyAtContractVolume": {},
+            "dailyVolumeAtConversion": {},
+            "oneTimeCharge": {},
+            "volumetricActualAboveContract": {},
+            "volumetricActualBelowContract": {},
+            "none": {}
+          },
+          "paymentTerms": {
+            "paymentShortCode": {
+              "paymentShortCode": {},
+              "default": {},
+              "paymentDateEngineGroup": {}
+            },
+            "customTerms": {
+              "paymentDaysOffset": {},
+              "paymentDayOffsetType": {
+                "Business": {},
+                "Calendar": {},
+                "CommodityBusiness": {},
+                "CurrencyBusiness": {},
+                "ExchangeBusiness": {},
+                "ScheduledTradingDay": {},
+                "Wednesdays": {}
+              },
+              "payRelativeToDirection": {
+                "before": {},
+                "after": {}
+              },
+              "payRelativeTo": {
+                "PeriodEnd": {},
+                "LastFixingDate": {},
+                "MonthEnd": {},
+                "NextMonthEnd": {},
+                "FinalFixingDateOfTrade": {},
+                "ThreeMonths": {}
+              },
+              "businessCenters": {},
+              "businessDayConvention": {}
+            },
+            "paymentDate": {
+              "date": {},
+              "expr": {}
+            },
+            "paymentDateOfFirstPeriod": {},
+            "none": {}
+          },
+          "scheduleParms": {
+            "single": {
+              "periodShortCode": {},
+              "deliveryCalendar": {
+                "ratesetExprCode": {},
+                "calendar": {}
+              },
+              "deliveryDate": {
+                "date": {},
+                "expr": {}
+              },
+              "shape": {}
+            },
+            "strip": {
+              "periodShortCode": {},
+              "deliveryCalendar": {
+                "ratesetExprCode": {},
+                "calendar": {}
+              },
+              "shape": {},
+              "startDate": {
+                "date": {},
+                "expr": {}
+              },
+              "endDate": {
+                "date": {},
+                "expr": {}
+              }
+            },
+            "inherit": {}
+          },
+          "schedules": {
+            "schedules": {
+              "schedulePeriod": {
+                "dateRange": {
+                  "periodStartDate": {
+                    "date": {
+                      "date": {},
+                      "expr": {}
+                    },
+                    "modified": {}
+                  },
+                  "periodEndDate": {
+                    "date": {
+                      "date": {},
+                      "expr": {}
+                    },
+                    "modified": {}
+                  }
+                },
+                "periodShortCode": {}
+              },
+              "rateMargin": {
+                "value": {},
+                "modified": {}
+              },
+              "weight": {
+                "value": {},
+                "modified": {}
+              },
+              "quantity": {
+                "quantity": {},
+                "modified": {}
+              },
+              "payment": {
+                "inheritPaymentTerm": {},
+                "explicitPaymentDate": {
+                  "date": {
+                    "date": {},
+                    "expr": {}
+                  },
+                  "modified": {}
+                }
+              },
+              "profileSchedules": {
+                "profileSchedules": {
+                  "blockId": {},
+                  "rateMargin": {
+                    "value": {},
+                    "modified": {}
+                  },
+                  "quantity": {
+                    "quantity": {},
+                    "modified": {}
+                  }
+                }
+              }
+            }
+          },
+          "tagMap": {}
+        }
+      },
+      "comment": {},
+      "feeEngineParamsCashflowLeg": {
+        "feeEngineMasterChild": {},
+        "feeEngineSequenceNo": {},
+        "feeEngineName": {},
+        "feeEngineDef": {},
+        "feeEngineVersion": {},
+        "settlementsComment": {},
+        "isoAccount": {},
+        "feeEngineGroup": {},
+        "feeEngineVolume": {},
+        "feeEngineVolumeUnits": {},
+        "cashflowFeeType": {}
+      },
+      "inputDate": {
+        "date": {},
+        "expr": {}
+      },
+      "notificationDate": {
+        "date": {},
+        "expr": {}
+      }
+    },
+    "cvr": {
+      "attribution": {
+        "salesDesk": {},
+        "salesPerson": {},
+        "weight": {}
+      },
+      "attribution_1": {
+        "salesDesk": {},
+        "salesPerson": {},
+        "weight": {}
+      },
+      "attribution_2": {
+        "salesDesk": {},
+        "salesPerson": {},
+        "weight": {}
+      },
+      "clientValueMethod": {
+        "clientValue": {
+          "transactionMargin": {
+            "ccy": {},
+            "amount": {}
+          },
+          "salesCredit": {
+            "ccy": {},
+            "amount": {}
+          },
+          "feeIncome": {
+            "ccy": {},
+            "amount": {}
+          },
+          "loanIncome": {
+            "ccy": {},
+            "amount": {}
+          },
+          "accrueDateRange": {
+            "accrueStartDate": {
+              "date": {},
+              "expr": {}
+            },
+            "accrueEndDate": {
+              "date": {},
+              "expr": {}
+            }
+          }
+        },
+        "spreadAllocation": {
+          "spreadEffectiveDate": {
+            "date": {},
+            "expr": {}
+          },
+          "transactionMarginSpread": {},
+          "softCreditSpread": {}
+        }
+      },
+      "generalDetails": {
+        "book": {},
+        "salesBook": {},
+        "counterparty": {},
+        "quoteType": {},
+        "tradeQuality": {
+          "One": {},
+          "Two": {},
+          "Three": {},
+          "Four": {},
+          "None": {}
+        }
+      },
+      "totalWeight": {}
+    },
+    "rightToBreakDetails": {
+      "breakType": {},
+      "whoCanExercise": {},
+      "cashSettlementMethod": {
+        "none": {},
+        "cashPrice": {},
+        "zeroCouponYieldAdjusted": {},
+        "crossCurrencyMethod": {},
+        "midMarketValuationIndicativeQuotations": {},
+        "midMarketValuationIndicativeQuotationsAlternateMethod": {},
+        "midMarketValuationCalculationAgentDetermination": {},
+        "replacementValueFirmQuotations": {},
+        "replacementValueCalculationAgentDetermination": {},
+        "parYieldCurveUnadjusted": {},
+        "collateralizedCashPrice": {},
+        "other": {}
+      },
+      "quotationRate": {
+        "none": {},
+        "bidRate": {},
+        "askRate": {},
+        "midRate": {},
+        "replacementValue": {},
+        "other": {}
+      },
+      "exerciseDateOffset": {},
+      "exerciseStartTime": {
+        "hours": {},
+        "minutes": {},
+        "seconds": {}
+      },
+      "exerciseStartTimezone": {},
+      "exerciseEndTime": {
+        "hours": {},
+        "minutes": {},
+        "seconds": {}
+      },
+      "exerciseEndTimezone": {},
+      "cashSettlementOffset": {},
+      "breakSchedule": {
+        "single": {
+          "exerciseDate": {
+            "date": {},
+            "expr": {}
+          },
+          "breakDate": {
+            "date": {},
+            "expr": {}
+          }
+        },
+        "strip": {
+          "startDate": {
+            "date": {},
+            "expr": {}
+          },
+          "stubDate": {
+            "date": {},
+            "expr": {}
+          },
+          "endDate": {
+            "date": {},
+            "expr": {}
+          },
+          "alignAtEOM": {},
+          "breakPeriodFrequency": {
+            "period": {},
+            "periodMultiplier": {}
+          },
+          "rollDateConvention": {
+            "CBD": {},
+            "PBD": {},
+            "FBD": {},
+            "MFBD": {}
+          },
+          "scheduleDates": {
+            "exerciseDate": {
+              "date": {},
+              "expr": {}
+            },
+            "breakDate": {
+              "date": {},
+              "expr": {}
+            }
+          }
+        },
+        "custom": {
+          "exerciseDate": {
+            "date": {},
+            "expr": {}
+          },
+          "breakDate": {
+            "date": {},
+            "expr": {}
+          }
+        }
+      },
+      "calendar": {},
+      "comment": {},
+      "derivations": {
+        "rightToBreakNextDate": {
+          "date": {},
+          "expr": {}
+        }
+      }
+    },
+    "capitalSharing": {
+      "desk": {},
+      "capitalShare": {},
+      "contactPerson": {}
+    },
+    "tagMap": {},
+    "tradeIdentifiers": {
+      "noTradeIdentifier": {},
+      "tradeIdentifierDetails": {
+        "tradeIdentifierKey": {
+          "tradeId": {},
+          "label": {}
+        },
+        "legIdentifier": {
+          "all": {},
+          "legIdentifierType": {
+            "fxLeg": {
+              "near": {},
+              "far": {}
+            }
+          }
+        },
+        "issuer": {
+          "internalIssuer": {
+            "blender": {},
+            "frost": {},
+            "maccel": {},
+            "mts": {},
+            "otherInternal": {}
+          },
+          "externalIssuer": {
+            "acer": {},
+            "apx": {},
+            "bnp": {},
+            "dealnet": {},
+            "ice": {},
+            "lme_phillips": {},
+            "markit": {},
+            "mec": {},
+            "nexc": {},
+            "otherExternal": {},
+            "ppa": {},
+            "profets": {},
+            "sentry": {},
+            "spark": {},
+            "sra": {},
+            "trayport": {},
+            "reuters": {}
+          }
+        },
+        "purpose": {
+          "execution": {},
+          "regulatoryReporting": {
+            "uniqueTradeId": {},
+            "internalUniqueTradeId": {},
+            "uniqueSwapId": {},
+            "acerUniqueTradeId": {}
+          },
+          "linkedDealId": {
+            "none": {},
+            "backoutFrom": {},
+            "contra": {},
+            "clientTrade": {},
+            "exercisedFrom": {},
+            "predeliveredFrom": {},
+            "rolledFrom": {}
+          },
+          "other": {}
+        }
+      }
+    },
+    "ISDADefinition": {}
+  },
+  "swapDetails": {
+    "underlying": {},
+    "physicalOrNDS": {
+      "physical": {},
+      "nds": {}
+    },
+    "swapType": {
+      "irs": {},
+      "irsBasis": {},
+      "irsAmortising": {},
+      "irsCustomNotional": {},
+      "irsOis": {},
+      "fra": {},
+      "ccs": {},
+      "ccsReset": {},
+      "inflation": {},
+      "inflationBasis": {},
+      "capFloorIrs": {},
+      "capFloorCcs": {}
+    },
+    "clearedTrade": {},
+    "markitSingleSided": {},
+    "principalExchange": {
+      "occurs": {
+        "firstLastLegs": {},
+        "lastLeg": {},
+        "allLegs": {},
+        "allLegsExclFirst": {},
+        "allLegsExclFirstAndLast": {},
+        "none": {}
+      },
+      "params": {
+        "contractCurrency": {},
+        "dealCurrency": {},
+        "fxSpotRate": {},
+        "quoteBasis": {
+          "ccy1PerCcy2": {},
+          "ccy2PerCcy1": {}
+        },
+        "fxRateMarketOrder": {},
+        "resetParams": {
+          "fxFixingRef": {},
+          "fixingOffset": {},
+          "businessCentres": {}
+        }
+      },
+      "schedule": {
+        "principalExchangeSchedule": {
+          "paymentDate": {
+            "date": {},
+            "modified": {}
+          },
+          "contractCcyPayment": {},
+          "dealCcyPayment": {},
+          "fixingDate": {
+            "date": {},
+            "modified": {}
+          },
+          "fxRate": {},
+          "fxRateMarketOrder": {},
+          "settlementCcyPayment": {}
+        },
+        "resetSchedule": {
+          "startDate": {},
+          "fwdType": {
+            "delay": {},
+            "reset": {}
+          },
+          "contractCcyFaceValue": {},
+          "fxFixingDate1": {},
+          "fxFixingRate1": {
+            "price": {},
+            "modified": {}
+          },
+          "quoteBasis1": {
+            "ccy1PerCcy2": {},
+            "ccy2PerCcy1": {}
+          },
+          "fxRateMarketOrder1": {},
+          "fxFixingDate2": {},
+          "fxFixingRate2": {
+            "price": {},
+            "modified": {}
+          },
+          "quoteBasis2": {
+            "ccy1PerCcy2": {},
+            "ccy2PerCcy1": {}
+          },
+          "fxRateMarketOrder2": {},
+          "dealCcyPayment": {},
+          "paymentDate": {
+            "date": {},
+            "modified": {}
+          }
+        }
+      }
+    },
+    "isIsdaFallback": {}
+  },
+  "swapLegs": {
+    "bookPayReceive": {
+      "pay": {},
+      "receive": {}
+    },
+    "notionalCurrency": {},
+    "rateType": {
+      "fixed": {},
+      "floating": {}
+    },
+    "swapStream": {
+      "notional": {},
+      "scheduleType": {
+        "constant": {},
+        "custom": {},
+        "amortising": {},
+        "reset": {}
+      },
+      "swapStreamDetails": {
+        "pricingDetails": {
+          "interestRate": {},
+          "ratesetRef": {},
+          "referenceTenor": {},
+          "margin": {
+            "marginNone": {},
+            "marginAdditive": {},
+            "marginMultiplicative": {}
+          },
+          "ratesetOffset": {},
+          "paymentOffset": {},
+          "ratesetCalendars": {},
+          "formula": {},
+          "dayCountBasis": {},
+          "dayCountBasisIsda": {},
+          "observationMethod": {
+            "plain": {},
+            "lookback": {},
+            "obsShift": {},
+            "lockout": {},
+            "index": {},
+            "ISDAFallback": {},
+            "notApplicable": {}
+          },
+          "averagingMethod": {
+            "compound": {},
+            "flat": {},
+            "spread": {},
+            "simple": {},
+            "average": {},
+            "notApplicable": {}
+          }
+        },
+        "swapPeriods": {
+          "periods": {
+            "weekly": {},
+            "monthly": {},
+            "quarterly": {},
+            "semiAnnually": {},
+            "annually": {},
+            "daily": {},
+            "monthlynbd": {
+              "busDayOfMonth": {}
+            },
+            "custom": {}
+          },
+          "periodMultiplier": {},
+          "startDate": {
+            "date": {},
+            "expr": {}
+          },
+          "endDate": {
+            "date": {},
+            "expr": {}
+          },
+          "isAdjusted": {},
+          "stubDate": {
+            "date": {},
+            "expr": {}
+          },
+          "stubDayCountBasis": {},
+          "stubType": {
+            "shortStart": {},
+            "longStart": {},
+            "shortEnd": {},
+            "longEnd": {},
+            "none": {}
+          },
+          "alignAtEom": {
+            "eom": {},
+            "notEom": {}
+          },
+          "style": {
+            "floating": {
+              "bullet": {},
+              "average": {
+                "weekly": {},
+                "monthly": {},
+                "quarterly": {},
+                "semiAnnually": {},
+                "annually": {},
+                "daily": {},
+                "monthlynbd": {
+                  "busDayOfMonth": {}
+                },
+                "custom": {}
+              }
+            },
+            "notApplicable": {}
+          },
+          "rolloverDay": {},
+          "rollConvention": {}
+        },
+        "schedule": {
+          "commonSchedule": {
+            "startDate": {},
+            "endDate": {},
+            "closedDate": {},
+            "ratesetDate": {
+              "date": {},
+              "modified": {}
+            },
+            "paymentDate": {
+              "date": {},
+              "modified": {}
+            },
+            "rate": {
+              "price": {},
+              "modified": {}
+            },
+            "discountRate": {
+              "price": {},
+              "modified": {}
+            },
+            "floatingRate": {
+              "ratesets": {
+                "ratesetRef": {},
+                "referenceTenor": {}
+              },
+              "interpolation": {
+                "na": {},
+                "applies": {}
+              },
+              "modified": {}
+            },
+            "notional": {
+              "amount": {},
+              "modified": {}
+            },
+            "interest": {},
+            "reval": {}
+          },
+          "additionalFloatingSchedule": {
+            "margin": {
+              "price": {},
+              "modified": {}
+            },
+            "averagingSchedules": {
+              "avgIrObservationSchedule": {
+                "averagingDate": {
+                  "date": {},
+                  "modified": {}
+                },
+                "ratesetDate": {
+                  "date": {},
+                  "modified": {}
+                },
+                "rate": {}
+              }
+            }
+          },
+          "additionalNDSSchedule": {
+            "fxRatesetDate": {
+              "date": {},
+              "modified": {}
+            },
+            "fxRate": {},
+            "quoteBasis": {
+              "ccy1PerCcy2": {},
+              "ccy2PerCcy1": {}
+            },
+            "fxRateMarketOrder": {}
+          },
+          "additionalResetSchedule": {
+            "fxRatesetDate": {
+              "date": {},
+              "modified": {}
+            },
+            "fxRate": {},
+            "quoteBasis": {
+              "ccy1PerCcy2": {},
+              "ccy2PerCcy1": {}
+            },
+            "fxRateMarketOrder": {}
+          },
+          "additionalFixedSchedule": {
+            "fixedAmountIndicator": {},
+            "compoundSchedules": {
+              "compoundIRSchedule": {
+                "compoundingDate": {},
+                "rate": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "settlement": {
+      "settlementCurrency": {},
+      "offset": {},
+      "fxSettlement": {
+        "fxFixingRef": {},
+        "fixingOffset": {},
+        "businessCentres": {}
+      },
+      "paymentCalendars": {},
+      "rollDateConvention": {
+        "CBD": {},
+        "PBD": {},
+        "FBD": {},
+        "MFBD": {}
+      }
+    },
+    "nonStandard": {
+      "Yes": {},
+      "No": {}
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "tradeId": "a6bdf0c7-6a12-4d1b-b4a2-2f1d1d6c3f1a",
+  "tradeExtId": "STRATA:CSV:OG:9901001",
+  "label": "vanilla",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "b1bdbb4c-1e3e-46bf-9c2a-6d2d5c7e3f11",
+    "timestamp": "2026-01-07T23:01:12Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "kbagci",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "USD IRS: pay fixed vs receive 3M IBOR; includes explicit roll/stub/payment offset and fixing offset fields."
+  },
+  "parties": [
+    { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie (Example US)", "role": "Dealer" },
+    { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+  ],
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "kbagci",
+        "priceMaker": "kbagci",
+        "transactionAcceptor": "vmenon",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T22:35:17.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "common": {
+      "book": "IR-USD-BOOK-01",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    },
+    "sourceIdentifiers": { "scheme": "OG", "id": "9901001" }
+  },
+  "swapDetails": {
+    "swapType": "irs",
+    "currency": "USD",
+    "underlying": "USD-IBOR-3M"
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payer": "MACQ_US",
+      "receiver": "FUND_XYZ",
+      "currency": "USD",
+      "rateType": "fixed",
+      "notional": 25000000,
+      "pricing": {
+        "interestRate": 0.0425,
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "P6M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09",
+        "rollConvention": "Day1",
+        "stubConvention": "ShortInitial",
+        "paymentRelativeTo": "PeriodEnd",
+        "paymentOffset": {
+          "days": 2,
+          "calendar": "USNY",
+          "adjustmentConvention": "Following",
+          "adjustmentCalendar": "USNY"
+        }
+      }
+    },
+    {
+      "legType": "Receive",
+      "payer": "FUND_XYZ",
+      "receiver": "MACQ_US",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 25000000,
+      "pricing": {
+        "ratesetRef": "USD-IBOR-3M",
+        "referenceTenor": "3M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "fixingRelativeTo": "PeriodStart",
+        "fixingOffset": {
+          "days": 2,
+          "calendar": "USNY",
+          "adjustmentConvention": "Following",
+          "adjustmentCalendar": "USNY"
+        },
+        "resetFrequency": "P1M",
+        "resetMethod": "Weighted",
+        "negativeRateMethod": "AllowNegative",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "P3M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.sourceIdentifiers",
+    "swapLegs[0].schedule.rollConvention",
+    "swapLegs[0].schedule.stubConvention",
+    "swapLegs[0].schedule.paymentRelativeTo",
+    "swapLegs[0].schedule.paymentOffset",
+    "swapLegs[1].pricing.fixingRelativeTo",
+    "swapLegs[1].pricing.fixingOffset",
+    "swapLegs[1].pricing.resetFrequency",
+    "swapLegs[1].pricing.resetMethod",
+    "swapLegs[1].pricing.negativeRateMethod"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "tradeId": "cfe4c9b4-0f10-4a52-bf74-7e13c4d7b1f0",
+  "tradeExtId": "OPS:BASIS-20260107-019",
+  "label": "basis",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "de1f4e9f-6c3d-4e5a-9b47-6fe1e18c3c66",
+    "timestamp": "2026-01-08T09:22:58Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "USD basis swap: receive 3M index, pay 6M index + spread; 3Y."
+  },
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "kbagci",
+        "priceMaker": "kbagci",
+        "transactionAcceptor": "atran12",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T20:10:11.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+    ],
+    "common": {
+      "book": "IR-USD-BASIS",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "floatFloatBasis",
+    "currency": "USD",
+    "basis": { "index1": "USD-3M", "index2": "USD-6M" }
+  },
+  "swapLegs": [
+    {
+      "legType": "Receive",
+      "payerPartyCode": "FUND_XYZ",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 50000000,
+      "pricing": {
+        "ratesetRef": "USD-3M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "fixingRelativeTo": "PeriodStart",
+        "fixingOffsetDays": 2,
+        "resetFrequency": "1M",
+        "resetMethod": "Weighted",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "quarterly",
+        "startDate": "2026-01-10",
+        "endDate": "2029-01-10",
+        "periods": [
+          { "start": "2026-01-10", "end": "2026-04-10", "ratesetDate": "2026-01-10" },
+          { "start": "2026-04-10", "end": "2026-07-10", "ratesetDate": "2026-04-10" }
+        ]
+      }
+    },
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "FUND_XYZ",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 50000000,
+      "pricing": {
+        "ratesetRef": "USD-6M",
+        "spreadBps": 12,
+        "dayCountBasisIsda": "ACT/360",
+        "fixingRelativeTo": "PeriodStart",
+        "fixingOffsetDays": 2,
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-01-10",
+        "endDate": "2029-01-10",
+        "periods": [
+          { "start": "2026-01-10", "end": "2026-07-10", "ratesetDate": "2026-01-10" },
+          { "start": "2026-07-10", "end": "2027-01-10", "ratesetDate": "2026-07-10" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapDetails.basis",
+    "swapLegs[0].pricing.resetFrequency",
+    "swapLegs[0].pricing.resetMethod"
+  ]
+}

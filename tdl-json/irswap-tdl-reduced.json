@@ -1,0 +1,739 @@
+{
+  "general": {
+    "tradeKey": {
+      "tradeId": {},
+      "label": {},
+      "coLocatedId": {
+        "baseScenario": {},
+        "coLocatedPosition": {}
+      }
+    },
+    "transactionInformation": {
+      "transactionRoles": {
+        "marketer": {},
+        "transactionOriginator": {},
+        "priceMaker": {},
+        "transactionAcceptor": {},
+        "parameterGrantor": {}
+      },
+      "executionDetails": {
+        "executionDateTime": {
+          "date": {
+            "date": {},
+            "expr": {}
+          },
+          "time": {
+            "hours": {},
+            "minutes": {},
+            "seconds": {},
+            "milliSeconds": {}
+          }
+        },
+        "bestExecutionApplicable": {},
+        "executionVenue": {
+          "executionVenue": {},
+          "venueTransactionID": {},
+          "executionBroker": {},
+          "executionBrokeragePayer": {
+            "wePay": {},
+            "counterpartyPays": {}
+          },
+          "executionVenueMIC": {},
+          "executionVenueType": {}
+        },
+        "clearingVenue": {
+          "clearingVenue": {},
+          "clearingDate": {
+            "date": {
+              "date": {},
+              "expr": {}
+            },
+            "time": {
+              "hours": {},
+              "minutes": {},
+              "seconds": {},
+              "milliSeconds": {}
+            }
+          },
+          "clearingBroker": {},
+          "clearingExecutionBroker": {},
+          "clearingVenueTransactionID": {}
+        },
+        "reportTrackingNumber": {},
+        "omsOrderID": {},
+        "isOffMarketPrice": {},
+        "clientInstructionTime": {
+          "date": {
+            "date": {},
+            "expr": {}
+          },
+          "time": {
+            "hours": {},
+            "minutes": {},
+            "seconds": {}
+          }
+        }
+      },
+      "packageTradeDetails": {
+        "isPackageTrade": {},
+        "packageIdentifier": {},
+        "packagePriceOrSpread": {},
+        "packageType": {},
+        "packagePrice": {},
+        "packagePriceCcy": {},
+        "priceNotation": {},
+        "useTradeIdAsPackageId": {}
+      },
+      "blockAllocationDetails": {
+        "blockAllocationType": {
+          "blockTrade": {},
+          "allocatedTrade": {
+            "blockTradeId": {}
+          }
+        }
+      }
+    },
+    "common": {
+      "book": {},
+      "accountReference": {},
+      "tradeDate": {
+        "date": {},
+        "expr": {}
+      },
+      "counterparty": {},
+      "novatedToCounterparty": {},
+      "counterpartyAccountReference": {},
+      "inputDate": {
+        "date": {},
+        "expr": {}
+      },
+      "orderTime": {
+        "hours": {},
+        "minutes": {},
+        "seconds": {}
+      },
+      "comment": {},
+      "initialMargin": {
+        "margin": {
+          "absolute": {
+            "ccy": {},
+            "amount": {}
+          },
+          "percentage": {
+            "ccy": {},
+            "amount": {}
+          }
+        }
+      },
+      "backoutBook": {},
+      "tradingStrategy": {},
+      "ddeEligible": {
+        "Yes": {},
+        "No": {}
+      },
+      "backoutTradingStrategy": {},
+      "externalReference": {},
+      "internalReference": {},
+      "initialMarginDeliveryDate": {
+        "date": {},
+        "expr": {}
+      },
+      "initialMarginDescription": {},
+      "structureDetails": {
+        "structureNotes": {}
+      },
+      "backoutEntity": {},
+      "salesGroup": {},
+      "includeFeeEngine": {
+        "allLegs": {},
+        "nearLeg": {},
+        "farLeg": {},
+        "none": {}
+      },
+      "acsLinkType": {},
+      "regionOrAccount": {},
+      "originatingSystem": {},
+      "stp": {
+        "Yes": {},
+        "No": {}
+      },
+      "sourceSystem": {},
+      "cashflowHedgeNotification": {},
+      "IRDAdvisory": {},
+      "isCustomBasket": {}
+    },
+    "fees": {},
+    "cvr": {
+      "attribution": {
+        "salesDesk": {},
+        "salesPerson": {},
+        "weight": {}
+      },
+      "attribution_1": {
+        "salesDesk": {},
+        "salesPerson": {},
+        "weight": {}
+      },
+      "attribution_2": {
+        "salesDesk": {},
+        "salesPerson": {},
+        "weight": {}
+      },
+      "clientValueMethod": {
+        "clientValue": {
+          "transactionMargin": {
+            "ccy": {},
+            "amount": {}
+          },
+          "salesCredit": {
+            "ccy": {},
+            "amount": {}
+          },
+          "feeIncome": {
+            "ccy": {},
+            "amount": {}
+          },
+          "loanIncome": {
+            "ccy": {},
+            "amount": {}
+          },
+          "accrueDateRange": {
+            "accrueStartDate": {
+              "date": {},
+              "expr": {}
+            },
+            "accrueEndDate": {
+              "date": {},
+              "expr": {}
+            }
+          }
+        },
+        "spreadAllocation": {
+          "spreadEffectiveDate": {
+            "date": {},
+            "expr": {}
+          },
+          "transactionMarginSpread": {},
+          "softCreditSpread": {}
+        }
+      },
+      "generalDetails": {
+        "book": {},
+        "salesBook": {},
+        "counterparty": {},
+        "quoteType": {},
+        "tradeQuality": {
+          "One": {},
+          "Two": {},
+          "Three": {},
+          "Four": {},
+          "None": {}
+        }
+      },
+      "totalWeight": {}
+    },
+    "rightToBreakDetails": {
+      "breakType": {},
+      "whoCanExercise": {},
+      "cashSettlementMethod": {
+        "none": {},
+        "cashPrice": {},
+        "zeroCouponYieldAdjusted": {},
+        "crossCurrencyMethod": {},
+        "midMarketValuationIndicativeQuotations": {},
+        "midMarketValuationIndicativeQuotationsAlternateMethod": {},
+        "midMarketValuationCalculationAgentDetermination": {},
+        "replacementValueFirmQuotations": {},
+        "replacementValueCalculationAgentDetermination": {},
+        "parYieldCurveUnadjusted": {},
+        "collateralizedCashPrice": {},
+        "other": {}
+      },
+      "quotationRate": {
+        "none": {},
+        "bidRate": {},
+        "askRate": {},
+        "midRate": {},
+        "replacementValue": {},
+        "other": {}
+      },
+      "exerciseDateOffset": {},
+      "exerciseStartTime": {
+        "hours": {},
+        "minutes": {},
+        "seconds": {}
+      },
+      "exerciseStartTimezone": {},
+      "exerciseEndTime": {
+        "hours": {},
+        "minutes": {},
+        "seconds": {}
+      },
+      "exerciseEndTimezone": {},
+      "cashSettlementOffset": {},
+      "breakSchedule": {
+        "single": {
+          "exerciseDate": {
+            "date": {},
+            "expr": {}
+          },
+          "breakDate": {
+            "date": {},
+            "expr": {}
+          }
+        },
+        "strip": {
+          "startDate": {
+            "date": {},
+            "expr": {}
+          },
+          "stubDate": {
+            "date": {},
+            "expr": {}
+          },
+          "endDate": {
+            "date": {},
+            "expr": {}
+          },
+          "alignAtEOM": {},
+          "breakPeriodFrequency": {
+            "period": {},
+            "periodMultiplier": {}
+          },
+          "rollDateConvention": {
+            "CBD": {},
+            "PBD": {},
+            "FBD": {},
+            "MFBD": {}
+          },
+          "scheduleDates": {
+            "exerciseDate": {
+              "date": {},
+              "expr": {}
+            },
+            "breakDate": {
+              "date": {},
+              "expr": {}
+            }
+          }
+        },
+        "custom": {
+          "exerciseDate": {
+            "date": {},
+            "expr": {}
+          },
+          "breakDate": {
+            "date": {},
+            "expr": {}
+          }
+        }
+      },
+      "calendar": {},
+      "comment": {},
+      "derivations": {
+        "rightToBreakNextDate": {
+          "date": {},
+          "expr": {}
+        }
+      }
+    },
+    "capitalSharing": {
+      "desk": {},
+      "capitalShare": {},
+      "contactPerson": {}
+    },
+    "tagMap": {},
+    "tradeIdentifiers": {
+      "noTradeIdentifier": {},
+      "tradeIdentifierDetails": {
+        "tradeIdentifierKey": {
+          "tradeId": {},
+          "label": {}
+        },
+        "legIdentifier": {
+          "all": {},
+          "legIdentifierType": {
+            "fxLeg": {
+              "near": {},
+              "far": {}
+            }
+          }
+        },
+        "issuer": {
+          "internalIssuer": {
+            "blender": {},
+            "frost": {},
+            "maccel": {},
+            "mts": {},
+            "otherInternal": {}
+          },
+          "externalIssuer": {
+            "acer": {},
+            "apx": {},
+            "bnp": {},
+            "dealnet": {},
+            "ice": {},
+            "lme_phillips": {},
+            "markit": {},
+            "mec": {},
+            "nexc": {},
+            "otherExternal": {},
+            "ppa": {},
+            "profets": {},
+            "sentry": {},
+            "spark": {},
+            "sra": {},
+            "trayport": {},
+            "reuters": {}
+          }
+        },
+        "purpose": {
+          "execution": {},
+          "regulatoryReporting": {
+            "uniqueTradeId": {},
+            "internalUniqueTradeId": {},
+            "uniqueSwapId": {},
+            "acerUniqueTradeId": {}
+          },
+          "linkedDealId": {
+            "none": {},
+            "backoutFrom": {},
+            "contra": {},
+            "clientTrade": {},
+            "exercisedFrom": {},
+            "predeliveredFrom": {},
+            "rolledFrom": {}
+          },
+          "other": {}
+        }
+      }
+    },
+    "ISDADefinition": {}
+  },
+  "swapDetails": {
+    "underlying": {},
+    "physicalOrNDS": {
+      "physical": {},
+      "nds": {}
+    },
+    "swapType": {
+      "irs": {},
+      "irsBasis": {},
+      "irsAmortising": {},
+      "irsCustomNotional": {},
+      "irsOis": {},
+      "fra": {},
+      "ccs": {},
+      "ccsReset": {},
+      "inflation": {},
+      "inflationBasis": {},
+      "capFloorIrs": {},
+      "capFloorCcs": {}
+    },
+    "clearedTrade": {},
+    "markitSingleSided": {},
+    "principalExchange": {
+      "occurs": {
+        "firstLastLegs": {},
+        "lastLeg": {},
+        "allLegs": {},
+        "allLegsExclFirst": {},
+        "allLegsExclFirstAndLast": {},
+        "none": {}
+      },
+      "params": {
+        "contractCurrency": {},
+        "dealCurrency": {},
+        "fxSpotRate": {},
+        "quoteBasis": {
+          "ccy1PerCcy2": {},
+          "ccy2PerCcy1": {}
+        },
+        "fxRateMarketOrder": {},
+        "resetParams": {
+          "fxFixingRef": {},
+          "fixingOffset": {},
+          "businessCentres": {}
+        }
+      },
+      "schedule": {
+        "principalExchangeSchedule": {
+          "paymentDate": {
+            "date": {},
+            "modified": {}
+          },
+          "contractCcyPayment": {},
+          "dealCcyPayment": {},
+          "fixingDate": {
+            "date": {},
+            "modified": {}
+          },
+          "fxRate": {},
+          "fxRateMarketOrder": {},
+          "settlementCcyPayment": {}
+        },
+        "resetSchedule": {
+          "startDate": {},
+          "fwdType": {
+            "delay": {},
+            "reset": {}
+          },
+          "contractCcyFaceValue": {},
+          "fxFixingDate1": {},
+          "fxFixingRate1": {
+            "price": {},
+            "modified": {}
+          },
+          "quoteBasis1": {
+            "ccy1PerCcy2": {},
+            "ccy2PerCcy1": {}
+          },
+          "fxRateMarketOrder1": {},
+          "fxFixingDate2": {},
+          "fxFixingRate2": {
+            "price": {},
+            "modified": {}
+          },
+          "quoteBasis2": {
+            "ccy1PerCcy2": {},
+            "ccy2PerCcy1": {}
+          },
+          "fxRateMarketOrder2": {},
+          "dealCcyPayment": {},
+          "paymentDate": {
+            "date": {},
+            "modified": {}
+          }
+        }
+      }
+    },
+    "isIsdaFallback": {}
+  },
+  "swapLegs": {
+    "bookPayReceive": {
+      "pay": {},
+      "receive": {}
+    },
+    "notionalCurrency": {},
+    "rateType": {
+      "fixed": {},
+      "floating": {}
+    },
+    "swapStream": {
+      "notional": {},
+      "scheduleType": {
+        "constant": {},
+        "custom": {},
+        "amortising": {},
+        "reset": {}
+      },
+      "swapStreamDetails": {
+        "pricingDetails": {
+          "interestRate": {},
+          "ratesetRef": {},
+          "referenceTenor": {},
+          "margin": {
+            "marginNone": {},
+            "marginAdditive": {},
+            "marginMultiplicative": {}
+          },
+          "ratesetOffset": {},
+          "paymentOffset": {},
+          "ratesetCalendars": {},
+          "formula": {},
+          "dayCountBasis": {},
+          "dayCountBasisIsda": {},
+          "observationMethod": {
+            "plain": {},
+            "lookback": {},
+            "obsShift": {},
+            "lockout": {},
+            "index": {},
+            "ISDAFallback": {},
+            "notApplicable": {}
+          },
+          "averagingMethod": {
+            "compound": {},
+            "flat": {},
+            "spread": {},
+            "simple": {},
+            "average": {},
+            "notApplicable": {}
+          }
+        },
+        "swapPeriods": {
+          "periods": {
+            "weekly": {},
+            "monthly": {},
+            "quarterly": {},
+            "semiAnnually": {},
+            "annually": {},
+            "daily": {},
+            "monthlynbd": {
+              "busDayOfMonth": {}
+            },
+            "custom": {}
+          },
+          "periodMultiplier": {},
+          "startDate": {
+            "date": {},
+            "expr": {}
+          },
+          "endDate": {
+            "date": {},
+            "expr": {}
+          },
+          "isAdjusted": {},
+          "stubDate": {
+            "date": {},
+            "expr": {}
+          },
+          "stubDayCountBasis": {},
+          "stubType": {
+            "shortStart": {},
+            "longStart": {},
+            "shortEnd": {},
+            "longEnd": {},
+            "none": {}
+          },
+          "alignAtEom": {
+            "eom": {},
+            "notEom": {}
+          },
+          "style": {
+            "floating": {
+              "bullet": {},
+              "average": {
+                "weekly": {},
+                "monthly": {},
+                "quarterly": {},
+                "semiAnnually": {},
+                "annually": {},
+                "daily": {},
+                "monthlynbd": {
+                  "busDayOfMonth": {}
+                },
+                "custom": {}
+              }
+            },
+            "notApplicable": {}
+          },
+          "rolloverDay": {},
+          "rollConvention": {}
+        },
+        "schedule": {
+          "commonSchedule": {
+            "startDate": {},
+            "endDate": {},
+            "closedDate": {},
+            "ratesetDate": {
+              "date": {},
+              "modified": {}
+            },
+            "paymentDate": {
+              "date": {},
+              "modified": {}
+            },
+            "rate": {
+              "price": {},
+              "modified": {}
+            },
+            "discountRate": {
+              "price": {},
+              "modified": {}
+            },
+            "floatingRate": {
+              "ratesets": {
+                "ratesetRef": {},
+                "referenceTenor": {}
+              },
+              "interpolation": {
+                "na": {},
+                "applies": {}
+              },
+              "modified": {}
+            },
+            "notional": {
+              "amount": {},
+              "modified": {}
+            },
+            "interest": {},
+            "reval": {}
+          },
+          "additionalFloatingSchedule": {
+            "margin": {
+              "price": {},
+              "modified": {}
+            },
+            "averagingSchedules": {
+              "avgIrObservationSchedule": {
+                "averagingDate": {
+                  "date": {},
+                  "modified": {}
+                },
+                "ratesetDate": {
+                  "date": {},
+                  "modified": {}
+                },
+                "rate": {}
+              }
+            }
+          },
+          "additionalNDSSchedule": {
+            "fxRatesetDate": {
+              "date": {},
+              "modified": {}
+            },
+            "fxRate": {},
+            "quoteBasis": {
+              "ccy1PerCcy2": {},
+              "ccy2PerCcy1": {}
+            },
+            "fxRateMarketOrder": {}
+          },
+          "additionalResetSchedule": {
+            "fxRatesetDate": {
+              "date": {},
+              "modified": {}
+            },
+            "fxRate": {},
+            "quoteBasis": {
+              "ccy1PerCcy2": {},
+              "ccy2PerCcy1": {}
+            },
+            "fxRateMarketOrder": {}
+          },
+          "additionalFixedSchedule": {
+            "fixedAmountIndicator": {},
+            "compoundSchedules": {
+              "compoundIRSchedule": {
+                "compoundingDate": {},
+                "rate": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "settlement": {
+      "settlementCurrency": {},
+      "offset": {},
+      "fxSettlement": {
+        "fxFixingRef": {},
+        "fixingOffset": {},
+        "businessCentres": {}
+      },
+      "paymentCalendars": {},
+      "rollDateConvention": {
+        "CBD": {},
+        "PBD": {},
+        "FBD": {},
+        "MFBD": {}
+      }
+    },
+    "nonStandard": {
+      "Yes": {},
+      "No": {}
+    }
+  }
+}

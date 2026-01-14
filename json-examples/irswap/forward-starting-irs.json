@@ -1,0 +1,113 @@
+{
+  "tradeId": "b3a2f6a0-9c0c-49ea-9b2b-4b80d1b27e66",
+  "tradeExtId": "SEF-ICE:20260107-0001",
+  "label": "forwardStarting",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "d1a2a74e-4d26-4c56-9fd7-2e5b0a49c0b1",
+    "timestamp": "2026-01-07T23:11:02Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "asmith07",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "Forward-starting 5Y USD IRS (starts in 2D); pay fixed vs receive 6M SOFR-compounded proxy."
+  },
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "vmenon",
+        "priceMaker": "vmenon",
+        "transactionAcceptor": "aajay1",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T23:08:41.000Z",
+        "executionVenueType": "OnFacility",
+        "executionVenueMIC": "XOFF",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" },
+      { "code": "ICAP_SEF", "lei": "549300ICAPEXAMPLE22", "name": "ICAP SEF LLC", "role": "ExecutingBroker" }
+    ],
+    "common": {
+      "book": "IR-USD-SEF-TRD",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "Yes",
+      "includeFeeEngine": "standard",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "vanillaFixedFloat",
+    "currency": "USD",
+    "conventions": {
+      "forwardStart": "P2D",
+      "effectiveDateOverride": "2026-01-09",
+      "terminationDateOverride": "2031-01-09",
+      "settlementDays": 2,
+      "dateGenerationRule": "Backward"
+    }
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "USD",
+      "rateType": "fixed",
+      "notional": 10000000,
+      "pricing": {
+        "interestRate": 4.25,
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09",
+        "periods": [
+          { "start": "2026-01-09", "end": "2026-07-09" },
+          { "start": "2026-07-09", "end": "2027-01-09" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 10000000,
+      "pricing": {
+        "ratesetRef": "SOFR",
+        "referenceTenor": "6M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09",
+        "periods": [
+          { "start": "2026-01-09", "end": "2026-07-09", "ratesetDate": "2026-01-09" },
+          { "start": "2026-07-09", "end": "2027-01-09", "ratesetDate": "2026-07-09" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.transactionInformation.executionDetails.executionVenueMIC",
+    "swapDetails.conventions.forwardStart",
+    "swapDetails.conventions.effectiveDateOverride",
+    "swapDetails.conventions.terminationDateOverride",
+    "general.parties[2].role=ExecutingBroker"
+  ]
+}

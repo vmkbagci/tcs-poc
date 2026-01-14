@@ -1,0 +1,107 @@
+{
+  "tradeId": "0f3f1c9a-2d0e-4d4d-a9b8-3f1b1d9f0a67",
+  "tradeExtId": "ORE:SWAP:PF#IR#01:000045",
+  "label": "vanilla",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "c3ccf2f5-1d1d-49ae-9db0-4f2a3f4e8f0b",
+    "timestamp": "2026-01-07T20:22:58Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "atran12",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "EUR IRS: receive fixed vs pay 6M IBOR; trade carries envelope/netting/portfolio metadata."
+  },
+  "parties": [
+    { "code": "MACQ_EU", "lei": "549300MACQEXAMPLE99", "name": "Macquarie (Example EU)", "role": "Dealer" },
+    { "code": "CORP_TREASURY_01", "lei": "549300CORPTREXAMP3", "name": "Corporate Treasury Co.", "role": "Client" }
+  ],
+  "general": {
+    "envelope": {
+      "counterparty": "CORP_TREASURY_01",
+      "nettingSetId": "NETSET_CORP_TREASURY_01",
+      "portfolioIds": ["PF#IR#01", "PF#HEDGE#EUR"],
+      "additionalFields": {
+        "Desk": "Rates",
+        "Book": "IR-EUR-HDG-02",
+        "Sector": "Corporate",
+        "Strategy": "Hedge"
+      }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "atran12",
+        "priceMaker": "atran12",
+        "transactionAcceptor": "aajay1",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T20:15:40.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "common": {
+      "book": "IR-EUR-HDG-02",
+      "tradeDate": "2026-01-07",
+      "counterparty": "CORP_TREASURY_01",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "irs",
+    "currency": "EUR",
+    "underlying": "EUR-EURIBOR-6M"
+  },
+  "swapLegs": [
+    {
+      "legType": "Receive",
+      "payer": "MACQ_EU",
+      "receiver": "CORP_TREASURY_01",
+      "currency": "EUR",
+      "rateType": "fixed",
+      "notional": 100000000,
+      "pricing": {
+        "interestRate": 0.028,
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "P1Y",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    },
+    {
+      "legType": "Pay",
+      "payer": "CORP_TREASURY_01",
+      "receiver": "MACQ_EU",
+      "currency": "EUR",
+      "rateType": "floating",
+      "notional": 100000000,
+      "pricing": {
+        "ratesetRef": "EUR-EURIBOR-6M",
+        "referenceTenor": "6M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "P6M",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09"
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.envelope",
+    "general.envelope.nettingSetId",
+    "general.envelope.portfolioIds",
+    "general.envelope.additionalFields"
+  ]
+}

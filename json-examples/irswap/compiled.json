@@ -1,0 +1,1114 @@
+TRADE 1 — Vanilla IRS (fixed vs 6M ibor; QuantLib-style schedule knobs + Strata-style identifiers)
+
+{
+  "tradeId": "7b2f3d2e-0a0a-4d21-9f6a-44c4f3d90a2c",
+  "tradeExtId": "OG:123411",
+  "label": "vanilla",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "6f3c1e3a-9b2a-4c5d-9f41-7e6a0b8e1f21",
+    "timestamp": "2026-01-08T14:22:10Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "Initial booking: 5Y EUR IRS, pay fixed vs receive 6M EURIBOR; notional 100mm."
+  },
+  "general": {
+    "identifiers": {
+      "scheme": "OG",
+      "id": "123411"
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "kbagci",
+        "priceMaker": "kbagci",
+        "transactionAcceptor": "vmenon",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T22:35:17.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+    ],
+    "common": {
+      "book": "IR-USD-OTC-001",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "vanillaFixedFloat",
+    "currency": "EUR",
+    "conventions": {
+      "calendar": "TARGET",
+      "settlementDays": 2,
+      "fixedLegTenor": "1Y",
+      "floatingLegTenor": "6M",
+      "dateGenerationRule": "Backward",
+      "endOfMonth": true
+    }
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "FUND_XYZ",
+      "currency": "EUR",
+      "rateType": "fixed",
+      "notional": 100000000,
+      "pricing": {
+        "interestRate": 2.35,
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-01-17",
+        "endDate": "2031-01-17",
+        "periods": [
+          { "start": "2026-01-17", "end": "2027-01-17" },
+          { "start": "2027-01-17", "end": "2028-01-17" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "FUND_XYZ",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "EUR",
+      "rateType": "floating",
+      "notional": 100000000,
+      "pricing": {
+        "ratesetRef": "EUR-EURIBOR-6M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-01-17",
+        "endDate": "2031-01-17",
+        "periods": [
+          { "start": "2026-01-17", "end": "2026-07-17", "ratesetDate": "2026-01-17" },
+          { "start": "2026-07-17", "end": "2027-01-17", "ratesetDate": "2026-07-17" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.identifiers",
+    "swapDetails.conventions.settlementDays",
+    "swapDetails.conventions.dateGenerationRule",
+    "swapDetails.conventions.endOfMonth"
+  ]
+}
+
+
+TRADE 2 — Forward-starting IRS (MakeVanillaSwap-style forwardStart + richer date overrides)
+
+{
+  "tradeId": "b3a2f6a0-9c0c-49ea-9b2b-4b80d1b27e66",
+  "tradeExtId": "SEF-ICE:20260107-0001",
+  "label": "forwardStarting",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "d1a2a74e-4d26-4c56-9fd7-2e5b0a49c0b1",
+    "timestamp": "2026-01-07T23:11:02Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "asmith07",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "Forward-starting 5Y USD IRS (starts in 2D); pay fixed vs receive 6M SOFR-compounded proxy."
+  },
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "vmenon",
+        "priceMaker": "vmenon",
+        "transactionAcceptor": "aajay1",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T23:08:41.000Z",
+        "executionVenueType": "OnFacility",
+        "executionVenueMIC": "XOFF",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" },
+      { "code": "ICAP_SEF", "lei": "549300ICAPEXAMPLE22", "name": "ICAP SEF LLC", "role": "ExecutingBroker" }
+    ],
+    "common": {
+      "book": "IR-USD-SEF-TRD",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "Yes",
+      "includeFeeEngine": "standard",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "vanillaFixedFloat",
+    "currency": "USD",
+    "conventions": {
+      "forwardStart": "P2D",
+      "effectiveDateOverride": "2026-01-09",
+      "terminationDateOverride": "2031-01-09",
+      "settlementDays": 2,
+      "dateGenerationRule": "Backward"
+    }
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "USD",
+      "rateType": "fixed",
+      "notional": 10000000,
+      "pricing": {
+        "interestRate": 4.25,
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09",
+        "periods": [
+          { "start": "2026-01-09", "end": "2026-07-09" },
+          { "start": "2026-07-09", "end": "2027-01-09" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 10000000,
+      "pricing": {
+        "ratesetRef": "SOFR",
+        "referenceTenor": "6M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-01-09",
+        "endDate": "2031-01-09",
+        "periods": [
+          { "start": "2026-01-09", "end": "2026-07-09", "ratesetDate": "2026-01-09" },
+          { "start": "2026-07-09", "end": "2027-01-09", "ratesetDate": "2026-07-09" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.transactionInformation.executionDetails.executionVenueMIC",
+    "swapDetails.conventions.forwardStart",
+    "swapDetails.conventions.effectiveDateOverride",
+    "swapDetails.conventions.terminationDateOverride",
+    "general.parties[2].role=ExecutingBroker"
+  ]
+}
+
+
+TRADE 3 — Amortizing IRS (explicit notional arrays / amortization steps)
+
+{
+  "tradeId": "2b8d5144-7bba-4a6a-8a35-971d1808b138",
+  "tradeExtId": "OPS:IRS-AMORT-20260107-77",
+  "label": "amortizing",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "8c2a20a8-8cc3-46c9-8e06-3a9fd8aa2b3f",
+    "timestamp": "2026-01-08T00:41:19Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "2Y amortizing EUR IRS; fixed notional steps per schedule."
+  },
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "atran12",
+        "priceMaker": "atran12",
+        "transactionAcceptor": "kbagci",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T19:14:05.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_EU", "lei": "549300MACQEXAMPLE99", "name": "Macquarie Bank Limited (EU)", "role": "Dealer" },
+      { "code": "CORP_TREASURY_01", "lei": "549300CORPTREXAMP3", "name": "Corporate Treasury Co.", "role": "Client" }
+    ],
+    "common": {
+      "book": "IR-EUR-CORP-HDG",
+      "tradeDate": "2026-01-07",
+      "counterparty": "CORP_TREASURY_01",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "amortizingFixedFloat",
+    "currency": "EUR",
+    "amortization": {
+      "type": "stepDown",
+      "notionalSchedule": [
+        { "effective": "2026-06-17", "notional": 100000000 },
+        { "effective": "2027-06-17", "notional": 50000000 }
+      ]
+    }
+  },
+  "swapLegs": [
+    {
+      "legType": "Receive",
+      "payerPartyCode": "CORP_TREASURY_01",
+      "receiverPartyCode": "MACQ_EU",
+      "currency": "EUR",
+      "rateType": "fixed",
+      "notional": 100000000,
+      "pricing": { "interestRate": 1.00, "dayCountBasisIsda": "ACT/360" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-17",
+        "endDate": "2028-06-17",
+        "periods": [
+          { "start": "2026-06-17", "end": "2027-06-17", "notional": 100000000 },
+          { "start": "2027-06-17", "end": "2028-06-17", "notional": 50000000 }
+        ]
+      }
+    },
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_EU",
+      "receiverPartyCode": "CORP_TREASURY_01",
+      "currency": "EUR",
+      "rateType": "floating",
+      "notional": 100000000,
+      "pricing": {
+        "ratesetRef": "EUR-EURIBOR-6M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-06-17",
+        "endDate": "2028-06-17",
+        "periods": [
+          { "start": "2026-06-17", "end": "2026-12-17", "notional": 100000000 },
+          { "start": "2026-12-17", "end": "2027-06-17", "notional": 100000000 }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapDetails.amortization",
+    "swapLegs[*].schedule.periods[*].notional"
+  ]
+}
+
+
+TRADE 4 — OIS (overnight index; paymentLag + telescopicValueDates + rate cut-off)
+
+{
+  "tradeId": "d0f4cb11-635d-49ac-9d5c-03a2c8df9d22",
+  "tradeExtId": "OG:OIS-20260107-0042",
+  "label": "overnight",
+  "version": 2,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 2,
+    "correlationId": "a91d4f0b-2c7a-4d9b-8e62-1b0f5c3a9e44",
+    "timestamp": "2026-01-08T15:03:44Z",
+    "intent": "AMEND_ECONOMICS",
+    "eventType": "Amend",
+    "executedBy": "asmith07",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "Amendment: OIS spread updated to +8 bps; no other terms changed."
+  },
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "aajay1",
+        "priceMaker": "aajay1",
+        "transactionAcceptor": "vmenon",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T21:02:09.000Z",
+        "executionVenueType": "OnFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" }
+    ],
+    "common": {
+      "book": "IR-USD-OIS",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "Yes",
+      "includeFeeEngine": "standard",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "oisFixedOvernight",
+    "currency": "USD",
+    "oisConventions": {
+      "paymentLagDays": 2,
+      "telescopicValueDates": true,
+      "paymentAdjustment": "Following"
+    }
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "USD",
+      "rateType": "fixed",
+      "notional": 25000000,
+      "pricing": { "interestRate": 4.05, "dayCountBasisIsda": "ACT/360" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-15",
+        "endDate": "2027-06-15",
+        "periods": [
+          { "start": "2026-06-15", "end": "2027-06-15" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 25000000,
+      "pricing": {
+        "ratesetRef": "SOFR",
+        "referenceTenor": "1D",
+        "spreadBps": 8,
+        "dayCountBasisIsda": "ACT/360",
+        "accrualMethod": "Compounded",
+        "rateCutOffDays": 2,
+        "negativeRateMethod": "AllowNegative",
+        "style": "overnight"
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-15",
+        "endDate": "2027-06-15",
+        "periods": [
+          { "start": "2026-06-15", "end": "2027-06-15" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapDetails.oisConventions.telescopicValueDates",
+    "swapDetails.oisConventions.paymentLagDays",
+    "swapLegs[1].pricing.rateCutOffDays",
+    "swapLegs[1].pricing.negativeRateMethod"
+  ]
+}
+
+
+TRADE 5 — Basis Swap (Float/Float; reset frequency + weighted reset method)
+
+{
+  "tradeId": "cfe4c9b4-0f10-4a52-bf74-7e13c4d7b1f0",
+  "tradeExtId": "OPS:BASIS-20260107-019",
+  "label": "basis",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "de1f4e9f-6c3d-4e5a-9b47-6fe1e18c3c66",
+    "timestamp": "2026-01-08T09:22:58Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "USD basis swap: receive 3M index, pay 6M index + spread; 3Y."
+  },
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "kbagci",
+        "priceMaker": "kbagci",
+        "transactionAcceptor": "atran12",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T20:10:11.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+    ],
+    "common": {
+      "book": "IR-USD-BASIS",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "floatFloatBasis",
+    "currency": "USD",
+    "basis": { "index1": "USD-3M", "index2": "USD-6M" }
+  },
+  "swapLegs": [
+    {
+      "legType": "Receive",
+      "payerPartyCode": "FUND_XYZ",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 50000000,
+      "pricing": {
+        "ratesetRef": "USD-3M",
+        "spreadBps": 0,
+        "dayCountBasisIsda": "ACT/360",
+        "fixingRelativeTo": "PeriodStart",
+        "fixingOffsetDays": 2,
+        "resetFrequency": "1M",
+        "resetMethod": "Weighted",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "quarterly",
+        "startDate": "2026-01-10",
+        "endDate": "2029-01-10",
+        "periods": [
+          { "start": "2026-01-10", "end": "2026-04-10", "ratesetDate": "2026-01-10" },
+          { "start": "2026-04-10", "end": "2026-07-10", "ratesetDate": "2026-04-10" }
+        ]
+      }
+    },
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "FUND_XYZ",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 50000000,
+      "pricing": {
+        "ratesetRef": "USD-6M",
+        "spreadBps": 12,
+        "dayCountBasisIsda": "ACT/360",
+        "fixingRelativeTo": "PeriodStart",
+        "fixingOffsetDays": 2,
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-01-10",
+        "endDate": "2029-01-10",
+        "periods": [
+          { "start": "2026-01-10", "end": "2026-07-10", "ratesetDate": "2026-01-10" },
+          { "start": "2026-07-10", "end": "2027-01-10", "ratesetDate": "2026-07-10" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapDetails.basis",
+    "swapLegs[0].pricing.resetFrequency",
+    "swapLegs[0].pricing.resetMethod"
+  ]
+}
+
+
+TRADE 6 — Nonstandard IRS (arrays for nominals/rates/gearings; capital exchange flags)
+
+{
+  "tradeId": "0f3d7f5e-1cb3-4a4d-bd72-3a4d0c1c4cb6",
+  "tradeExtId": "QL:NONSTD-20260107-01",
+  "label": "nonstandard",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "c2a7f3de-1f0d-4a64-bcdd-6f1e4b2d1c9a",
+    "timestamp": "2026-01-08T12:05:30Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "Nonstandard IRS with variable notionals and gearings; intermediate/final capital exchange enabled."
+  },
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "vmenon",
+        "priceMaker": "vmenon",
+        "transactionAcceptor": "kbagci",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T18:30:20.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_EU", "lei": "549300MACQEXAMPLE99", "name": "Macquarie Bank Limited (EU)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" }
+    ],
+    "common": {
+      "book": "IR-EUR-STRUCT",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "swapType": "nonstandardFixedFloat",
+    "currency": "EUR",
+    "notionalExchange": {
+      "intermediateCapitalExchange": true,
+      "finalCapitalExchange": true
+    }
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_EU",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "EUR",
+      "rateType": "fixed",
+      "notional": 100000000,
+      "pricing": {
+        "interestRateSchedulePct": [2.00, 2.00],
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-15",
+        "endDate": "2028-06-15",
+        "periods": [
+          { "start": "2026-06-15", "end": "2027-06-15", "notional": 100000000 },
+          { "start": "2027-06-15", "end": "2028-06-15", "notional": 100000000 }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_EU",
+      "currency": "EUR",
+      "rateType": "floating",
+      "notional": 100000000,
+      "pricing": {
+        "ratesetRef": "EUR-EURIBOR-6M",
+        "gearings": [1.0, 1.0, 1.0, 1.0],
+        "spreadsBps": [0, 0, 0, 0],
+        "dayCountBasisIsda": "ACT/360",
+        "style": "ibor"
+      },
+      "schedule": {
+        "frequency": "semiannual",
+        "startDate": "2026-06-15",
+        "endDate": "2028-06-15",
+        "periods": [
+          { "start": "2026-06-15", "end": "2026-12-15", "notional": 100000000 },
+          { "start": "2026-12-15", "end": "2027-06-15", "notional": 100000000 }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapDetails.notionalExchange.intermediateCapitalExchange",
+    "swapDetails.notionalExchange.finalCapitalExchange",
+    "swapLegs[0].pricing.interestRateSchedulePct",
+    "swapLegs[1].pricing.gearings",
+    "swapLegs[1].pricing.spreadsBps"
+  ]
+}
+
+
+TRADE 7 — Zero Coupon Swap (one leg = ZeroCouponFixed; compounding)
+
+{
+  "tradeId": "6d4b6f6a-7a2e-4c60-bc0b-9f1b9d4e5f62",
+  "tradeExtId": "ORE:ZC-20260107-0007",
+  "label": "zeroCoupon",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "2b9a8b40-0e1b-4ab6-98c8-8d12b884a3d3",
+    "timestamp": "2026-01-08T10:12:02Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "asmith07",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "Zero-coupon structure: floating vs zero-coupon fixed with simple compounding."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "FUND_XYZ",
+      "nettingSetId": "NettingSet#2",
+      "portfolioIds": ["PF#IR#01", "PF#HEDGE#A"],
+      "additionalFields": { "Sector": "Rates", "Desk": "IR Trading", "Folder": "ZC-Structures" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "atran12",
+        "priceMaker": "atran12",
+        "transactionAcceptor": "aajay1",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T16:05:00.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+    ],
+    "common": {
+      "book": "IR-USD-ZC",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "zeroCouponFixedVsFloat", "currency": "USD" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "FUND_XYZ",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 10000000,
+      "pricing": { "ratesetRef": "USD-LIBOR-3M", "dayCountBasisIsda": "ACT/360", "style": "ibor" },
+      "schedule": {
+        "frequency": "quarterly",
+        "startDate": "2026-03-01",
+        "endDate": "2028-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2026-06-01", "ratesetDate": "2026-03-01" },
+          { "start": "2026-06-01", "end": "2026-09-01", "ratesetDate": "2026-06-01" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "FUND_XYZ",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "USD",
+      "rateType": "zeroCouponFixed",
+      "notional": 10000000,
+      "pricing": {
+        "rates": [2.00],
+        "compounding": "Simple",
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "bullet",
+        "startDate": "2026-03-01",
+        "endDate": "2028-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2028-03-01", "paymentDate": "2028-03-01" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.envelope.nettingSetId",
+    "general.envelope.portfolioIds",
+    "general.envelope.additionalFields",
+    "swapLegs[1].rateType=zeroCouponFixed",
+    "swapLegs[1].pricing.compounding"
+  ]
+}
+
+
+TRADE 8 — CPI Swap (CPI leg: baseCPI + observationLag + interpolated)
+
+{
+  "tradeId": "94c0f912-4f2f-4c1e-8c1d-9b2b1a89a2c3",
+  "tradeExtId": "ORE:CPI-20260107-0013",
+  "label": "cpi",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "f1a4b1b3-3d4a-4f67-8d5c-4a61e4d2c7a0",
+    "timestamp": "2026-01-08T11:45:10Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "CPI swap structure: floating vs CPI leg with base CPI and observation lag."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "BANK_ABC",
+      "nettingSetId": "NettingSet#Infl01",
+      "additionalFields": { "Desk": "Inflation", "Book": "INF-GBP-01" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "vmenon",
+        "priceMaker": "vmenon",
+        "transactionAcceptor": "atran12",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T17:55:33.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_UK", "lei": "549300MACQUKEXAMP55", "name": "Macquarie Bank Limited (UK)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" }
+    ],
+    "common": {
+      "book": "INF-GBP-01",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "cpiSwap", "currency": "GBP" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_UK",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "GBP",
+      "rateType": "floating",
+      "notional": 10000000,
+      "pricing": { "ratesetRef": "GBP-SONIA", "dayCountBasisIsda": "ACT/365.FIXED", "style": "overnight" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-07-18",
+        "endDate": "2031-07-18",
+        "periods": [
+          { "start": "2026-07-18", "end": "2027-07-18" },
+          { "start": "2027-07-18", "end": "2028-07-18" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_UK",
+      "currency": "GBP",
+      "rateType": "cpi",
+      "notional": 10000000,
+      "pricing": {
+        "index": "UKRPI",
+        "fixedRate": 2.00,
+        "baseCpi": 210.0,
+        "observationLag": "2M",
+        "interpolated": false,
+        "subtractInflationNotional": false
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-07-18",
+        "endDate": "2031-07-18",
+        "periods": [
+          { "start": "2026-07-18", "end": "2027-07-18" },
+          { "start": "2027-07-18", "end": "2028-07-18" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapLegs[1].rateType=cpi",
+    "swapLegs[1].pricing.baseCpi",
+    "swapLegs[1].pricing.observationLag",
+    "swapLegs[1].pricing.interpolated",
+    "swapLegs[1].pricing.subtractInflationNotional"
+  ]
+}
+
+
+TRADE 9 — Year-on-Year Inflation Swap (fixingDays + caps/floors)
+
+{
+  "tradeId": "4d2c91e8-1b2c-4b7b-8b6a-1d40f2f2cc99",
+  "tradeExtId": "ORE:YY-20260107-0004",
+  "label": "yoyInflation",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "aa6d3c5a-9e2d-4a1f-b3e1-5ff0a7c2c39d",
+    "timestamp": "2026-01-08T13:18:02Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "asmith07",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "YY inflation leg with fixing days and coupon caps/floors (illustrative structure)."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "FUND_XYZ",
+      "additionalFields": { "Desk": "Inflation", "Folder": "YY-Structures" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "aajay1",
+        "priceMaker": "aajay1",
+        "transactionAcceptor": "kbagci",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T14:40:07.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_EU", "lei": "549300MACQEXAMPLE99", "name": "Macquarie Bank Limited (EU)", "role": "Dealer" },
+      { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+    ],
+    "common": {
+      "book": "INF-EUR-YY-01",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "yyInflationSwap", "currency": "EUR" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_EU",
+      "receiverPartyCode": "FUND_XYZ",
+      "currency": "EUR",
+      "rateType": "fixed",
+      "notional": 10000000,
+      "pricing": { "interestRate": 1.75, "dayCountBasisIsda": "30/360" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-01",
+        "endDate": "2031-06-01",
+        "periods": [
+          { "start": "2026-06-01", "end": "2027-06-01" },
+          { "start": "2027-06-01", "end": "2028-06-01" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "FUND_XYZ",
+      "receiverPartyCode": "MACQ_EU",
+      "currency": "EUR",
+      "rateType": "yoyInflation",
+      "notional": 10000000,
+      "pricing": {
+        "index": "EUCPI",
+        "fixingDays": "2D",
+        "observationLag": "3M",
+        "caps": [5.0],
+        "floors": [0.0]
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-01",
+        "endDate": "2031-06-01",
+        "periods": [
+          { "start": "2026-06-01", "end": "2027-06-01" },
+          { "start": "2027-06-01", "end": "2028-06-01" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapLegs[1].rateType=yoyInflation",
+    "swapLegs[1].pricing.fixingDays",
+    "swapLegs[1].pricing.caps",
+    "swapLegs[1].pricing.floors"
+  ]
+}
+
+
+TRADE 10 — Digital CMS Spread Swap (digital call/put strikes + payoffs; nakedOption)
+
+{
+  "tradeId": "1f0e1b33-6f8f-4a1b-9b5e-1a3d7a5f8a1c",
+  "tradeExtId": "ORE:DIGCMS-20260107-0009",
+  "label": "digitalCmsSpread",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Abandoned",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "0d9c1f70-1c8b-4a7b-b5d6-2b7f2a9c1f33",
+    "timestamp": "2026-01-08T16:44:12Z",
+    "intent": "CANCEL_TRADE",
+    "eventType": "Cancel",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "Trade canceled during controls review (structure deemed out-of-scope for the book)."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "BANK_ABC",
+      "nettingSetId": "NettingSet#CMS01",
+      "additionalFields": { "Desk": "Rates Exotics", "Book": "CMS-SPRD-EXO" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "kbagci",
+        "priceMaker": "kbagci",
+        "transactionAcceptor": "vmenon",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T13:20:04.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": true
+      }
+    },
+    "parties": [
+      { "code": "MACQ_UK", "lei": "549300MACQUKEXAMP55", "name": "Macquarie Bank Limited (UK)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" }
+    ],
+    "common": {
+      "book": "CMS-SPRD-EXO",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "digitalCmsSpread", "currency": "GBP" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_UK",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "GBP",
+      "rateType": "fixed",
+      "notional": 10000000,
+      "pricing": { "interestRate": 1.10, "dayCountBasisIsda": "ACT/ACT" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-03-01",
+        "endDate": "2029-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2027-03-01" },
+          { "start": "2027-03-01", "end": "2028-03-01" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_UK",
+      "currency": "GBP",
+      "rateType": "digitalCmsSpread",
+      "notional": 10000000,
+      "pricing": {
+        "index1": "EUR-CMS-10Y",
+        "index2": "EUR-CMS-2Y",
+        "spread": 10,
+        "gearing": 8.0,
+        "caps": [5.0],
+        "floors": [1.0],
+        "nakedOption": "N",
+        "digital": {
+          "callPosition": "Long",
+          "isCallATMIncluded": false,
+          "callStrikes": [0.01],
+          "callPayoffs": [0.01],
+          "putPosition": "Long",
+          "isPutATMIncluded": false,
+          "putStrikes": [0.10],
+          "putPayoffs": [0.10]
+        }
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-03-01",
+        "endDate": "2029-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2027-03-01" },
+          { "start": "2027-03-01", "end": "2028-03-01" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "status=Abandoned",
+    "swapLegs[1].rateType=digitalCmsSpread",
+    "swapLegs[1].pricing.digital",
+    "swapLegs[1].pricing.nakedOption",
+    "general.transactionInformation.executionDetails.isOffMarketPrice=true"
+  ]
+}

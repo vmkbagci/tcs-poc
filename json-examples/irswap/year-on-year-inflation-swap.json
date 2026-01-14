@@ -1,0 +1,101 @@
+{
+  "tradeId": "4d2c91e8-1b2c-4b7b-8b6a-1d40f2f2cc99",
+  "tradeExtId": "ORE:YY-20260107-0004",
+  "label": "yoyInflation",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "aa6d3c5a-9e2d-4a1f-b3e1-5ff0a7c2c39d",
+    "timestamp": "2026-01-08T13:18:02Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "asmith07",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "YY inflation leg with fixing days and coupon caps/floors (illustrative structure)."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "FUND_XYZ",
+      "additionalFields": { "Desk": "Inflation", "Folder": "YY-Structures" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "aajay1",
+        "priceMaker": "aajay1",
+        "transactionAcceptor": "kbagci",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T14:40:07.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_EU", "lei": "549300MACQEXAMPLE99", "name": "Macquarie Bank Limited (EU)", "role": "Dealer" },
+      { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+    ],
+    "common": {
+      "book": "INF-EUR-YY-01",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "yyInflationSwap", "currency": "EUR" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_EU",
+      "receiverPartyCode": "FUND_XYZ",
+      "currency": "EUR",
+      "rateType": "fixed",
+      "notional": 10000000,
+      "pricing": { "interestRate": 1.75, "dayCountBasisIsda": "30/360" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-01",
+        "endDate": "2031-06-01",
+        "periods": [
+          { "start": "2026-06-01", "end": "2027-06-01" },
+          { "start": "2027-06-01", "end": "2028-06-01" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "FUND_XYZ",
+      "receiverPartyCode": "MACQ_EU",
+      "currency": "EUR",
+      "rateType": "yoyInflation",
+      "notional": 10000000,
+      "pricing": {
+        "index": "EUCPI",
+        "fixingDays": "2D",
+        "observationLag": "3M",
+        "caps": [5.0],
+        "floors": [0.0]
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-06-01",
+        "endDate": "2031-06-01",
+        "periods": [
+          { "start": "2026-06-01", "end": "2027-06-01" },
+          { "start": "2027-06-01", "end": "2028-06-01" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapLegs[1].rateType=yoyInflation",
+    "swapLegs[1].pricing.fixingDays",
+    "swapLegs[1].pricing.caps",
+    "swapLegs[1].pricing.floors"
+  ]
+}

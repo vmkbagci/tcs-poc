@@ -1,0 +1,101 @@
+{
+  "tradeId": "6d4b6f6a-7a2e-4c60-bc0b-9f1b9d4e5f62",
+  "tradeExtId": "ORE:ZC-20260107-0007",
+  "label": "zeroCoupon",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "2b9a8b40-0e1b-4ab6-98c8-8d12b884a3d3",
+    "timestamp": "2026-01-08T10:12:02Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "asmith07",
+    "platform": "POST_TRADE_OPS_WEB",
+    "comment": "Zero-coupon structure: floating vs zero-coupon fixed with simple compounding."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "FUND_XYZ",
+      "nettingSetId": "NettingSet#2",
+      "portfolioIds": ["PF#IR#01", "PF#HEDGE#A"],
+      "additionalFields": { "Sector": "Rates", "Desk": "IR Trading", "Folder": "ZC-Structures" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "atran12",
+        "priceMaker": "atran12",
+        "transactionAcceptor": "aajay1",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T16:05:00.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_US", "lei": "549300MACQEXAMPLE00", "name": "Macquarie Bank Limited (US Branch)", "role": "Dealer" },
+      { "code": "FUND_XYZ", "lei": "549300FUNDXYZEXAMP1", "name": "Fund XYZ LP", "role": "Client" }
+    ],
+    "common": {
+      "book": "IR-USD-ZC",
+      "tradeDate": "2026-01-07",
+      "counterparty": "FUND_XYZ",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "zeroCouponFixedVsFloat", "currency": "USD" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_US",
+      "receiverPartyCode": "FUND_XYZ",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 10000000,
+      "pricing": { "ratesetRef": "USD-LIBOR-3M", "dayCountBasisIsda": "ACT/360", "style": "ibor" },
+      "schedule": {
+        "frequency": "quarterly",
+        "startDate": "2026-03-01",
+        "endDate": "2028-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2026-06-01", "ratesetDate": "2026-03-01" },
+          { "start": "2026-06-01", "end": "2026-09-01", "ratesetDate": "2026-06-01" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "FUND_XYZ",
+      "receiverPartyCode": "MACQ_US",
+      "currency": "USD",
+      "rateType": "zeroCouponFixed",
+      "notional": 10000000,
+      "pricing": {
+        "rates": [2.00],
+        "compounding": "Simple",
+        "dayCountBasisIsda": "30/360"
+      },
+      "schedule": {
+        "frequency": "bullet",
+        "startDate": "2026-03-01",
+        "endDate": "2028-03-01",
+        "periods": [
+          { "start": "2026-03-01", "end": "2028-03-01", "paymentDate": "2028-03-01" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "general.envelope.nettingSetId",
+    "general.envelope.portfolioIds",
+    "general.envelope.additionalFields",
+    "swapLegs[1].rateType=zeroCouponFixed",
+    "swapLegs[1].pricing.compounding"
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "general": {
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "atran12",
+        "priceMaker": "atran12",
+        "transactionAcceptor": "atran12",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07 16:35:17",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "common": {
+      "book": "FXDCIOPSY",
+      "tradeDate": "2026-01-07",
+      "counterparty": "00040477",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": {
+    "underlying": "AUD/USD",
+    "swapType": "ccs",
+    "principalExchange": {
+      "occurrence": "firstLastLegs",
+      "fxSpotRate": 0.65,
+      "fxRateMarketOrder": true,
+      "schedule": [
+        {
+          "paymentDate": "2026-01-09",
+          "audAmount": 1000000,
+          "usdAmount": -650000
+        },
+        {
+          "paymentDate": "2026-07-09",
+          "audAmount": -1000000,
+          "usdAmount": 650000
+        }
+      ]
+    }
+  },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "currency": "AUD",
+      "rateType": "fixed",
+      "notional": 1000000,
+      "pricing": {
+        "interestRate": 1.2,
+        "formula": "ARR",
+        "dayCountBasis": "A365FIX",
+        "dayCountBasisIsda": "ACT/365.FIXED"
+      },
+      "schedule": {
+        "frequency": "monthly",
+        "startDate": "2026-01-07",
+        "endDate": "2026-07-07",
+        "periods": [
+          { "start": "2026-01-07", "end": "2026-02-09", "interest": -1084.93 },
+          { "start": "2026-02-09", "end": "2026-03-09", "interest": -920.55 }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": 650000,
+      "pricing": {
+        "ratesetRef": "SOFR",
+        "referenceTenor": "1D",
+        "formula": "OIS",
+        "dayCountBasis": "ACT/360",
+        "observationMethod": "plain",
+        "averagingMethod": "compound",
+        "style": "floating-daily-average"
+      },
+      "schedule": {
+        "frequency": "monthly",
+        "startDate": "2026-01-07",
+        "endDate": "2026-07-07",
+        "periods": [
+          { "start": "2026-01-07", "end": "2026-02-09", "ratesetDate": "2026-02-09" },
+          { "start": "2026-02-09", "end": "2026-03-09", "ratesetDate": "2026-03-09" }
+        ]
+      }
+    }
+  ]
+}

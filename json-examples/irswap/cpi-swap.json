@@ -1,0 +1,104 @@
+{
+  "tradeId": "94c0f912-4f2f-4c1e-8c1d-9b2b1a89a2c3",
+  "tradeExtId": "ORE:CPI-20260107-0013",
+  "label": "cpi",
+  "version": 1,
+  "tradeType": "InterestRateSwap",
+  "status": "Confirmed",
+  "lastEvent": {
+    "version": 1,
+    "correlationId": "f1a4b1b3-3d4a-4f67-8d5c-4a61e4d2c7a0",
+    "timestamp": "2026-01-08T11:45:10Z",
+    "intent": "BOOK_NEW_TRADE",
+    "eventType": "Create",
+    "executedBy": "jdoe01",
+    "platform": "TRADE_CAPTURE_DESKTOP",
+    "comment": "CPI swap structure: floating vs CPI leg with base CPI and observation lag."
+  },
+  "general": {
+    "envelope": {
+      "counterparty": "BANK_ABC",
+      "nettingSetId": "NettingSet#Infl01",
+      "additionalFields": { "Desk": "Inflation", "Book": "INF-GBP-01" }
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "vmenon",
+        "priceMaker": "vmenon",
+        "transactionAcceptor": "atran12",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-07T17:55:33.000Z",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": [
+      { "code": "MACQ_UK", "lei": "549300MACQUKEXAMP55", "name": "Macquarie Bank Limited (UK)", "role": "Dealer" },
+      { "code": "BANK_ABC", "lei": "549300BANKABCEXA11", "name": "Bank ABC N.A.", "role": "Dealer" }
+    ],
+    "common": {
+      "book": "INF-GBP-01",
+      "tradeDate": "2026-01-07",
+      "counterparty": "BANK_ABC",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    }
+  },
+  "swapDetails": { "swapType": "cpiSwap", "currency": "GBP" },
+  "swapLegs": [
+    {
+      "legType": "Pay",
+      "payerPartyCode": "MACQ_UK",
+      "receiverPartyCode": "BANK_ABC",
+      "currency": "GBP",
+      "rateType": "floating",
+      "notional": 10000000,
+      "pricing": { "ratesetRef": "GBP-SONIA", "dayCountBasisIsda": "ACT/365.FIXED", "style": "overnight" },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-07-18",
+        "endDate": "2031-07-18",
+        "periods": [
+          { "start": "2026-07-18", "end": "2027-07-18" },
+          { "start": "2027-07-18", "end": "2028-07-18" }
+        ]
+      }
+    },
+    {
+      "legType": "Receive",
+      "payerPartyCode": "BANK_ABC",
+      "receiverPartyCode": "MACQ_UK",
+      "currency": "GBP",
+      "rateType": "cpi",
+      "notional": 10000000,
+      "pricing": {
+        "index": "UKRPI",
+        "fixedRate": 2.00,
+        "baseCpi": 210.0,
+        "observationLag": "2M",
+        "interpolated": false,
+        "subtractInflationNotional": false
+      },
+      "schedule": {
+        "frequency": "annual",
+        "startDate": "2026-07-18",
+        "endDate": "2031-07-18",
+        "periods": [
+          { "start": "2026-07-18", "end": "2027-07-18" },
+          { "start": "2027-07-18", "end": "2028-07-18" }
+        ]
+      }
+    }
+  ],
+  "x_nonCommonFields": [
+    "swapLegs[1].rateType=cpi",
+    "swapLegs[1].pricing.baseCpi",
+    "swapLegs[1].pricing.observationLag",
+    "swapLegs[1].pricing.interpolated",
+    "swapLegs[1].pricing.subtractInflationNotional"
+  ]
+}
