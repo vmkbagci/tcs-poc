@@ -44,31 +44,81 @@ graph TB
 
 ```python
 class Trade:
-    """Lightweight composition-based wrapper for trade JSON data."""
+    """Lightweight composition-based wrapper for trade JSON data.
     
-    def __init__(self, data: Dict[str, Any]):
-        self._data = data
+    Uses orjson, jmespath, and glom for high-performance JSON operations.
+    """
+    
+    def __init__(self, data: Union[Dict[str, Any], str, bytes]):
+        """Initialize from dict, JSON string, or JSON bytes."""
+        self._data = orjson.loads(data) if isinstance(data, (str, bytes)) else data
     
     @property
     def data(self) -> Dict[str, Any]:
         """Direct access to underlying JSON data."""
         return self._data
     
-    def get(self, path: str, default: Any = None) -> Any:
-        """Get nested property using dot notation."""
+    def jmesget(self, path: str, default: Any = None) -> Any:
+        """Get data using JMESPath (for complex queries, filters, projections).
+        
+        Examples:
+            trade.jmesget("legs[0].rate.currency")
+            trade.jmesget("legs[?legType=='Fixed'].rate")
+            trade.jmesget("legs[*].legId")
+        """
         pass
     
-    def set(self, path: str, value: Any) -> None:
-        """Set nested property using dot notation."""
+    def glomset(self, path: str, value: Any) -> None:
+        """Set nested property using glom path notation.
+        
+        Examples:
+            trade.glomset("legs.0.rate", 0.05)
+            trade.glomset("specific.rateFamily", "VanillaIRS")
+        """
         pass
     
-    @property
-    def trade_type(self) -> str:
-        return self._data.get("tradeType", "")
+    def to_json(self) -> bytes:
+        """Serialize to JSON bytes using orjson."""
+        pass
+    
+    def to_readonly(self) -> 'ReadOnlyTrade':
+        """Convert to immutable read-only trade with cached properties."""
+        pass
+
+
+class ReadOnlyTrade:
+    """Immutable read-only view with cached properties.
+    
+    Provides same read interface as Trade but prevents modifications
+    and caches expensive property lookups.
+    """
+    
+    def __init__(self, data: Union[Dict[str, Any], Trade]):
+        """Initialize with immutable MappingProxyType wrapper."""
+        self._data = MappingProxyType(data._data if isinstance(data, Trade) else data)
     
     @property
+    def data(self) -> MappingProxyType:
+        """Immutable view of underlying data."""
+        return self._data
+    
+    def jmesget(self, path: str, default: Any = None) -> Any:
+        """Get data using JMESPath (same as Trade)."""
+        pass
+    
+    @cached_property
     def trade_id(self) -> str:
-        return self._data.get("tradeId", "")
+        """Cached trade ID lookup."""
+        pass
+    
+    @cached_property
+    def trade_type(self) -> str:
+        """Cached trade type lookup."""
+        pass
+    
+    def to_json(self) -> bytes:
+        """Serialize to JSON bytes."""
+        pass
 ```
 
 ### Pipeline Stage Interface
@@ -171,34 +221,391 @@ class TradeResponse(BaseModel):
 
 ### Trade Templates
 
-The system maintains JSON templates for each trade type:
+The system uses a hierarchical, component-based template system for trade generation.
+
+## Template Factory Architecture
+
+### Overview
+
+The Trade API uses a **hierarchical component-based template system** to generate trade structures. This architecture enables:
+- **Reusability**: Share common components across trade types
+- **Maintainability**: Change base components to affect all descendants
+- **Extensibility**: Add new trade types by creating new component files
+- **Flexibility**: Override at any inheritance level
+- **Version Control**: Track template changes independently from trade data
+
+### Key Concepts
+
+**Template Schema Version vs Trade Version**:
+- **Template Schema Version**: Version of the template structure/format (e.g., v1 uses `payerPartyCode`, v2 uses `payer`)
+- **Trade Version**: Version of a specific trade instance, incremented on amendments (business version)
+- These are completely independent concepts
+
+**Component Inheritance**:
+- Components are organized in a hierarchy from general to specific
+- Child components inherit and can override parent component fields
+- Merge order: base → type → subtype → market → leg-specific
+
+### Directory Structure
+
+```
+tcs-api/templates/
+├── schema-version/          # Template schema version (v1, v2, etc.)
+│   └── v1/                  # Current schema version
+│       ├── base/
+│       │   ├── trade-base.json           # Universal trade fields
+│       │   ├── general-base.json         # Base general section
+│       │   ├── swap-details-base.json    # Base swap details
+│       │   └── swap-leg-base.json        # Base leg structure (ALL legs)
+│       │
+│       ├── swap-types/
+│       │   ├── irs/                      # Interest Rate Swaps
+│       │   │   ├── irs-base.json         # Common to ALL IRS types
+│       │   │   ├── irs-leg-base.json     # Common to ALL IRS legs
+│       │   │   ├── vanilla/
+│       │   │   │   ├── vanilla-irs.json  # Vanilla-specific overrides
+│       │   │   │   └── vanilla-irs-legs.json
+│       │   │   ├── ois/
+│       │   │   │   ├── ois.json
+│       │   │   │   └── ois-legs.json
+│       │   │   ├── amortizing/
+│       │   │   │   ├── amortizing-irs.json
+│       │   │   │   └── amortizing-irs-legs.json
+│       │   │   └── basis/
+│       │   │       ├── basis-swap.json
+│       │   │       └── basis-swap-legs.json
+│       │   │
+│       │   └── xccy/                     # Cross Currency Swaps
+│       │       ├── xccy-base.json
+│       │       └── xccy-leg-base.json
+│       │
+│       ├── leg-types/
+│       │   ├── fixed-leg.json            # Fixed leg specifics
+│       │   ├── floating-ibor-leg.json    # IBOR floating specifics
+│       │   ├── floating-ois-leg.json     # OIS floating specifics
+│       │   ├── inflation-cpi-leg.json    # CPI inflation specifics
+│       │   └── inflation-yoy-leg.json    # YoY inflation specifics
+│       │
+│       └── conventions/
+│           ├── eur-conventions.json      # EUR market conventions
+│           ├── usd-conventions.json      # USD market conventions
+│           └── gbp-conventions.json      # GBP market conventions
+```
+
+### Component Inheritance Chain
+
+**Example: Vanilla EUR IRS with Fixed + Floating legs**
 
 ```python
-TRADE_TEMPLATES = {
-    "InterestRateSwap": {
-        "tradeType": "InterestRateSwap",
-        "assetClass": "Rates",
+# Merge order (later overrides earlier):
+components = [
+    # 1. Universal base
+    "base/trade-base.json",
+    "base/general-base.json",
+    
+    # 2. IRS base (common to all IRS)
+    "swap-types/irs/irs-base.json",
+    
+    # 3. Vanilla IRS specifics
+    "swap-types/irs/vanilla/vanilla-irs.json",
+    
+    # 4. Market conventions
+    "conventions/eur-conventions.json",
+    
+    # 5. Legs (with inheritance):
+    {
         "legs": [
-            {"legId": "FIXED", "legType": "Fixed"},
-            {"legId": "FLOAT", "legType": "Floating"}
-        ],
-        "specific": {"rateFamily": "VanillaIRS"}
-    },
-    "OvernightIndexSwap": {
-        "tradeType": "OvernightIndexSwap", 
-        "assetClass": "Rates",
-        "legs": [
-            {"legId": "FIXED", "legType": "Fixed"},
-            {"legId": "OIS_FLOAT", "legType": "Floating"}
-        ],
-        "specific": {
-            "rateFamily": "OIS",
-            "compounding": "CompoundedInArrears"
-        }
+            # Fixed leg: base → irs-leg-base → vanilla-leg → fixed-leg
+            merge(
+                "base/swap-leg-base.json",
+                "swap-types/irs/irs-leg-base.json",
+                "swap-types/irs/vanilla/vanilla-irs-legs.json",
+                "leg-types/fixed-leg.json"
+            ),
+            # Floating leg: base → irs-leg-base → vanilla-leg → floating-ibor
+            merge(
+                "base/swap-leg-base.json",
+                "swap-types/irs/irs-leg-base.json",
+                "swap-types/irs/vanilla/vanilla-irs-legs.json",
+                "leg-types/floating-ibor-leg.json"
+            )
+        ]
     }
-    # Additional templates for BasisSwap, CrossCurrencySwap
+]
+```
+
+### Example Component Files
+
+**base/swap-leg-base.json** (ALL legs inherit):
+```json
+{
+  "legType": "",
+  "currency": "",
+  "notional": 0,
+  "settlementLag": 2,
+  "schedule": {
+    "frequency": "",
+    "startDate": "",
+    "endDate": ""
+  },
+  "pricing": {
+    "dayCountBasisIsda": ""
+  }
 }
 ```
+
+**swap-types/irs/irs-leg-base.json** (ALL IRS legs inherit):
+```json
+{
+  "payerPartyCode": "",
+  "receiverPartyCode": "",
+  "businessDayConvention": "Modified Following",
+  "pricing": {
+    "dayCountBasisIsda": "ACT/360"
+  }
+}
+```
+
+**swap-types/irs/vanilla/vanilla-irs-legs.json** (Vanilla IRS leg specifics):
+```json
+{
+  "schedule": {
+    "frequency": "semiannual"
+  }
+}
+```
+
+**leg-types/fixed-leg.json** (Fixed leg specifics):
+```json
+{
+  "rateType": "fixed",
+  "pricing": {
+    "interestRate": 0.0,
+    "dayCountBasisIsda": "30/360"
+  }
+}
+```
+
+**Result after merging** (Fixed leg for Vanilla IRS):
+```json
+{
+  "legType": "",
+  "currency": "",
+  "notional": 0,
+  "settlementLag": 2,
+  "payerPartyCode": "",
+  "receiverPartyCode": "",
+  "businessDayConvention": "Modified Following",
+  "rateType": "fixed",
+  "schedule": {
+    "frequency": "semiannual",
+    "startDate": "",
+    "endDate": ""
+  },
+  "pricing": {
+    "interestRate": 0.0,
+    "dayCountBasisIsda": "30/360"
+  }
+}
+```
+
+### TradeTemplateFactory Interface
+
+```python
+class TradeTemplateFactory:
+    """Factory for creating TradeAssemblers with hierarchical template inheritance.
+    
+    Composes trade templates from JSON component files based on:
+    - Trade type (InterestRateSwap, CrossCurrencySwap, etc.)
+    - Subtype (Vanilla, OIS, Basis, Amortizing, etc.)
+    - Currency/Market (EUR, USD, GBP - affects conventions)
+    - Leg configurations (Fixed, Floating IBOR, Floating OIS, etc.)
+    - Template schema version (v1, v2, etc.)
+    
+    Design principles:
+    - Loads JSON components from template files
+    - Applies hierarchical inheritance (base → type → subtype → market → leg)
+    - Returns configured TradeAssembler ready to assemble()
+    - Caches loaded components for performance
+    - Supports extensibility (add new types by adding JSON files)
+    """
+    
+    def __init__(self, template_dir: str, schema_version: str = "v1"):
+        """Initialize factory with template directory and schema version."""
+        pass
+    
+    def create_assembler(
+        self,
+        trade_type: str,
+        subtype: str,
+        currency: str,
+        leg_configs: List[Dict[str, Any]],
+        **kwargs
+    ) -> TradeAssembler:
+        """Create TradeAssembler for specified trade configuration.
+        
+        Args:
+            trade_type: "InterestRateSwap", "CrossCurrencySwap", etc.
+            subtype: "Vanilla", "OIS", "Amortizing", etc.
+            currency: "EUR", "USD", "GBP", etc.
+            leg_configs: [
+                {"type": "fixed", "legType": "Pay"},
+                {"type": "floating-ibor", "legType": "Receive"}
+            ]
+            **kwargs: Additional parameters for template customization
+            
+        Returns:
+            Configured TradeAssembler ready to assemble()
+        """
+        pass
+```
+
+### Architectural Benefits
+
+**1. DRY Principle**:
+- Change `swap-leg-base.json` once → affects ALL legs across ALL swap types
+- Change `irs-leg-base.json` once → affects ALL IRS legs (vanilla, OIS, basis, etc.)
+- No duplication of common fields
+
+**2. Clear Inheritance Hierarchy**:
+```
+swap-leg-base.json           # ALL legs (IRS, XCCY, etc.)
+  └─ irs-leg-base.json       # ALL IRS legs
+      └─ vanilla-irs-legs.json  # Vanilla IRS legs only
+          └─ fixed-leg.json     # Fixed leg specifics
+```
+
+**3. Maintainability**:
+- Add field to base → all children inherit automatically
+- Override at any level for specific behavior
+- Clear separation of concerns
+
+**4. Extensibility**:
+- Add new swap type: Create new folder under `swap-types/`
+- Add new subtype: Create new folder under existing type
+- Add new leg type: Create new file under `leg-types/`
+- No code changes required
+
+**5. Version Control**:
+- Template changes tracked in git
+- Schema versions isolated (`v1/`, `v2/`)
+- Non-developers can modify templates
+- Easy rollback of template changes
+
+### Use Cases
+
+**Use Case 1: Add field to ALL legs**
+
+Scenario: Add `"settlementLag": 2` to every leg in the system
+
+Solution: Edit `base/swap-leg-base.json`:
+```json
+{
+  "legType": "",
+  "currency": "",
+  "notional": 0,
+  "settlementLag": 2,  // ← Added here, ALL legs inherit
+  "schedule": { ... }
+}
+```
+
+Result: Every leg (vanilla IRS, OIS, basis, XCCY, etc.) now has `settlementLag: 2`
+
+**Use Case 2: Add field to ALL IRS legs only**
+
+Scenario: Add `"businessDayConvention": "Modified Following"` to IRS legs but not XCCY
+
+Solution: Edit `swap-types/irs/irs-leg-base.json`:
+```json
+{
+  "payerPartyCode": "",
+  "receiverPartyCode": "",
+  "businessDayConvention": "Modified Following",  // ← Only IRS legs
+  "pricing": { ... }
+}
+```
+
+Result: All IRS subtypes (vanilla, OIS, basis, amortizing) inherit this, but XCCY swaps don't
+
+**Use Case 3: Add new swap subtype**
+
+Scenario: Add "Zero Coupon IRS" subtype
+
+Solution:
+1. Create `swap-types/irs/zero-coupon/` folder
+2. Add `zero-coupon-irs.json` with subtype-specific fields
+3. Add `zero-coupon-irs-legs.json` with leg-specific fields
+4. Factory automatically discovers and uses new components
+
+No code changes required!
+
+### Template Schema Versioning
+
+**Purpose**: Support multiple template formats for backward compatibility
+
+**Structure**:
+```
+templates/
+├── v1/          # Original format (payerPartyCode, etc.)
+│   └── ...
+└── v2/          # Newer format (payer, etc.)
+    └── ...
+```
+
+**Usage**:
+```python
+# Use v1 templates (original format)
+factory_v1 = TradeTemplateFactory(template_dir="templates", schema_version="v1")
+
+# Use v2 templates (newer format)
+factory_v2 = TradeTemplateFactory(template_dir="templates", schema_version="v2")
+```
+
+**Important**: Template schema version is completely independent from trade version:
+- **Template schema version**: Format/structure of templates (v1, v2, etc.)
+- **Trade version**: Business version of a specific trade instance (1, 2, 3, etc.)
+- A trade at version 5 can be created using template schema v1 or v2
+
+### Performance Considerations
+
+**Component Caching**:
+```python
+@lru_cache(maxsize=256)
+def _load_component(filepath: str) -> dict:
+    """Cache loaded JSON components for performance."""
+    with open(filepath, 'rb') as f:
+        return orjson.loads(f.read())
+```
+
+**Benefits**:
+- Components loaded once, reused across requests
+- Fast template assembly (no repeated file I/O)
+- Configurable cache size based on template count
+
+### Extensibility Guidelines
+
+**Adding New Trade Types**:
+1. Create folder: `swap-types/{new-type}/`
+2. Add base file: `{new-type}-base.json`
+3. Add leg base: `{new-type}-leg-base.json`
+4. Add subtypes as needed
+
+**Adding New Subtypes**:
+1. Create folder: `swap-types/{type}/{new-subtype}/`
+2. Add subtype file: `{new-subtype}.json`
+3. Add leg file: `{new-subtype}-legs.json`
+
+**Adding New Leg Types**:
+1. Create file: `leg-types/{new-leg-type}-leg.json`
+2. Define leg-specific fields
+
+**Adding New Market Conventions**:
+1. Create file: `conventions/{currency}-conventions.json`
+2. Define market-specific conventions
+
+All additions are discovered automatically by the factory!
+
+
 
 ## Correctness Properties
 
@@ -331,6 +738,9 @@ Smart generators will create realistic trade data:
 ### Technology Stack
 - **FastAPI**: Web framework for API endpoints
 - **Pydantic**: Request/response validation only
+- **orjson**: Fast JSON serialization/deserialization (2-3x faster than stdlib)
+- **jmespath**: Powerful JSON query language for complex reads (filters, projections)
+- **glom**: Robust path-based writes with automatic structure creation
 - **Hypothesis**: Property-based testing
 - **pytest**: Unit testing framework
 - **uvicorn**: ASGI server

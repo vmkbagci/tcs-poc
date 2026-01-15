@@ -1,0 +1,10 @@
+{
+  "swapDetails": {
+    "swapType": "vanillaFixedFloat",
+    "conventions": {
+      "settlementDays": 2,
+      "dateGenerationRule": "Backward",
+      "endOfMonth": false
+    }
+  }
+}

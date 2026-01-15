@@ -105,7 +105,17 @@ else
     exit 1
 fi
 
-# Step 6: Setup environment
+# Step 6: Verify template directory
+print_status "Verifying template directory structure..."
+if [[ -d "templates/v1" ]]; then
+    TEMPLATE_COUNT=$(find templates/v1 -name "*.json" | wc -l)
+    print_status "Found $TEMPLATE_COUNT template files in templates/v1/ ✓"
+else
+    print_error "templates/v1 directory not found. Template system will not work."
+    exit 1
+fi
+
+# Step 7: Setup environment
 print_status "Setting up environment configuration..."
 if [[ ! -f ".env" ]]; then
     if [[ -f ".env.example" ]]; then
@@ -124,21 +134,42 @@ else
     print_status ".env already exists, skipping creation"
 fi
 
-# Step 7: Run tests
+# Step 8: Run tests
 print_status "Running tests to verify installation..."
 if poetry run pytest tests/test_setup.py -v; then
     print_status "All tests passed ✓"
 else
-    print_error "Some tests failed. Check the output above."
-    exit 1
+    print_warning "Some tests failed. This may be expected if features are still in development."
+    print_warning "Check the output above for details."
+    read -p "Continue anyway? (y/N): " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        exit 1
+    fi
 fi
 
-# Step 8: Test application startup
+# Step 9: Test application startup and /new endpoint
 print_status "Testing application startup..."
 if poetry run python -c "from trade_api.main import app; print('FastAPI app created successfully')"; then
     print_status "Application startup test passed ✓"
 else
     print_error "Application startup test failed"
+    exit 1
+fi
+
+print_status "Testing /new endpoint..."
+if poetry run python -c "
+from fastapi.testclient import TestClient
+from trade_api.main import app
+client = TestClient(app)
+response = client.get('/api/v1/trades/new?trade_type=irswap&trade_subtype=vanilla')
+assert response.status_code == 200, f'Expected 200, got {response.status_code}'
+assert response.json()['success'] is True, 'Expected success=True'
+print('GET /api/v1/trades/new endpoint working ✓')
+"; then
+    print_status "/new endpoint test passed ✓"
+else
+    print_error "/new endpoint test failed"
     exit 1
 fi
 

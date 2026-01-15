@@ -1,0 +1,27 @@
+{
+  "general": {
+    "common": {
+      "book": "",
+      "tradeDate": "",
+      "counterparty": "",
+      "ddeEligible": "No",
+      "includeFeeEngine": "none",
+      "isdaDefinition": "ISDA2021"
+    },
+    "transactionInformation": {
+      "roles": {
+        "transactionOriginator": "",
+        "priceMaker": "",
+        "transactionAcceptor": "",
+        "marketer": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "",
+        "executionVenueType": "OffFacility",
+        "isOffMarketPrice": false
+      }
+    },
+    "parties": []
+  }
+}

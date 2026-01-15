@@ -1,0 +1,8 @@
+{
+  "tradeType": "InterestRateSwap",
+  "assetClass": "Rates",
+  "swapDetails": {
+    "swapType": "",
+    "currency": ""
+  }
+}

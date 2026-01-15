@@ -3,7 +3,7 @@
 - [x] 1. Set up project structure and dependencies
   - [x] 1.1 Initialize Poetry project with proper configuration
     - Run `poetry init` and configure pyproject.toml with project metadata
-    - Add core dependencies: FastAPI, Pydantic, Hypothesis, pytest
+    - Add core dependencies: FastAPI, Pydantic, orjson, jmespath, glom, Hypothesis, pytest
     - Add ASGI server dependencies: uvicorn (development), gunicorn (production option)
     - Set up development dependencies and virtual environment management
     - _Requirements: All requirements depend on proper project setup_
@@ -15,9 +15,12 @@
     - _Requirements: All requirements depend on proper project setup_
 
 - [ ] 2. Implement core Trade class and data structures
-  - [ ] 2.1 Create Trade class with JSON composition pattern
+  - [x] 2.1 Create Trade class with JSON composition pattern
     - Implement Trade class with direct JSON data access
-    - Add property access methods using dot notation
+    - Use jmespath for powerful query capabilities (filters, projections)
+    - Use glom for robust nested property writes
+    - Use orjson for fast JSON parsing and serialization
+    - Implement ReadOnlyTrade class with cached properties for read-only contexts
     - Ensure minimal object overhead while preserving flexibility
     - _Requirements: 5.3, 5.5_
 
@@ -25,15 +28,42 @@
     - **Property 9: JSON flexibility preservation**
     - **Validates: Requirements 5.3**
 
-  - [ ] 2.3 Create trade templates for all swap types
-    - Define JSON templates for InterestRateSwap, OvernightIndexSwap, BasisSwap, CrossCurrencySwap
-    - Include appropriate default values and empty placeholders
+  - [ ] 2.3 Implement TradeAssembler for component-based trade composition
+    - Create TradeAssembler class with deep merge capabilities
+    - Support configurable list merge strategies (replace, append, extend)
+    - Implement immutable assembly (deepcopy to avoid shared references)
+    - Add optional validation hooks
+    - Provide fluent API for configuration
+    - _Requirements: 1.5, 5.3, 5.5_
+
+  - [ ] 2.4 Create hierarchical template component system
+    - Set up template directory structure with schema versioning
+    - Create base component templates (trade-base, general-base, swap-leg-base)
+    - Create IRS type hierarchy (irs-base, vanilla, ois, basis, amortizing)
+    - Create leg type templates (fixed, floating-ibor, floating-ois, inflation)
+    - Create market convention templates (EUR, USD, GBP)
+    - Ensure extensibility for future trade types
     - _Requirements: 1.5_
 
-  - [ ]* 2.4 Write unit tests for Trade class
-    - Test property access and modification
-    - Test edge cases with malformed JSON
+  - [ ] 2.5 Implement TradeTemplateFactory with component inheritance
+    - Create factory class with template loading and caching
+    - Implement hierarchical component inheritance logic
+    - Support schema versioning (v1, v2, etc.)
+    - Build leg assembly with proper inheritance chain
+    - Add component discovery and validation
+    - _Requirements: 1.1, 1.5, 5.3_
+
+  - [ ]* 2.6 Write unit tests for TradeAssembler
+    - Test deep merge with various data structures
+    - Test list merge strategies
+    - Test immutability and validation hooks
     - _Requirements: 5.3, 5.5_
+
+  - [ ]* 2.7 Write unit tests for TradeTemplateFactory
+    - Test component loading and caching
+    - Test inheritance chain resolution
+    - Test schema versioning
+    - _Requirements: 1.5_
 
 - [ ] 3. Implement pipeline architecture
   - [ ] 3.1 Create PipelineStage abstract base class

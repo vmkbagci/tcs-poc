@@ -1,0 +1,7 @@
+{
+  "payerPartyCode": "",
+  "receiverPartyCode": "",
+  "pricing": {
+    "dayCountBasisIsda": "ACT/360"
+  }
+}

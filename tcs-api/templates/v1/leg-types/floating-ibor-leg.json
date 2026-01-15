@@ -1,0 +1,9 @@
+{
+  "rateType": "floating",
+  "pricing": {
+    "ratesetRef": "",
+    "spreadBps": 0,
+    "dayCountBasisIsda": "ACT/360",
+    "style": "ibor"
+  }
+}

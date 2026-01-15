@@ -1,0 +1,7 @@
+{
+  "rateType": "fixed",
+  "pricing": {
+    "interestRate": 0.0,
+    "dayCountBasisIsda": "30/360"
+  }
+}

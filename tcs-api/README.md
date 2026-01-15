@@ -21,8 +21,20 @@ This API demonstrates enterprise-grade Python development using:
 ## Quick Start
 
 ### Prerequisites
-- Python 3.8+
+- Python 3.10+ (required for this implementation)
 - Poetry (recommended for dependency management)
+
+### Fastest Way to Test
+
+```bash
+cd tcs-api
+poetry install
+poetry run uvicorn trade_api.main:app --reload
+```
+
+Then open http://127.0.0.1:8000/docs in your browser and try the `/api/v1/trades/new` endpoint!
+
+**See [QUICKSTART.md](./QUICKSTART.md) for detailed instructions and examples.**
 
 ### Installation
 
@@ -83,9 +95,11 @@ For detailed setup instructions on Debian/Ubuntu systems, see [DEPLOYMENT_GUIDE.
 
 ### API Endpoints
 
-- `POST /new` - Create new trade templates
-- `POST /save` - Save/update trade data
-- `POST /validate` - Validate trade data
+- `GET /api/v1/trades/new` - Create new trade templates ✓ **Implemented**
+- `POST /api/v1/trades/save` - Save/update trade data (Placeholder)
+- `POST /api/v1/trades/validate` - Validate trade data (Placeholder)
+
+**Quick Test**: After starting the server, visit http://127.0.0.1:8000/docs for interactive API documentation.
 
 ## Architecture
 

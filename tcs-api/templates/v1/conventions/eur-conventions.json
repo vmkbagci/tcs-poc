@@ -1,0 +1,8 @@
+{
+  "swapDetails": {
+    "currency": "EUR",
+    "conventions": {
+      "calendar": "TARGET"
+    }
+  }
+}
