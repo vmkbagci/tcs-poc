@@ -111,21 +111,27 @@ You should get a JSON response like:
 
 ## Available Endpoints
 
-### GET /api/v1/trades/new ✓ (Implemented)
+⚠️ **NOTE**: Current implementation only supports IR Swap variations. Refactoring in progress to support three distinct trade types (IR Swap, Commodity Option, Index Swap). See REFACTORING_PLAN.md for details.
+
+### GET /api/v1/trades/new ⚠️ (Partial Implementation - IR Swaps Only)
 
 Create a new trade template.
 
-**Parameters**:
-- `trade_type` (required): "irswap" or "xccy"
+**Parameters** (Current - will change after refactoring):
+- `trade_type` (required): "irswap" (only IR Swaps currently supported)
 - `trade_subtype` (required): "vanilla", "ois", "basis", "amortizing"
 - `currency` (optional, default "EUR"): Currency code
 - `leg_types` (optional, default "fixed,floating-ibor"): Comma-separated leg types
 
-**Supported Combinations**:
+**Supported Combinations** (Current):
 - **Vanilla IRS**: `trade_type=irswap&trade_subtype=vanilla&leg_types=fixed,floating-ibor`
 - **OIS**: `trade_type=irswap&trade_subtype=ois&leg_types=fixed,floating-ois`
 - **Basis Swap**: `trade_type=irswap&trade_subtype=basis&leg_types=floating-ibor,floating-ibor`
 - **Amortizing IRS**: `trade_type=irswap&trade_subtype=amortizing&leg_types=fixed,floating-ibor`
+
+**After Refactoring** (Planned):
+- `trade_type`: "ir-swap", "commodity-option", "index-swap"
+- Trade-specific parameters based on type
 
 ### POST /api/v1/trades/save (Placeholder)
 
@@ -166,19 +172,26 @@ poetry run uvicorn trade_api.main:app --reload --port 8001
 
 ## Architecture Highlights
 
-### Hierarchical Template System
+⚠️ **NOTE**: Architecture is being refactored. See REFACTORING_PLAN.md for details.
 
-Templates are organized in a hierarchy:
+### Two-Layer Template System (After Refactoring)
+
+Templates will be organized in two layers:
 ```
-base → type → subtype → market → leg-specific
+Layer 1: Administrative Core (general + common) - shared by ALL trades
+Layer 2: Economic Blocks - trade-specific structures
 ```
 
-Example for Vanilla EUR IRS:
-1. `base/trade-base.json` - Universal fields
-2. `swap-types/irs/irs-base.json` - All IRS swaps
-3. `swap-types/irs/vanilla/vanilla-irs.json` - Vanilla specific
-4. `conventions/eur-conventions.json` - EUR market rules
-5. `leg-types/fixed-leg.json` + `leg-types/floating-ibor-leg.json` - Leg specifics
+**Three Distinct Trade Types:**
+1. **IR Swap**: swapDetails + swapLegs[] array
+2. **Commodity Option**: commodityDetails + scheduleDetails + exercisePayment + premium
+3. **Index Swap**: leg object with nested structures
+
+### Current Implementation (To Be Refactored)
+
+~~Hierarchical inheritance: base → type → subtype → market → leg-specific~~
+
+This approach is being replaced with the two-layer system above.
 
 ### Trade Class
 

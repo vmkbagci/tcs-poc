@@ -1,16 +1,31 @@
 # Session Status
 
-## Last Session End: 2026-01-14
+## Last Session End: 2026-01-16
 
-### Completed Work
+### ⚠️ REFACTORING REQUIRED
 
-#### Tasks Completed
-- ✓ Task 2.1: Trade class with JSON composition (orjson, jmespath, glom)
-- ✓ Task 2.1: ReadOnlyTrade class with cached properties
-- ✓ Task 2.3: TradeAssembler with deep merge and list strategies
-- ✓ Task 2.4: Hierarchical template component system
-- ✓ Task 2.5: TradeTemplateFactory with component inheritance
-- ✓ Task 7.2: /new GET endpoint (partial - working but needs fixes)
+**Discovery**: New accurate JSON examples in `json-examples/polar/` reveal that the current template system is based on incorrect assumptions about trade structure.
+
+**Key Finding**: Three distinct trade types with completely different economic blocks:
+1. **IR Swap**: swapDetails + swapLegs[] array
+2. **Commodity Option**: commodityDetails + scheduleDetails + exercisePayment + premium
+3. **Index Swap**: leg object with nested structures
+
+All trades share administrative core (general + common blocks).
+
+**Action Required**: Refactor template system from hierarchical inheritance to two-layer composition.
+
+**See**: `REFACTORING_PLAN.md` for complete strategy.
+
+### Completed Work (Needs Refactoring)
+
+#### Tasks Completed (But Require Updates)
+- ✓ Task 2.1: Trade class with JSON composition (orjson, jmespath, glom) - **Still valid**
+- ✓ Task 2.1: ReadOnlyTrade class with cached properties - **Still valid**
+- ✓ Task 2.3: TradeAssembler with deep merge and list strategies - **Still valid**
+- ⚠️ Task 2.4: Hierarchical template component system - **NEEDS REFACTORING**
+- ⚠️ Task 2.5: TradeTemplateFactory with component inheritance - **NEEDS REFACTORING**
+- ⚠️ Task 7.2: /new GET endpoint (partial - working but needs refactoring) - **NEEDS REFACTORING**
 
 #### Endpoint Status
 - **GET /api/v1/trades/new**: ✓ Implemented and tested
@@ -21,59 +36,41 @@
 - **POST /api/v1/trades/save**: Placeholder only
 - **POST /api/v1/trades/validate**: Placeholder only
 
-### Issues Identified (NOT FIXED - For Next Session)
+### Issues Identified (SUPERSEDED BY REFACTORING)
+
+The following issues are superseded by the refactoring requirements:
 
 #### 1. Lifecycle/LastEvent on Draft Creation
-**Problem**: `/new` endpoint adds `lastEvent` to draft trades, but lifecycle should start on first persistence
+**Status**: Will be addressed during refactoring
 
-**Action Required**: 
-- Remove `lastEvent` from `/new` endpoint response
-- Add `lastEvent` in `/save` endpoint on first persistence
-
-#### 2. Trade Data Missing Subtype Information ⚠️
-**Problem**: Trade JSON doesn't include subtype field (vanilla, ois, basis, amortizing)
-
-**Current State**:
-```json
-{
-  "tradeType": "InterestRateSwap",
-  "swapDetails": {
-    "swapType": "vanillaFixedFloat",  // Only vanilla has this
-    "currency": "EUR"
-  }
-}
-```
-
-**Action Required**: Add explicit subtype field to trade data
-- Needed for validation logic to apply subtype-specific rules
-- Options: top-level field, or in swapDetails section
+#### 2. Trade Data Missing Subtype Information
+**Status**: Will be addressed during refactoring - new structure uses trade_type instead
 
 #### 3. Empty swapType for Non-Vanilla Subtypes
-**Problem**: ois, basis, amortizing templates don't define swapType
-
-**Action Required**: Update template files:
-- `templates/v1/swap-types/irs/ois/ois.json`
-- `templates/v1/swap-types/irs/basis/basis-swap.json`
-- `templates/v1/swap-types/irs/amortizing/amortizing-irs.json`
+**Status**: Will be addressed during refactoring - new structure has proper swapType values
 
 ### Next Session Plan
 
-**PRIORITY 1**: Fix issues before continuing
-1. Add subtype field to trade data (in /new endpoint or templates)
-2. Remove lastEvent from /new endpoint
-3. Update template files with swapType values
+**PRIORITY 1**: Refactor template system (CRITICAL)
+1. Analyze three JSON files in detail (ir-swap, commodity-option, index-swap)
+2. Extract exact field structures for administrative core and economic blocks
+3. Create new two-layer template structure
+4. Refactor TradeTemplateFactory for two-layer composition
+5. Update /new endpoint to support three trade types
+6. Test all three trade types
 
-**PRIORITY 2**: Implement /validate endpoint (Task 7.4)
-1. Create validation pipeline architecture
-2. Implement ValidationStage
-3. Add business rule validation
-4. Test with all subtypes
+**PRIORITY 2**: After refactoring complete
+1. Remove old template files and code
+2. Update all documentation
+3. Implement /validate endpoint (Task 7.4)
+4. Implement /save endpoint (Task 7.3)
 
-**PRIORITY 3**: Implement /save endpoint (Task 7.3)
-1. Add proper lifecycle management (initial lastEvent)
-2. Implement version incrementing
-3. Integrate with TradeStore
-4. Test save and retrieve workflow
+**Reference Documents**:
+- `REFACTORING_PLAN.md` - Complete refactoring strategy
+- `json-examples/polar/ir-swap-new-flattened.json` - IR Swap structure
+- `json-examples/polar/commodity-option-new-flattened.json` - Commodity Option structure
+- `json-examples/polar/index-swap-new-flattened.json` - Index Swap structure
+- `json-examples/polar/StructureAnalysisOfThreeNewTrades.md` - Detailed analysis
 
 ### Files Modified This Session
 
@@ -128,4 +125,4 @@ cd tcs-api
 poetry run uvicorn trade_api.main:app --reload
 ```
 
-**Next Task**: Fix subtype issue, then implement /validate endpoint (Task 7.4)
+**Next Task**: Refactor template system (Tasks 2.4, 2.5, 7.2) - See REFACTORING_PLAN.md

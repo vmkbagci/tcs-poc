@@ -1,90 +1,129 @@
 # Trade Template Components
 
-This directory contains hierarchical JSON components for trade template generation.
+⚠️ **REFACTORING IN PROGRESS**: This directory structure is being refactored to support three distinct trade types with a two-layer composition model. See `../REFACTORING_PLAN.md` for details.
 
-## Directory Structure
+## Current Status
+
+The current implementation uses a hierarchical inheritance model that is being replaced with a two-layer composition model based on accurate production JSON examples.
+
+## New Directory Structure (After Refactoring)
 
 ```
 templates/
 └── v1/                              # Template schema version
-    ├── base/                        # Universal components (all trades)
-    │   ├── trade-base.json          # Core trade fields
-    │   ├── general-base.json        # Base general section
-    │   └── swap-leg-base.json       # Base leg structure
+    ├── core/                        # Layer 1: Administrative Core (ALL trades)
+    │   ├── general.json             # Shared general block
+    │   └── common.json              # Shared common block
     │
-    ├── swap-types/                  # Trade type hierarchies
-    │   ├── irs/                     # Interest Rate Swaps
-    │   │   ├── irs-base.json        # Common to ALL IRS types
-    │   │   ├── irs-leg-base.json    # Common to ALL IRS legs
-    │   │   ├── vanilla/             # Vanilla IRS subtype
-    │   │   │   ├── vanilla-irs.json
-    │   │   │   └── vanilla-irs-legs.json
-    │   │   ├── ois/                 # Overnight Index Swap
-    │   │   ├── basis/               # Basis Swap
-    │   │   └── amortizing/          # Amortizing IRS
-    │   │
-    │   └── xccy/                    # Cross Currency Swaps
-    │       ├── xccy-base.json
-    │       └── xccy-leg-base.json
-    │
-    ├── leg-types/                   # Leg-specific components
-    │   ├── fixed-leg.json           # Fixed rate leg
-    │   ├── floating-ibor-leg.json   # IBOR floating leg
-    │   ├── floating-ois-leg.json    # OIS floating leg
-    │   └── inflation-cpi-leg.json   # CPI inflation leg
-    │
-    └── conventions/                 # Market conventions
-        ├── eur-conventions.json     # EUR market
-        ├── usd-conventions.json     # USD market
-        └── gbp-conventions.json     # GBP market
+    └── trade-types/                 # Layer 2: Economic Blocks (trade-specific)
+        ├── ir-swap/                 # Interest Rate Swaps
+        │   ├── swap-details.json
+        │   ├── swap-leg-fixed.json
+        │   ├── swap-leg-floating-ois.json
+        │   └── swap-leg-floating-ibor.json
+        │
+        ├── commodity-option/        # Commodity Options
+        │   ├── commodity-details.json
+        │   ├── schedule-details.json
+        │   ├── exercise-payment.json
+        │   └── premium.json
+        │
+        └── index-swap/              # Index Swaps
+            ├── leg-base.json
+            ├── underlying-asset.json
+            ├── fixed-fee-leg.json
+            ├── floating-index-leg.json
+            └── payment.json
 ```
 
-## Component Inheritance
+## Two-Layer Composition Model
 
-Components are merged in hierarchical order (later overrides earlier):
+### Layer 1: Administrative Core
+Shared by ALL trade types:
+- `core/general.json` - Trade identification, execution details, package details
+- `core/common.json` - Booking, counterparty, audit fields, fees, events
 
-### For Trade Structure:
-1. `base/trade-base.json` - Universal trade fields
-2. `base/general-base.json` - Universal general section
-3. `swap-types/{type}/{type}-base.json` - Type-specific fields
-4. `swap-types/{type}/{subtype}/{subtype}-{type}.json` - Subtype-specific fields
-5. `conventions/{currency}-conventions.json` - Market-specific conventions
+### Layer 2: Economic Blocks
+Trade-specific structures:
 
-### For Each Leg:
-1. `base/swap-leg-base.json` - Universal leg fields
-2. `swap-types/{type}/{type}-leg-base.json` - Type-specific leg fields
-3. `swap-types/{type}/{subtype}/{subtype}-{type}-legs.json` - Subtype-specific leg fields
-4. `leg-types/{leg_type}-leg.json` - Leg-type-specific fields
+**IR Swap:**
+- `swapDetails` object
+- `swapLegs[]` array with multiple legs
 
-## Example: Vanilla EUR IRS
+**Commodity Option:**
+- `commodityDetails` object
+- `scheduleDetails` object
+- `exercisePayment` object
+- `premium` object
 
-For a Vanilla EUR IRS with Fixed + Floating legs:
+**Index Swap:**
+- `leg` object with nested structures:
+  - `underlyingAsset`
+  - `fixedFeeLeg`
+  - `floatingIndexLeg`
+  - `payment`
 
-**Trade Structure Components:**
-1. `base/trade-base.json`
-2. `base/general-base.json`
-3. `swap-types/irs/irs-base.json`
-4. `swap-types/irs/vanilla/vanilla-irs.json`
-5. `conventions/eur-conventions.json`
+## Component Assembly Examples
 
-**Fixed Leg Components:**
-1. `base/swap-leg-base.json`
-2. `swap-types/irs/irs-leg-base.json`
-3. `swap-types/irs/vanilla/vanilla-irs-legs.json`
-4. `leg-types/fixed-leg.json`
+### IR Swap (OIS)
+```python
+components = [
+    # Layer 1: Administrative Core
+    "core/general.json",
+    "core/common.json",
+    
+    # Layer 2: IR Swap Economic Blocks
+    "trade-types/ir-swap/swap-details.json",
+    {
+        "swapLegs": [
+            "trade-types/ir-swap/swap-leg-fixed.json",
+            "trade-types/ir-swap/swap-leg-floating-ois.json"
+        ]
+    }
+]
+```
 
-**Floating Leg Components:**
-1. `base/swap-leg-base.json`
-2. `swap-types/irs/irs-leg-base.json`
-3. `swap-types/irs/vanilla/vanilla-irs-legs.json`
-4. `leg-types/floating-ibor-leg.json`
+### Commodity Option
+```python
+components = [
+    # Layer 1: Administrative Core
+    "core/general.json",
+    "core/common.json",
+    
+    # Layer 2: Commodity Option Economic Blocks
+    "trade-types/commodity-option/commodity-details.json",
+    "trade-types/commodity-option/schedule-details.json",
+    "trade-types/commodity-option/exercise-payment.json",
+    "trade-types/commodity-option/premium.json"
+]
+```
+
+### Index Swap
+```python
+components = [
+    # Layer 1: Administrative Core
+    "core/general.json",
+    "core/common.json",
+    
+    # Layer 2: Index Swap Economic Block
+    {
+        "leg": merge(
+            "trade-types/index-swap/leg-base.json",
+            "trade-types/index-swap/underlying-asset.json",
+            "trade-types/index-swap/fixed-fee-leg.json",
+            "trade-types/index-swap/floating-index-leg.json",
+            "trade-types/index-swap/payment.json"
+        )
+    }
+]
+```
 
 ## Schema Versioning
 
 **Template Schema Version** (v1, v2, etc.):
 - Defines the structure/format of templates
 - Independent from trade business version
-- Example: v1 uses `payerPartyCode`, v2 uses `payer`
+- Example: v1 uses certain field names, v2 might use different names
 
 **Trade Version** (1, 2, 3, etc.):
 - Business version of a specific trade instance
@@ -93,57 +132,37 @@ For a Vanilla EUR IRS with Fixed + Floating legs:
 
 A trade at version 5 can be created using template schema v1 or v2.
 
-## Adding New Components
+## Adding New Components (After Refactoring)
 
 ### Add New Trade Type:
-1. Create directory: `swap-types/{new-type}/`
-2. Add base file: `{new-type}-base.json`
-3. Add leg base: `{new-type}-leg-base.json`
-4. Add subtypes as needed
+1. Create directory: `trade-types/{new-type}/`
+2. Add economic block files specific to that trade type
+3. Update factory to recognize new trade type
 
-### Add New Subtype:
-1. Create directory: `swap-types/{type}/{new-subtype}/`
-2. Add subtype file: `{new-subtype}-{type}.json`
-3. Add leg file: `{new-subtype}-{type}-legs.json`
+### Add Variations Within Trade Types:
 
-### Add New Leg Type:
-1. Create file: `leg-types/{new-leg-type}-leg.json`
-2. Define leg-specific fields
+**For IR Swaps:**
+1. Create new leg template: `trade-types/ir-swap/swap-leg-{new-type}.json`
 
-### Add New Market:
-1. Create file: `conventions/{currency}-conventions.json`
-2. Define market-specific conventions
+**For Commodity Options:**
+1. Add new exercise type or pricing style templates
 
-All additions are automatically discovered by `TradeTemplateFactory`!
+**For Index Swaps:**
+1. Add new index-specific templates
 
-## Benefits
+## Benefits of New Architecture
 
-1. **DRY Principle**: Change base component → all children inherit
-2. **Clear Hierarchy**: Easy to see what each level adds
-3. **Maintainability**: Modify once, affect all descendants
-4. **Extensibility**: Add new types without code changes
-5. **Version Control**: Track template changes in git
-6. **Non-Developer Friendly**: JSON files can be edited by non-developers
+1. **Clear Separation**: Administrative core vs economic blocks
+2. **Trade Type Independence**: Each type has its own structure
+3. **Maintainability**: Change core → affects all trades; change trade-specific → affects only that type
+4. **Extensibility**: Add new types without affecting existing ones
+5. **Accuracy**: Matches actual production trade structures
 
-## Usage
+## Migration Status
 
-```python
-from trade_api.models import TradeTemplateFactory
+- ❌ Old hierarchical templates (to be removed)
+- ⏳ New two-layer templates (to be created)
+- ⏳ Factory refactoring (in progress)
+- ⏳ API endpoint updates (in progress)
 
-# Initialize factory with schema version
-factory = TradeTemplateFactory(template_dir="templates", schema_version="v1")
-
-# Create assembler for Vanilla EUR IRS
-assembler = factory.create_assembler(
-    trade_type="irs",
-    subtype="vanilla",
-    currency="EUR",
-    leg_configs=[
-        {"type": "fixed", "legType": "Pay"},
-        {"type": "floating-ibor", "legType": "Receive"}
-    ]
-)
-
-# Assemble trade dictionary
-trade_dict = assembler.assemble()
-```
+See `../REFACTORING_PLAN.md` for complete migration plan and timeline.

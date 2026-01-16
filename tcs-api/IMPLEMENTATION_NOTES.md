@@ -15,32 +15,36 @@
 - Immutable operations using deepcopy
 - Optional validation hooks and fluent API
 
-#### 3. Hierarchical Template System (Task 2.4) ✓
+#### 3. Hierarchical Template System (Task 2.4) ⚠️ NEEDS REFACTORING
 - Created template directory structure with schema versioning (v1/)
-- Base components: trade-base, general-base, swap-leg-base
-- IRS type hierarchy: irs-base → vanilla, ois, basis, amortizing
-- Leg types: fixed, floating-ibor
-- Market conventions: EUR
+- **NOTE**: Current implementation uses incorrect hierarchical inheritance model
+- **REFACTORING NEEDED**: Switch to two-layer composition (administrative core + trade-specific economic blocks)
+- See REFACTORING_PLAN.md for details
 
-#### 4. TradeTemplateFactory (Task 2.5) ✓
-- Hierarchical component inheritance
-- LRU caching for performance
-- Schema versioning support
-- Component discovery methods
+#### 4. TradeTemplateFactory (Task 2.5) ⚠️ NEEDS REFACTORING
+- Hierarchical component inheritance implemented
+- **NOTE**: Current implementation assumes all swaps have similar leg structures
+- **REFACTORING NEEDED**: Support three distinct trade types (IR Swap, Commodity Option, Index Swap)
+- See REFACTORING_PLAN.md for details
 
-#### 5. /new GET Endpoint ✓
+#### 5. /new GET Endpoint ⚠️ NEEDS REFACTORING
 - Accepts 4 parameters: trade_type, trade_subtype, currency, leg_types
 - Generates unique trade IDs (format: SWAP-YYYYMMDD-TYPE-SUBTYPE-NNNN)
-- Sets trade date to current date
-- Returns assembled trade template
+- **NOTE**: Current implementation only supports IR Swap variations
+- **REFACTORING NEEDED**: Support three trade types with different structures
+- See REFACTORING_PLAN.md for details
 
 ### Endpoint Testing Results
+
+⚠️ **NOTE**: Current implementation only supports IR Swap variations. Refactoring needed for Commodity Options and Index Swaps.
 
 All IR Swap subtypes tested successfully:
 - ✓ vanilla: Creates vanillaFixedFloat swap
 - ✓ ois: Creates OIS swap
 - ✓ basis: Creates basis swap
 - ✓ amortizing: Creates amortizing swap
+
+**Refactoring Required**: See REFACTORING_PLAN.md for details on supporting three distinct trade types.
 
 ### Known Issues and Design Decisions
 
@@ -166,9 +170,16 @@ All IR Swap subtypes tested successfully:
 
 ### Next Steps
 
-**STOPPED AT**: Task 7.2 - /new endpoint implementation complete and tested
+**STOPPED AT**: Task 7.2 - /new endpoint implementation complete and tested (IR Swaps only)
 
-**NEXT SESSION**: Implement /validate endpoint (Task 7.4)
+**REFACTORING REQUIRED**: Template system needs to be refactored to support three distinct trade types:
+1. **IR Swap**: swapDetails + swapLegs[] array
+2. **Commodity Option**: commodityDetails + scheduleDetails + exercisePayment + premium
+3. **Index Swap**: leg object with nested structures
+
+See **REFACTORING_PLAN.md** for complete refactoring strategy.
+
+**NEXT SESSION**: Refactor template system (Tasks 2.4, 2.5, 7.2)
 
 **Before continuing**:
 1. **Fix subtype information** - Add subtype field to trade data

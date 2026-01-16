@@ -1,0 +1,38 @@
+{
+  "swapLegs": [
+    {
+      "legIndex": 1,
+      "direction": "receive",
+      "currency": "USD",
+      "rateType": "floating",
+      "notional": null,
+      "scheduleType": "constant",
+      "interestRate": null,
+      "ratesetRef": "SOFR",
+      "referenceTenor": "1D",
+      "margin": 0,
+      "ratesetOffset": null,
+      "paymentOffset": null,
+      "ratesetCalendars": ["US"],
+      "formula": "OIS",
+      "dayCountBasis": "ACT/360",
+      "observationMethod": "plain",
+      "averagingMethod": "compound",
+      "startDate": "",
+      "endDate": "",
+      "isAdjusted": true,
+      "stubDate": null,
+      "stubDayCountBasis": null,
+      "stubType": "none",
+      "alignAtEom": "notEom",
+      "style": "floating-average-daily",
+      "rollConvention": null,
+      "settlementCurrency": "USD",
+      "settlementOffset": 2,
+      "fxSettlement": null,
+      "paymentCalendars": ["NY"],
+      "rollDateConvention": "MFBD",
+      "nonStandard": null
+    }
+  ]
+}

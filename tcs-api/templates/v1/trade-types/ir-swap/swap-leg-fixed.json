@@ -1,0 +1,38 @@
+{
+  "swapLegs": [
+    {
+      "legIndex": 0,
+      "direction": "pay",
+      "currency": "USD",
+      "rateType": "fixed",
+      "notional": null,
+      "scheduleType": "constant",
+      "interestRate": null,
+      "ratesetRef": null,
+      "referenceTenor": null,
+      "margin": "marginNone",
+      "ratesetOffset": null,
+      "paymentOffset": null,
+      "ratesetCalendars": [],
+      "formula": "ARR",
+      "dayCountBasis": "ACT/360",
+      "observationMethod": "notApplicable",
+      "averagingMethod": "notApplicable",
+      "startDate": "",
+      "endDate": "",
+      "isAdjusted": true,
+      "stubDate": null,
+      "stubDayCountBasis": null,
+      "stubType": "none",
+      "alignAtEom": "notEom",
+      "style": "notApplicable",
+      "rollConvention": null,
+      "settlementCurrency": "USD",
+      "settlementOffset": 2,
+      "fxSettlement": null,
+      "paymentCalendars": ["NY"],
+      "rollDateConvention": "MFBD",
+      "nonStandard": null
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "commodityDetails": {
+    "optionExerciseType": "europeanExercise",
+    "settlementMethod": "CashOrEfrp",
+    "accumulation": "None",
+    "automaticExercise": false,
+    "notionalVolume": {
+      "volumeUnit": "LB",
+      "volumeFrequency": "Total",
+      "volumeFuturesContracts": 0
+    },
+    "strikeCurrency": "EUR",
+    "strikeUnit": "LB",
+    "strikePayout": "ITM",
+    "pricingStyle": "AVG_CMD_AVG_FX",
+    "priceCalculation": {
+      "spread": 0,
+      "roundingMethod": "halfUp",
+      "precision": "3dp",
+      "commonPricing": true
+    },
+    "assetPricing": {
+      "ratesetRuleCode": "DuringPeriod",
+      "ratesetExprCode": "LIFFE_AG",
+      "assetWeight": 1,
+      "assetUnit": "LB",
+      "commodityCode": "EGT",
+      "commodityRateset": "EGT",
+      "fixingStyle": "bullet",
+      "fixingRounding": "halfUp"
+    },
+    "fxFixing": {
+      "commonPricing": false,
+      "averagingCalcMethod": "avgAssetFx",
+      "spread": 0,
+      "conversionFactor": 0,
+      "style": "average",
+      "roundingMethod": "halfUp",
+      "roundingPrecision": "3dp"
+    }
+  }
+}

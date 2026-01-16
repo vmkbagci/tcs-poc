@@ -1,0 +1,14 @@
+{
+  "general": {
+    "executionDetails": {
+      "executionVenue": {
+        "executionVenue": null,
+        "venueTransactionID": null,
+        "executionBroker": null,
+        "executionBrokeragePayer": "wePay",
+        "executionVenueMIC": null,
+        "executionVenueType": "OffFacility"
+      }
+    }
+  }
+}

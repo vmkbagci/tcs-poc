@@ -1,0 +1,12 @@
+{
+  "exercisePayment": {
+    "paymentCurrency": "EUR",
+    "businessCenters": ["TARGET"],
+    "payRelativeTo": "LastFixingDate",
+    "paymentDaysOffset": {
+      "multiplier": 5,
+      "dateAdjustments": "Business",
+      "businessDayConvention": "MFBD"
+    }
+  }
+}

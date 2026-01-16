@@ -1,0 +1,11 @@
+{
+  "swapDetails": {
+    "underlying": "USD",
+    "settlementType": "physical",
+    "swapType": "irsOis",
+    "isCleared": false,
+    "markitSingleSided": false,
+    "principalExchange": "firstLastLegs",
+    "isIsdaFallback": false
+  }
+}

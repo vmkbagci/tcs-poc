@@ -1,10 +1,16 @@
 # Trade API Project Status & Synchronization Document
 
-## 📋 Current Status: Task 1 COMPLETED ✅
+## 📋 Current Status: REFACTORING REQUIRED ⚠️
 
-**Date**: January 8, 2026  
-**Last Updated**: After completing Task 1 setup and deployment automation  
-**Next Task**: Task 2 - Implement core Trade class and data structures
+**Date**: January 16, 2026  
+**Last Updated**: After discovering accurate trade structure from production JSON examples  
+**Current Phase**: Template system refactoring required
+
+## ⚠️ Important Discovery
+
+New accurate JSON examples in `json-examples/polar/` reveal that the current template system implementation is based on incorrect assumptions. A refactoring is required to support three distinct trade types with proper structure.
+
+**See `tcs-api/REFACTORING_PLAN.md` for complete details.**
 
 ## 🎯 What We Accomplished
 
@@ -103,20 +109,23 @@ tcs-json-demo/
 - `POST /api/v1/trades/validate` - Returns placeholder response
 - `GET /docs` - Interactive API documentation
 
-## 🚧 Next Steps: Task 2 Implementation
+## 🚧 Next Steps: Refactoring Required
 
-### Task 2: Implement core Trade class and data structures
-**Files to create/modify**:
-- `src/trade_api/models/trade.py` - Core Trade class with JSON composition
-- `src/trade_api/models/templates.py` - Trade templates for all swap types
-- Property-based tests for Trade class JSON access
-- Unit tests for Trade class functionality
+### Immediate Priority: Template System Refactoring
 
-### Key Requirements for Task 2:
-1. **Trade Class**: JSON composition pattern with dot notation access
-2. **Templates**: JSON templates for InterestRateSwap, OvernightIndexSwap, BasisSwap, CrossCurrencySwap
-3. **Property Test**: JSON flexibility preservation (Property 9)
-4. **Unit Tests**: Property access, edge cases, malformed JSON
+The current implementation needs refactoring to support three distinct trade types:
+
+1. **IR Swap**: swapDetails + swapLegs[] array
+2. **Commodity Option**: commodityDetails + scheduleDetails + exercisePayment + premium  
+3. **Index Swap**: leg object with nested structures
+
+**Refactoring Tasks:**
+- Task 2.4: Create two-layer template component system
+- Task 2.5: Refactor TradeTemplateFactory with two-layer composition
+- Task 7.2: Update /new endpoint for three trade types
+- Task 2.8: Checkpoint - Verify refactored template system
+
+**See `tcs-api/REFACTORING_PLAN.md` for complete strategy.**
 
 ## 🔍 Important Context for Continuation
 

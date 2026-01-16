@@ -28,7 +28,7 @@
     - **Property 9: JSON flexibility preservation**
     - **Validates: Requirements 5.3**
 
-  - [ ] 2.3 Implement TradeAssembler for component-based trade composition
+  - [x] 2.3 Implement TradeAssembler for component-based trade composition
     - Create TradeAssembler class with deep merge capabilities
     - Support configurable list merge strategies (replace, append, extend)
     - Implement immutable assembly (deepcopy to avoid shared references)
@@ -36,21 +36,38 @@
     - Provide fluent API for configuration
     - _Requirements: 1.5, 5.3, 5.5_
 
-  - [ ] 2.4 Create hierarchical template component system
-    - Set up template directory structure with schema versioning
-    - Create base component templates (trade-base, general-base, swap-leg-base)
-    - Create IRS type hierarchy (irs-base, vanilla, ois, basis, amortizing)
-    - Create leg type templates (fixed, floating-ibor, floating-ois, inflation)
-    - Create market convention templates (EUR, USD, GBP)
-    - Ensure extensibility for future trade types
+  - [x] 2.4 REFACTOR: Create two-layer template component system
+    - Set up new template directory structure with schema versioning
+    - **Layer 1 - Administrative Core:**
+      - Create `core/general.json` (shared by all trades)
+      - Create `core/common.json` (shared by all trades)
+    - **Layer 2 - Economic Blocks:**
+      - Create IR Swap templates: `trade-types/ir-swap/`
+        - `swap-details.json`
+        - `swap-leg-fixed.json`
+        - `swap-leg-floating-ois.json`
+        - `swap-leg-floating-ibor.json`
+      - Create Commodity Option templates: `trade-types/commodity-option/`
+        - `commodity-details.json`
+        - `schedule-details.json`
+        - `exercise-payment.json`
+        - `premium.json`
+      - Create Index Swap templates: `trade-types/index-swap/`
+        - `leg-base.json`
+        - `underlying-asset.json`
+        - `fixed-fee-leg.json`
+        - `floating-index-leg.json`
+        - `payment.json`
+    - Remove old hierarchical template structure
     - _Requirements: 1.5_
 
-  - [ ] 2.5 Implement TradeTemplateFactory with component inheritance
-    - Create factory class with template loading and caching
-    - Implement hierarchical component inheritance logic
-    - Support schema versioning (v1, v2, etc.)
-    - Build leg assembly with proper inheritance chain
-    - Add component discovery and validation
+  - [x] 2.5 REFACTOR: Implement TradeTemplateFactory with two-layer composition
+    - Refactor factory class to use two-layer architecture
+    - Implement administrative core loading (general + common)
+    - Implement trade-specific economic block loading
+    - Support three trade types: ir-swap, commodity-option, index-swap
+    - Update component discovery and validation
+    - Remove old hierarchical inheritance logic
     - _Requirements: 1.1, 1.5, 5.3_
 
   - [ ]* 2.6 Write unit tests for TradeAssembler
@@ -61,9 +78,15 @@
 
   - [ ]* 2.7 Write unit tests for TradeTemplateFactory
     - Test component loading and caching
-    - Test inheritance chain resolution
+    - Test two-layer composition for all three trade types
     - Test schema versioning
     - _Requirements: 1.5_
+
+- [ ] 2.8 Checkpoint - Verify refactored template system
+  - Test all three trade types can be created via /new endpoint
+  - Verify administrative core is shared across all trade types
+  - Verify economic blocks are trade-specific
+  - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 3. Implement pipeline architecture
   - [ ] 3.1 Create PipelineStage abstract base class
@@ -191,10 +214,12 @@
     - Ensure models don't enforce rigid schemas on trade data
     - _Requirements: 5.4_
 
-  - [ ] 7.2 Implement /new endpoint
-    - Accept trade type and optional parameters
+  - [x] 7.2 REFACTOR: Implement /new endpoint for three trade types
+    - Accept trade type parameter: "ir-swap", "commodity-option", "index-swap"
+    - Accept trade-specific optional parameters
     - Execute new trade pipeline and return template
     - Handle errors and return appropriate responses
+    - Update endpoint to work with refactored template system
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5_
 
   - [ ] 7.3 Implement /save endpoint

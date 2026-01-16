@@ -2,7 +2,13 @@
 
 ## Introduction
 
-This document specifies the requirements for a flexible, pipeline-based Trade API system that processes financial swap deals represented as JSON. The system emphasizes composition over inheritance, JSON-first processing, and modular pipeline operations for maximum flexibility and extensibility.
+This document specifies the requirements for a flexible, pipeline-based Trade API system that processes financial trades represented as JSON. The system supports multiple trade types (Interest Rate Swaps, Commodity Options, Index Swaps) with a standardized administrative core and trade-specific economic blocks. The architecture emphasizes composition over inheritance, JSON-first processing, and modular pipeline operations for maximum flexibility and extensibility.
+
+## Supported Trade Types
+
+- **Interest Rate Swaps (IR Swap)**: Fixed vs floating rate exchanges with OIS formulas and multiple leg configurations
+- **Commodity Options**: Options on commodity underlyings with European exercise, complex pricing (AVG_CMD_AVG_FX), and premium structures
+- **Index Swaps**: Swaps based on equity or commodity indices with fixed fee legs and floating index performance tracking
 
 ## Glossary
 
@@ -10,8 +16,10 @@ This document specifies the requirements for a flexible, pipeline-based Trade AP
 - **Trade_Pipeline**: A dynamically constructed sequence of modular operations applied to trade data
 - **Pipeline_Stage**: An individual, pluggable operation within a trade pipeline
 - **Trade_Store**: The in-memory cache system that persists trade data during API runtime
-- **Trade_JSON**: The flexible JSON representation of financial swap deals
+- **Trade_JSON**: The flexible JSON representation of financial trades with standardized administrative blocks and trade-specific economic blocks
 - **Trade_Class**: The base composition class that wraps JSON trade data with minimal object behavior
+- **Administrative_Core**: The shared `general` and `common` blocks present in all trade types
+- **Economic_Block**: The trade-specific blocks that define the financial mechanics (e.g., `swapDetails`/`swapLegs` for IR Swaps, `commodityDetails` for Commodity Options, `leg` for Index Swaps)
 
 ## Requirements
 

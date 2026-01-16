@@ -1,0 +1,9 @@
+{
+  "premium": {
+    "priceUnits": "LB",
+    "deferredFlag": false,
+    "paymentStyle": "singlePayment",
+    "premiumValueDate": "",
+    "premiumFxRatesetDate": ""
+  }
+}

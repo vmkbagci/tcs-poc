@@ -16,12 +16,11 @@ This project demonstrates enterprise-grade Python API development using:
 - **JSON-first processing** with minimal object casting
 - **Property-based testing** for comprehensive validation
 
-## Supported Swap Types
+## Supported Trade Types
 
-- **Interest Rate Swaps (IRS)**: Fixed vs floating rate exchanges
-- **Overnight Index Swaps (OIS)**: Fixed vs compounded overnight rates
-- **Basis Swaps**: Two floating rate exchanges
-- **Cross-Currency Swaps**: Multi-currency rate exchanges
+- **Interest Rate Swaps (IR Swap)**: Fixed vs floating rate exchanges with OIS formulas
+- **Commodity Options**: Options on commodity underlyings with European exercise and complex pricing
+- **Index Swaps**: Swaps based on equity or commodity indices with performance tracking
 
 ## Repository Structure
 
