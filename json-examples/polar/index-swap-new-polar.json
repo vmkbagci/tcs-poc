@@ -1,0 +1,197 @@
+{
+  "general": {
+    "tradeKey": {
+      "tradeId": "",
+      "label": ""
+    },
+    "transactionInformation": {
+      "transactionRoles": {
+        "marketer": null,
+        "transactionOriginator": null,
+        "priceMaker": "kbagci",
+        "transactionAcceptor": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-16T11:32:00Z",
+        "bestExecutionApplicable": null,
+        "executionVenue": {
+          "executionVenue": null,
+          "venueTransactionID": null,
+          "executionBroker": null,
+          "executionBrokeragePayer": {
+            "wePay": null
+          },
+          "executionVenueMIC": null,
+          "executionVenueType": "OffFacility"
+        },
+        "clearingVenue": null,
+        "reportTrackingNumber": null,
+        "omsOrderID": null,
+        "isOffMarketPrice": false,
+        "clientInstructionTime": null
+      },
+      "packageTradeDetails": {
+        "isPackageTrade": false,
+        "packageIdentifier": null,
+        "packagePriceOrSpread": null,
+        "packageType": null,
+        "packagePrice": null,
+        "packagePriceCcy": null,
+        "priceNotation": null,
+        "useTradeIdAsPackageId": true
+      },
+      "blockAllocationDetails": null
+    },
+    "common": {
+      "book": "MEWEST01HS",
+      "accountReference": null,
+      "tradeDate": "2026-01-15T06:00:00Z",
+      "counterparty": "02519916",
+      "novatedToCounterparty": null,
+      "counterpartyAccountReference": null,
+      "inputDate": "2026-01-15T06:00:00Z",
+      "orderTime": null,
+      "comment": null,
+      "initialMargin": null,
+      "backoutBook": null,
+      "tradingStrategy": null,
+      "ddeEligible": {
+        "No": null
+      },
+      "backoutTradingStrategy": null,
+      "externalReference": null,
+      "internalReference": null,
+      "initialMarginDeliveryDate": null,
+      "initialMarginDescription": null,
+      "structureDetails": null,
+      "backoutEntity": null,
+      "salesGroup": null,
+      "includeFeeEngine": [
+        "none"
+      ],
+      "acsLinkType": null,
+      "regionOrAccount": null,
+      "originatingSystem": null,
+      "stp": {
+        "No": null
+      },
+      "sourceSystem": null,
+      "cashflowHedgeNotification": false,
+      "IRDAdvisory": false,
+      "isCustomBasket": false
+    },
+    "events": [],
+    "fees": [],
+    "cvr": null,
+    "rightToBreakDetails": null,
+    "capitalSharing": [],
+    "tagMap": [],
+    "tradeIdentifiers": [],
+    "ISDADefinition": null
+  },
+  "leg": {
+    "underlyingAsset": {
+      "indexCode": "AIAGER",
+      "ISIN": null
+    },
+    "volume": {
+      "volumeType": {
+        "notional": null
+      },
+      "rounding": {
+        "_2dp": null
+      }
+    },
+    "fixedFeeLeg": {
+      "dayCountBasis": "ACT/365",
+      "combineFeesTbills": {
+        "No": null
+      },
+      "feeStartDate": "2026-01-15T06:00:00Z",
+      "settlement": {
+        "relativeToResetDate": null
+      }
+    },
+    "floatingIndexLeg": {
+      "periods": {
+        "singleOrMultiRatesets": {
+          "single": null
+        },
+        "ratesetOn": {
+          "commodityBusinessDays": null
+        },
+        "startDate": "2026-01-15T06:00:00Z",
+        "endDate": "",
+        "rollDateConvention": {
+          "MFBD": null
+        }
+      },
+      "price": {
+        "priceType": {
+          "close": {
+            "referenceDate": "2026-01-15T06:00:00Z",
+            "margin": {
+              "marginNone": 0
+            }
+          }
+        },
+        "rounding": {
+          "_4dp": null
+        }
+      },
+      "indexTradeDetails": {
+        "hedgeDisruption": {
+          "Yes": null
+        },
+        "ateTrigger": {
+          "No": null
+        },
+        "reinvesting": {
+          "No": null
+        },
+        "stopLoss": {
+          "noStopLoss": null
+        },
+        "indexFloatingPerformance": {
+          "noFloatingPerformance": null
+        },
+        "linkedTradeableId": null,
+        "exitCost": {
+          "noExitCost": null
+        },
+        "unilateralUnwindRights": {
+          "No": null
+        },
+        "standardIcoh": {
+          "Yes": null
+        },
+        "isBreakable": false
+      }
+    },
+    "payment": {
+      "paymentCcy": "USD",
+      "fxConversion": {
+        "fxFixingRefCode": null,
+        "ratesetExprCode": null,
+        "assetCcy": "USD"
+      },
+      "terms": {
+        "paymentDate": null,
+        "paymentDaysOffset": 2,
+        "dayType": {
+          "Business": null
+        },
+        "calendar": [
+          "NY"
+        ]
+      },
+      "rounding": {
+        "_2dp": null
+      }
+    },
+    "assetSchedule": [],
+    "isCustomSchedule": false,
+    "tagMap": []
+  }
+}

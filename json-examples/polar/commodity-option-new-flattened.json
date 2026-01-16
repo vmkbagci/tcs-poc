@@ -1,0 +1,158 @@
+{
+  "general": {
+    "tradeId": "",
+    "label": "",
+    "transactionRoles": {
+      "marketer": null,
+      "transactionOriginator": null,
+      "priceMaker": "kbagci",
+      "transactionAcceptor": null,
+      "parameterGrantor": null
+    },
+    "executionDetails": {
+      "executionDateTime": "2026-01-16T11:30:00Z",
+      "bestExecutionApplicable": null,
+      "executionVenue": {
+        "executionVenue": null,
+        "venueTransactionID": null,
+        "executionBroker": null,
+        "executionBrokeragePayer": "wePay",
+        "executionVenueMIC": null,
+        "executionVenueType": "OffFacility"
+      },
+      "clearingVenue": null,
+      "reportTrackingNumber": null,
+      "omsOrderID": null,
+      "isOffMarketPrice": false,
+      "clientInstructionTime": null
+    },
+    "packageTradeDetails": {
+      "isPackageTrade": false,
+      "packageIdentifier": null,
+      "packagePriceOrSpread": null,
+      "packageType": null,
+      "packagePrice": null,
+      "packagePriceCcy": null,
+      "priceNotation": null,
+      "useTradeIdAsPackageId": true
+    },
+    "blockAllocationDetails": null
+  },
+  "common": {
+    "book": "MEWEST01HS",
+    "accountReference": null,
+    "tradeDate": "2026-01-15T06:00:00Z",
+    "counterparty": "02519916",
+    "novatedToCounterparty": null,
+    "counterpartyAccountReference": null,
+    "inputDate": "2026-01-15T06:00:00Z",
+    "orderTime": null,
+    "comment": null,
+    "initialMargin": null,
+    "backoutBook": null,
+    "tradingStrategy": null,
+    "ddeEligible": "No",
+    "backoutTradingStrategy": null,
+    "externalReference": null,
+    "internalReference": null,
+    "initialMarginDeliveryDate": null,
+    "initialMarginDescription": null,
+    "structureDetails": null,
+    "backoutEntity": null,
+    "salesGroup": null,
+    "includeFeeEngine": {
+      "none": true
+    },
+    "acsLinkType": null,
+    "regionOrAccount": null,
+    "originatingSystem": null,
+    "stp": "No",
+    "sourceSystem": null,
+    "cashflowHedgeNotification": false,
+    "IRDAdvisory": false,
+    "isCustomBasket": null,
+    "events": [],
+    "fees": [],
+    "cvr": null,
+    "rightToBreakDetails": null,
+    "capitalSharing": [],
+    "tagMap": [],
+    "tradeIdentifiers": [],
+    "ISDADefinition": null
+  },
+  "commodityDetails": {
+    "optionExerciseType": "europeanExercise",
+    "settlementMethod": "CashOrEfrp",
+    "accumulation": "None",
+    "automaticExercise": false,
+    "notionalVolume": {
+      "volumeUnit": "LB",
+      "volumeFrequency": "Total",
+      "volumeFuturesContracts": 0
+    },
+    "strikeCurrency": "EUR",
+    "strikeUnit": "LB",
+    "strikePayout": "ITM",
+    "pricingStyle": "AVG_CMD_AVG_FX",
+    "priceCalculation": {
+      "spread": 0,
+      "roundingMethod": "halfUp",
+      "precision": "3dp",
+      "commonPricing": true
+    },
+    "assetPricing": {
+      "ratesetRuleCode": "DuringPeriod",
+      "ratesetExprCode": "LIFFE_AG",
+      "assetWeight": 1,
+      "assetUnit": "LB",
+      "commodityCode": "EGT",
+      "commodityRateset": "EGT",
+      "fixingStyle": "bullet",
+      "fixingRounding": "halfUp"
+    },
+    "fxFixing": {
+      "commonPricing": false,
+      "averagingCalcMethod": "avgAssetFx",
+      "spread": 0,
+      "conversionFactor": 0,
+      "style": "average",
+      "roundingMethod": "halfUp",
+      "roundingPrecision": "3dp"
+    }
+  },
+  "scheduleDetails": {
+    "singleOrMultiPeriod": "SinglePeriod",
+    "rollDirection": "PBD",
+    "rollDirectionEnum": "forward",
+    "periodAlignOn": "SwapEnd",
+    "frequency": {
+      "period": "D",
+      "multiplier": 0
+    },
+    "pricingSchedule": [
+      {
+        "scheduleIndex": 0,
+        "periodStartDate": "2026-01-15T06:00:00Z",
+        "periodEndDate": "2026-01-15T06:00:00Z",
+        "quantity": 0
+      }
+    ]
+  },
+  "exercisePayment": {
+    "paymentCurrency": "EUR",
+    "businessCenters": ["TARGET"],
+    "payRelativeTo": "LastFixingDate",
+    "paymentDaysOffset": {
+      "multiplier": 5,
+      "dateAdjustments": "Business",
+      "businessDayConvention": "MFBD"
+    }
+  },
+  "premium": {
+    "priceUnits": "LB",
+    "deferredFlag": false,
+    "paymentStyle": "singlePayment",
+    "premiumValueDate": "2026-01-19T06:00:00Z",
+    "premiumFxRatesetDate": "2026-01-19T06:00:00Z"
+  }
+}

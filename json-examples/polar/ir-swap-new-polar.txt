@@ -1,0 +1,484 @@
+{
+    "general": {
+        "tradeKey": {
+            "tradeId": "",
+            "label": ""
+        },
+        "transactionInformation": {
+            "transactionRoles": {
+                "marketer": {
+                    "nothing": null
+                },
+                "transactionOriginator": {
+                    "nothing": null
+                },
+                "priceMaker": "",
+                "transactionAcceptor": {
+                    "nothing": null
+                },
+                "parameterGrantor": {
+                    "nothing": null
+                }
+            },
+            "executionDetails": {
+                "executionDateTime": {
+                    "date": {
+                        "date": "2026-01-16",
+                        "expr": {
+                            "nothing": null
+                        }
+                    },
+                    "time": {
+                        "hours": 5,
+                        "minutes": 6,
+                        "seconds": 31,
+                        "milliSeconds": 0
+                    }
+                },
+                "bestExecutionApplicable": {
+                    "nothing": null
+                },
+                "executionVenue": {
+                    "just": {
+                        "executionVenue": {
+                            "nothing": null
+                        },
+                        "venueTransactionID": {
+                            "nothing": null
+                        },
+                        "executionBroker": {
+                            "nothing": null
+                        },
+                        "executionBrokeragePayer": {
+                            "wePay": null
+                        },
+                        "executionVenueMIC": {
+                            "nothing": null
+                        },
+                        "executionVenueType": {
+                            "just": "OffFacility"
+                        }
+                    }
+                },
+                "clearingVenue": {
+                    "nothing": null
+                },
+                "reportTrackingNumber": {
+                    "nothing": null
+                },
+                "omsOrderID": {
+                    "nothing": null
+                },
+                "isOffMarketPrice": {
+                    "just": false
+                },
+                "clientInstructionTime": {
+                    "nothing": null
+                }
+            },
+            "packageTradeDetails": {
+                "isPackageTrade": {
+                    "just": false
+                },
+                "packageIdentifier": {
+                    "nothing": null
+                },
+                "packagePriceOrSpread": {
+                    "nothing": null
+                },
+                "packageType": {
+                    "nothing": null
+                },
+                "packagePrice": {
+                    "nothing": null
+                },
+                "packagePriceCcy": {
+                    "nothing": null
+                },
+                "priceNotation": {
+                    "nothing": null
+                },
+                "useTradeIdAsPackageId": {
+                    "just": true
+                }
+            },
+            "blockAllocationDetails": {
+                "nothing": null
+            }
+        },
+        "common": {
+            "book": "",
+            "accountReference": {
+                "nothing": null
+            },
+            "tradeDate": {
+                "date": "2026-01-15",
+                "expr": {
+                    "nothing": null
+                }
+            },
+            "counterparty": "",
+            "novatedToCounterparty": {
+                "nothing": null
+            },
+            "counterpartyAccountReference": {
+                "nothing": null
+            },
+            "inputDate": {
+                "date": "2026-01-15",
+                "expr": {
+                    "nothing": null
+                }
+            },
+            "orderTime": {
+                "nothing": null
+            },
+            "comment": {
+                "nothing": null
+            },
+            "initialMargin": {
+                "nothing": null
+            },
+            "backoutBook": {
+                "nothing": null
+            },
+            "tradingStrategy": {
+                "nothing": null
+            },
+            "ddeEligible": {
+                "No": null
+            },
+            "backoutTradingStrategy": {
+                "nothing": null
+            },
+            "externalReference": {
+                "nothing": null
+            },
+            "internalReference": {
+                "nothing": null
+            },
+            "initialMarginDeliveryDate": {
+                "nothing": null
+            },
+            "initialMarginDescription": {
+                "nothing": null
+            },
+            "structureDetails": {
+                "nothing": null
+            },
+            "backoutEntity": {
+                "nothing": null
+            },
+            "salesGroup": {
+                "nothing": null
+            },
+            "includeFeeEngine": {
+                "just": {
+                    "allLegs": false,
+                    "nearLeg": false,
+                    "farLeg": false,
+                    "none": true
+                }
+            },
+            "acsLinkType": {
+                "nothing": null
+            },
+            "regionOrAccount": {
+                "nothing": null
+            },
+            "originatingSystem": {
+                "nothing": null
+            },
+            "stp": {
+                "No": null
+            },
+            "sourceSystem": {
+                "nothing": null
+            },
+            "cashflowHedgeNotification": {
+                "just": false
+            },
+            "IRDAdvisory": {
+                "just": false
+            },
+            "isCustomBasket": {
+                "nothing": null
+            }
+        },
+        "events": [],
+        "fees": [],
+        "cvr": {
+            "nothing": null
+        },
+        "rightToBreakDetails": {
+            "nothing": null
+        },
+        "capitalSharing": [],
+        "tagMap": [],
+        "tradeIdentifiers": [],
+        "ISDADefinition": {
+            "just": "ISDA2021"
+        }
+    },
+    "swapDetails": {
+        "underlying": "USD",
+        "physicalOrNDS": {
+            "physical": null
+        },
+        "swapType": {
+            "irsOis": null
+        },
+        "clearedTrade": false,
+        "markitSingleSided": {
+            "just": false
+        },
+        "principalExchange": {
+            "just": {
+                "occurs": {
+                    "firstLastLegs": null
+                },
+                "params": {
+                    "nothing": null
+                },
+                "schedule": {
+                    "principalExchangeSchedule": []
+                }
+            }
+        },
+        "isIsdaFallback": {
+            "just": false
+        }
+    },
+    "swapLegs": [
+        {
+            "v1": 0,
+            "v2": {
+                "bookPayReceive": {
+                    "pay": null
+                },
+                "notionalCurrency": "USD",
+                "rateType": {
+                    "fixed": null
+                },
+                "swapStream": [
+                    {
+                        "v1": 0,
+                        "v2": {
+                            "notional": {
+                                "nothing": null
+                            },
+                            "scheduleType": {
+                                "constant": null
+                            },
+                            "swapStreamDetails": {
+                                "pricingDetails": {
+                                    "interestRate": {
+                                        "nothing": null
+                                    },
+                                    "ratesetRef": {
+                                        "nothing": null
+                                    },
+                                    "referenceTenor": {
+                                        "nothing": null
+                                    },
+                                    "margin": {
+                                        "marginNone": null
+                                    },
+                                    "ratesetOffset": {
+                                        "nothing": null
+                                    },
+                                    "paymentOffset": {
+                                        "nothing": null
+                                    },
+                                    "ratesetCalendars": [],
+                                    "formula": "ARR",
+                                    "dayCountBasis": "ACT/360",
+                                    "dayCountBasisIsda": {
+                                        "just": "ACT/360"
+                                    },
+                                    "observationMethod": {
+                                        "notApplicable": null
+                                    },
+                                    "averagingMethod": {
+                                        "notApplicable": null
+                                    }
+                                },
+                                "swapPeriods": {
+                                    "periodMultiplier": 1,
+                                    "startDate": {
+                                        "date": "",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "endDate": {
+                                        "date": "",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "isAdjusted": true,
+                                    "stubDate": {
+                                        "nothing": null
+                                    },
+                                    "stubDayCountBasis": {
+                                        "nothing": null
+                                    },
+                                    "stubType": {
+                                        "none": null
+                                    },
+                                    "alignAtEom": {
+                                        "notEom": null
+                                    },
+                                    "style": {
+                                        "notApplicable": null
+                                    },
+                                    "rollConvention": {
+                                        "nothing": null
+                                    }
+                                },
+                                "schedule": []
+                            }
+                        }
+                    }
+                ],
+                "settlement": {
+                    "settlementCurrency": "USD",
+                    "offset": {
+                        "just": 2
+                    },
+                    "fxSettlement": {
+                        "nothing": null
+                    },
+                    "paymentCalendars": [
+                        "NY"
+                    ],
+                    "rollDateConvention": {
+                        "MFBD": null
+                    }
+                },
+                "nonStandard": {
+                    "nothing": null
+                }
+            }
+        },
+        {
+            "v1": 1,
+            "v2": {
+                "bookPayReceive": {
+                    "receive": null
+                },
+                "notionalCurrency": "USD",
+                "rateType": {
+                    "floating": null
+                },
+                "swapStream": [
+                    {
+                        "v1": 0,
+                        "v2": {
+                            "notional": {
+                                "nothing": null
+                            },
+                            "scheduleType": {
+                                "constant": null
+                            },
+                            "swapStreamDetails": {
+                                "pricingDetails": {
+                                    "interestRate": {
+                                        "nothing": null
+                                    },
+                                    "ratesetRef": {
+                                        "just": "SOFR"
+                                    },
+                                    "referenceTenor": {
+                                        "just": "1D"
+                                    },
+                                    "margin": {
+                                        "marginAdditive": 0
+                                    },
+                                    "ratesetOffset": {
+                                        "nothing": null
+                                    },
+                                    "paymentOffset": {
+                                        "nothing": null
+                                    },
+                                    "ratesetCalendars": [
+                                        "US"
+                                    ],
+                                    "formula": "OIS",
+                                    "dayCountBasis": "ACT/360",
+                                    "dayCountBasisIsda": {
+                                        "just": "ACT/360"
+                                    },
+                                    "observationMethod": {
+                                        "plain": null
+                                    },
+                                    "averagingMethod": {
+                                        "compound": null
+                                    }
+                                },
+                                "swapPeriods": {
+                                    "periodMultiplier": 1,
+                                    "startDate": {
+                                        "date": "",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "endDate": {
+                                        "date": "",
+                                        "expr": {
+                                            "nothing": null
+                                        }
+                                    },
+                                    "isAdjusted": true,
+                                    "stubDate": {
+                                        "nothing": null
+                                    },
+                                    "stubDayCountBasis": {
+                                        "nothing": null
+                                    },
+                                    "stubType": {
+                                        "none": null
+                                    },
+                                    "alignAtEom": {
+                                        "notEom": null
+                                    },
+                                    "style": {
+                                        "floating": {
+                                            "average": {
+                                                "daily": null
+                                            }
+                                        }
+                                    },
+                                    "rollConvention": {
+                                        "nothing": null
+                                    }
+                                },
+                                "schedule": []
+                            }
+                        }
+                    }
+                ],
+                "settlement": {
+                    "settlementCurrency": "USD",
+                    "offset": {
+                        "just": 2
+                    },
+                    "fxSettlement": {
+                        "nothing": null
+                    },
+                    "paymentCalendars": [
+                        "NY"
+                    ],
+                    "rollDateConvention": {
+                        "MFBD": null
+                    }
+                },
+                "nonStandard": {
+                    "nothing": null
+                }
+            }
+        }
+    ]
+}

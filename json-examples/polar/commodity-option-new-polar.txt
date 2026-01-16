@@ -1,0 +1,408 @@
+{
+  "general": {
+    "tradeKey": {
+      "tradeId": "",
+      "label": ""
+    },
+    "transactionInformation": {
+      "transactionRoles": {
+        "marketer": null,
+        "transactionOriginator": null,
+        "priceMaker": "kbagci",
+        "transactionAcceptor": null,
+        "parameterGrantor": null
+      },
+      "executionDetails": {
+        "executionDateTime": "2026-01-16T11:30:00Z",
+        "bestExecutionApplicable": null,
+        "executionVenue": {
+          "executionVenue": null,
+          "venueTransactionID": null,
+          "executionBroker": null,
+          "executionBrokeragePayer": {
+            "wePay": null
+          },
+          "executionVenueMIC": null,
+          "executionVenueType": "OffFacility"
+        },
+        "clearingVenue": null,
+        "reportTrackingNumber": null,
+        "omsOrderID": null,
+        "isOffMarketPrice": false,
+        "clientInstructionTime": null
+      },
+      "packageTradeDetails": {
+        "isPackageTrade": false,
+        "packageIdentifier": null,
+        "packagePriceOrSpread": null,
+        "packageType": null,
+        "packagePrice": null,
+        "packagePriceCcy": null,
+        "priceNotation": null,
+        "useTradeIdAsPackageId": true
+      },
+      "blockAllocationDetails": null
+    },
+    "common": {
+      "book": "MEWEST01HS",
+      "accountReference": null,
+      "tradeDate": "2026-01-15T06:00:00Z",
+      "counterparty": "02519916",
+      "novatedToCounterparty": null,
+      "counterpartyAccountReference": null,
+      "inputDate": "2026-01-15T06:00:00Z",
+      "orderTime": null,
+      "comment": null,
+      "initialMargin": null,
+      "backoutBook": null,
+      "tradingStrategy": null,
+      "ddeEligible": {
+        "No": null
+      },
+      "backoutTradingStrategy": null,
+      "externalReference": null,
+      "internalReference": null,
+      "initialMarginDeliveryDate": null,
+      "initialMarginDescription": null,
+      "structureDetails": null,
+      "backoutEntity": null,
+      "salesGroup": null,
+      "includeFeeEngine": [
+        "none"
+      ],
+      "acsLinkType": null,
+      "regionOrAccount": null,
+      "originatingSystem": null,
+      "stp": {
+        "No": null
+      },
+      "sourceSystem": null,
+      "cashflowHedgeNotification": false,
+      "IRDAdvisory": false,
+      "isCustomBasket": null
+    },
+    "events": [],
+    "fees": [],
+    "cvr": null,
+    "rightToBreakDetails": null,
+    "capitalSharing": [],
+    "tagMap": [],
+    "tradeIdentifiers": [],
+    "ISDADefinition": null
+  },
+  "leg": {
+    "commodityOptionType": {
+      "commodityFinancialOptionModel": {
+        "optionExercise": {
+          "optionExerciseType": {
+            "europeanExercise": null
+          },
+          "settlementMethod": {
+            "CashOrEfrp": null
+          },
+          "swapExpiryDate": null,
+          "accumulation": {
+            "None": null
+          },
+          "automaticExercise": false,
+          "writtenConfirmation": false,
+          "settlementFxConversionFxType": false
+        },
+        "notionalQuantity": {
+          "notionalVolume": {
+            "volumeUnit": "LB",
+            "volumeFrequency": {
+              "Total": null
+            },
+            "volumeFuturesContracts": 0
+          },
+          "cashNotional": null
+        },
+        "strikeCurrency": "EUR",
+        "commodityStrikePrice": {
+          "fixedPriceLeg": {
+            "strikeUnit": "LB",
+            "strikePayout": {
+              "ITM": null
+            },
+            "strikeManagementPair": null
+          }
+        },
+        "commodityPayoff": {
+          "priceCalculation": {
+            "spread": 0,
+            "finalPriceRounding": {
+              "method": {
+                "halfUp": null
+              },
+              "precision": {
+                "_3dp": null
+              }
+            },
+            "intermediatePriceRounding": {
+              "method": {
+                "halfUp": null
+              },
+              "precision": {
+                "_3dp": null
+              }
+            },
+            "multiAssetParams": {
+              "commonPricing": true,
+              "basketMultiplier": 0
+            },
+            "pricingModel": [
+              {
+                "assetPricing": {
+                  "ratesetRuleCode": {
+                    "DuringPeriod": null
+                  },
+                  "ratesetExprCode": "LIFFE_AG",
+                  "assetWeight": 1,
+                  "assetUnit": "LB",
+                  "conversion": null,
+                  "currency": "EUR",
+                  "assetFixingReferences": {
+                    "assets": {
+                      "spread": 0,
+                      "commodityFixingRef": {
+                        "identifiedAsset": {
+                          "commodityCode": "EGT",
+                          "exchangeInstrument": false
+                        },
+                        "commodityReference": {
+                          "commodityRateset": "EGT",
+                          "referenceType": {
+                            "asset": "EGT"
+                          },
+                          "referencePriceFrameworkModel": {},
+                          "deliveryExpiry": {}
+                        },
+                        "reutersCode": null
+                      },
+                      "style": {
+                        "bullet": {
+                          "fixingTime": null,
+                          "bulletPriceRounding": {
+                            "method": {
+                              "halfUp": null
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "fxFixing": {
+                  "commonPricing": false,
+                  "fxFixing": {
+                    "averagingCalcMethod": {
+                      "avgAssetFx": null
+                    },
+                    "spread": 0,
+                    "conversionFactor": 0,
+                    "fxFixingRef": {
+                      "quotedCurrencyPair": {
+                        "ccy1": "",
+                        "ccy2": ""
+                      },
+                      "fxInfoSource": {
+                        "rateSource": "",
+                        "rateSourcePage": null,
+                        "rateSourcePageHeading": null
+                      },
+                      "fixingTime": null
+                    },
+                    "style": {
+                      "average": {
+                        "rounding": {
+                          "method": {
+                            "halfUp": null
+                          },
+                          "precision": {
+                            "_3dp": null
+                          }
+                        },
+                        "fixingTime": null,
+                        "averagePeriod": null
+                      }
+                    },
+                    "fxTerms": null
+                  }
+                }
+              }
+            ],
+            "pricingStyle": {
+              "AVG_CMD_AVG_FX": null
+            }
+          },
+          "commodityPeriods": null
+        },
+        "commodityOptionPeriods": {
+          "periodShortCode": null,
+          "singleOrMultiPeriod": {
+            "SinglePeriod": null
+          },
+          "effectiveDate": {
+            "dateAdjustments": {
+              "businessCenters": []
+            },
+            "adjustedDate": {
+              "unadjustedDate": "",
+              "adjustedDate": ""
+            }
+          },
+          "terminationDate": {
+            "dateAdjustments": {
+              "businessCenters": []
+            },
+            "adjustedDate": {
+              "unadjustedDate": "",
+              "adjustedDate": ""
+            }
+          },
+          "periodAlignOn": {
+            "SwapEnd": null
+          },
+          "periodAlignment": {
+            "SwapEnd": null
+          },
+          "rollDirectionEnum": {
+            "forward": null
+          },
+          "rollDirection": "PBD",
+          "calculationPeriods": {
+            "calculationPeriodsSchedule": {
+              "balanceOfFirstPeriod": "",
+              "frequency": {
+                "period": "D",
+                "periodMultiplier": 0
+              }
+            }
+          },
+          "finalRatesetDate": null,
+          "futuresObservationDate": null,
+          "modified": false
+        },
+        "commodityOptionFeatures": {
+          "exerciseCutoff": "",
+          "barrier": {
+            "barrier1detail": {
+              "trigger": {
+                "commodityTriggerPrice": {
+                  "triggerPriceMode": {
+                    "standard": null
+                  }
+                },
+                "triggerType": {
+                  "EqualOrLess": null
+                }
+              },
+              "barrierTriggerStartDate": "",
+              "barrierTriggerEndDate": "",
+              "barrierTriggerManagementEndDate": null
+            },
+            "barrier2detail": {
+              "trigger": {
+                "commodityTriggerPrice": {
+                  "triggerPriceMode": {
+                    "standard": null
+                  }
+                }
+              },
+              "barrierTriggerStartDate": "",
+              "barrierTriggerEndDate": "",
+              "barrierTriggerManagementEndDate": null
+            },
+            "barrierType": "",
+            "barrierFXref": {
+              "fxFixingRefCode": "",
+              "useFwdFXRate": "Spot",
+              "ratesetExprCode": null,
+              "margin": 0,
+              "rounding": null
+            },
+            "barrierFixingReference": null
+          }
+        },
+        "commodityOptionExercisePayment": {
+          "paymentCurrency": "EUR",
+          "paymentFxFixingRefCode": null,
+          "paymentFxRatesetDate": null,
+          "paymentDatesModel": {
+            "paymentTerms": {
+              "params": {
+                "paymentShortCode": null,
+                "businessCenters": [
+                  "TARGET"
+                ],
+                "relativePaymentDates": {
+                  "payRelativeTo": {
+                    "LastFixingDate": null
+                  },
+                  "paymentDaysOffset": {
+                    "periodMultiplier": 5,
+                    "dateAdjustments": {
+                      "Business": null
+                    },
+                    "businessDayConvention": "MFBD"
+                  }
+                },
+                "paymentShortcut": {
+                  "custom": null
+                }
+              }
+            }
+          },
+          "fxConversionFactor": null,
+          "fxTerms": null,
+          "fxRatesetExprCode": null
+        },
+        "pricingSchedulePeriodCountModified": false,
+        "pricingSchedule": [
+          {
+            "scheduleIndex": 0,
+            "deliveryDateYearMonth": null,
+            "periodStartDate": "2026-01-15T06:00:00Z",
+            "periodEndDate": "2026-01-15T06:00:00Z",
+            "swapExpiryDate": "",
+            "barrierLeg": {
+              "barrier1ScheduleDetails": {
+                "barrierTriggerStartDate": "",
+                "barrierTriggerEndDate": "",
+                "barrierTriggerManagementEndDate": null
+              },
+              "barrier2ScheduleDetails": null
+            },
+            "notionalQuantity": {
+              "quantity": 0
+            },
+            "perFrequencyQuantity": {},
+            "strikeLeg": {},
+            "assetPriceLeg": null,
+            "payment": null,
+            "observations": null,
+            "strikeManagementPair": null
+          }
+        ],
+        "physicalMetalLocation": null
+      }
+    },
+    "optionPremium": {
+      "dealtPrice": null,
+      "priceCurrency": "",
+      "priceUnits": "LB",
+      "deferredFlag": false,
+      "paymentStyle": {
+        "singlePayment": {
+          "premiumValueDate": "2026-01-19T06:00:00Z"
+        }
+      },
+      "premiumSchedule": null,
+      "premiumFxFixingRefCode": null,
+      "premiumFxRatesetDate": "2026-01-19T06:00:00Z"
+    },
+    "assetTypeTrade": {},
+    "tagMap": []
+  }
+}
