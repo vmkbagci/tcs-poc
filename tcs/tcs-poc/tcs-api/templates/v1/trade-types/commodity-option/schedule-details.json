@@ -1,0 +1,20 @@
+{
+  "scheduleDetails": {
+    "singleOrMultiPeriod": "SinglePeriod",
+    "rollDirection": "PBD",
+    "rollDirectionEnum": "forward",
+    "periodAlignOn": "SwapEnd",
+    "frequency": {
+      "period": "D",
+      "multiplier": 0
+    },
+    "pricingSchedule": [
+      {
+        "scheduleIndex": 0,
+        "periodStartDate": "",
+        "periodEndDate": "",
+        "quantity": 0
+      }
+    ]
+  }
+}

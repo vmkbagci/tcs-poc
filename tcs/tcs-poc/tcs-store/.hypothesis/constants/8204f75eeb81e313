@@ -1,0 +1,4 @@
+# file: /home/kbagci/source/tcs/tcs-poc/tcs-store/src/tcs_store/services/trade_service.py
+# hypothesis_version: 6.150.2
+
+['.', 'eq', 'gt', 'gte', 'id', 'in', 'lt', 'lte', 'ne', 'nin', 'regex']

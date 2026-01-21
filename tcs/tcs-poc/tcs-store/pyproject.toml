@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "tcs-store"
+version = "0.1.0"
+description = "TCS Store - In-memory trade storage API with lifecycle tracing (Port 5500)"
+authors = ["TCS Team"]
+readme = "README.md"
+packages = [{include = "tcs_store", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.109.0"
+uvicorn = {extras = ["standard"], version = "^0.27.0"}
+pydantic = "^2.5.0"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-asyncio = "^0.21.0"
+hypothesis = "^6.92.0"
+httpx = "^0.26.0"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"

@@ -1,0 +1,33 @@
+{
+  "general": {
+    "tradeId": "",
+    "label": "",
+    "transactionRoles": {
+      "marketer": null,
+      "transactionOriginator": null,
+      "priceMaker": "",
+      "transactionAcceptor": null,
+      "parameterGrantor": null
+    },
+    "executionDetails": {
+      "executionDateTime": "",
+      "bestExecutionApplicable": null,
+      "clearingVenue": null,
+      "reportTrackingNumber": null,
+      "omsOrderID": null,
+      "isOffMarketPrice": false,
+      "clientInstructionTime": null
+    },
+    "packageTradeDetails": {
+      "isPackageTrade": false,
+      "packageIdentifier": null,
+      "packagePriceOrSpread": null,
+      "packageType": null,
+      "packagePrice": null,
+      "packagePriceCcy": null,
+      "priceNotation": null,
+      "useTradeIdAsPackageId": true
+    },
+    "blockAllocationDetails": null
+  }
+}

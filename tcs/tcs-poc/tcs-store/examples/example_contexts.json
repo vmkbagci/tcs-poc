@@ -1,0 +1,212 @@
+{
+  "description": "Example context metadata for different scenarios",
+  "contexts": [
+    {
+      "scenario": "New Trade Booking - Manual Entry",
+      "context": {
+        "user": "trader_john_smith",
+        "agent": "trading_ui",
+        "action": "save_new",
+        "intent": "new_trade_booking"
+      },
+      "use_case": "Trader manually enters a new trade through the UI"
+    },
+    {
+      "scenario": "New Trade Booking - Automated",
+      "context": {
+        "user": "system_auto_trader",
+        "agent": "algorithmic_trading_engine",
+        "action": "save_new",
+        "intent": "automated_execution"
+      },
+      "use_case": "Automated trading system executes a trade"
+    },
+    {
+      "scenario": "Trade Correction - Counterparty",
+      "context": {
+        "user": "trader_jane_doe",
+        "agent": "trading_ui",
+        "action": "update",
+        "intent": "counterparty_correction"
+      },
+      "use_case": "Trader corrects an incorrect counterparty on an existing trade"
+    },
+    {
+      "scenario": "Trade Correction - Notional",
+      "context": {
+        "user": "trader_john_smith",
+        "agent": "trading_ui",
+        "action": "partial_update",
+        "intent": "notional_adjustment"
+      },
+      "use_case": "Trader adjusts the notional amount on an existing trade"
+    },
+    {
+      "scenario": "Trade Correction - Schedule Update",
+      "context": {
+        "user": "trader_jane_doe",
+        "agent": "trading_ui",
+        "action": "partial_update",
+        "intent": "schedule_correction"
+      },
+      "use_case": "Trader updates payment schedule dates"
+    },
+    {
+      "scenario": "Automated Price Update",
+      "context": {
+        "user": "system_reconciliation",
+        "agent": "reconciliation_service",
+        "action": "partial_update",
+        "intent": "automated_price_update"
+      },
+      "use_case": "Reconciliation system updates trade prices from market data"
+    },
+    {
+      "scenario": "Automated Risk Metrics Update",
+      "context": {
+        "user": "system_risk_engine",
+        "agent": "risk_calculation_service",
+        "action": "partial_update",
+        "intent": "risk_metrics_refresh"
+      },
+      "use_case": "Risk engine updates calculated risk metrics (DV01, duration, etc.)"
+    },
+    {
+      "scenario": "Trade Cancellation - User Initiated",
+      "context": {
+        "user": "trader_john_smith",
+        "agent": "trading_ui",
+        "action": "delete",
+        "intent": "trade_cancellation"
+      },
+      "use_case": "Trader cancels a trade that was entered in error"
+    },
+    {
+      "scenario": "Trade Cancellation - Automated",
+      "context": {
+        "user": "system_lifecycle_manager",
+        "agent": "lifecycle_management_service",
+        "action": "delete",
+        "intent": "matured_trade_cleanup"
+      },
+      "use_case": "System automatically removes matured trades"
+    },
+    {
+      "scenario": "Bulk Import - Initial Load",
+      "context": {
+        "user": "system_migration",
+        "agent": "data_migration_service",
+        "action": "save_new",
+        "intent": "initial_data_load"
+      },
+      "use_case": "Initial migration of trades from legacy system"
+    },
+    {
+      "scenario": "Bulk Import - Daily Reconciliation",
+      "context": {
+        "user": "system_reconciliation",
+        "agent": "reconciliation_service",
+        "action": "save_new",
+        "intent": "daily_reconciliation_import"
+      },
+      "use_case": "Daily import of trades from external systems"
+    },
+    {
+      "scenario": "Bulk Delete - Portfolio Cleanup",
+      "context": {
+        "user": "operations_manager",
+        "agent": "operations_ui",
+        "action": "bulk_delete",
+        "intent": "portfolio_cleanup"
+      },
+      "use_case": "Operations team removes a set of cancelled trades"
+    },
+    {
+      "scenario": "Bulk Delete - Test Data Cleanup",
+      "context": {
+        "user": "qa_engineer",
+        "agent": "test_automation",
+        "action": "bulk_delete",
+        "intent": "test_data_cleanup"
+      },
+      "use_case": "QA team cleans up test data after testing"
+    },
+    {
+      "scenario": "Regulatory Reporting Update",
+      "context": {
+        "user": "system_regulatory_reporting",
+        "agent": "regulatory_reporting_service",
+        "action": "partial_update",
+        "intent": "regulatory_flag_update"
+      },
+      "use_case": "Regulatory reporting system adds compliance flags to trades"
+    },
+    {
+      "scenario": "Collateral Management Update",
+      "context": {
+        "user": "system_collateral_manager",
+        "agent": "collateral_management_service",
+        "action": "partial_update",
+        "intent": "collateral_status_update"
+      },
+      "use_case": "Collateral management system updates collateral information"
+    },
+    {
+      "scenario": "Audit Trail Review",
+      "context": {
+        "user": "auditor_compliance",
+        "agent": "audit_ui",
+        "action": "load_filter",
+        "intent": "audit_trail_review"
+      },
+      "use_case": "Auditor reviews trades for compliance purposes (read-only, no context required)"
+    },
+    {
+      "scenario": "Portfolio Analysis",
+      "context": {
+        "user": "portfolio_manager",
+        "agent": "analytics_ui",
+        "action": "load_filter",
+        "intent": "portfolio_analysis"
+      },
+      "use_case": "Portfolio manager analyzes trades for risk assessment (read-only, no context required)"
+    },
+    {
+      "scenario": "End of Day Processing",
+      "context": {
+        "user": "system_eod_processor",
+        "agent": "eod_processing_service",
+        "action": "partial_update",
+        "intent": "eod_valuation_update"
+      },
+      "use_case": "End of day processing updates trade valuations"
+    },
+    {
+      "scenario": "Trade Amendment - Legal Review",
+      "context": {
+        "user": "legal_reviewer",
+        "agent": "legal_review_ui",
+        "action": "partial_update",
+        "intent": "legal_terms_amendment"
+      },
+      "use_case": "Legal team updates trade terms after review"
+    },
+    {
+      "scenario": "Trade Confirmation - Back Office",
+      "context": {
+        "user": "back_office_operator",
+        "agent": "back_office_ui",
+        "action": "partial_update",
+        "intent": "confirmation_status_update"
+      },
+      "use_case": "Back office updates trade confirmation status"
+    }
+  ],
+  "notes": {
+    "user_field": "Can be a person (trader_john_smith) or system (system_reconciliation)",
+    "agent_field": "Identifies the application or service making the request",
+    "action_field": "The operation being performed (save_new, update, partial_update, delete, bulk_delete)",
+    "intent_field": "The business reason or workflow step for the operation",
+    "read_operations": "Load, list, and count operations do NOT require context metadata"
+  }
+}

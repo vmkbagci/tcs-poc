@@ -1,0 +1,170 @@
+.trade-detail-container {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+
+  p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 16px;
+  }
+}
+
+.error-card {
+  margin: 24px 0;
+  background-color: #ffebee;
+
+  .error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #c62828;
+    margin: 0;
+
+    mat-icon {
+      color: #c62828;
+    }
+  }
+}
+
+.no-trade-card {
+  margin: 24px 0;
+  text-align: center;
+  padding: 48px 24px;
+
+  p {
+    margin-bottom: 24px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.trade-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.trade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+
+  .trade-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .back-button {
+      margin-right: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .trade-id {
+      padding: 4px 12px;
+      background-color: #e3f2fd;
+      color: #1976d2;
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  .trade-actions {
+    display: flex;
+    gap: 12px;
+
+    button {
+      mat-icon {
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+.trade-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  mat-card {
+    mat-card-header {
+      margin-bottom: 16px;
+    }
+
+    mat-card-title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}
+
+.debug-info {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  max-height: 400px;
+  overflow: auto;
+
+  h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  pre {
+    margin: 0;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .trade-detail-container {
+    padding: 16px;
+  }
+
+  .trade-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    .trade-title {
+      flex-wrap: wrap;
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+    .trade-actions {
+      width: 100%;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+
+      button {
+        flex: 1;
+        min-width: 100px;
+      }
+    }
+  }
+}

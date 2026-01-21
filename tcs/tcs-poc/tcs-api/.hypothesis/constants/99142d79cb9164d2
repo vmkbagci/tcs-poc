@@ -1,0 +1,4 @@
+# file: /projects/trade-capture-service/tcs-poc/tcs-api/src/trade_api/validation/validators/core/structural.py
+# hypothesis_version: 6.141.1
+
+['common.book', 'common.counterparty', 'common.inputDate', 'common.tradeDate', 'general.tradeId']

@@ -1,0 +1,4 @@
+# file: /home/kbagci/source/tcs/tcs-poc/tcs-store/src/tcs_store/models/requests.py
+# hypothesis_version: 6.150.2
+
+[1000000, 2000000, '2024-02-01', 'BANK_A', 'BANK_B', 'Filter criteria', 'IR_SWAP', 'Trade ID to delete', 'Trade ID to load', 'Trade ID to update', 'action', 'agent', 'context', 'counterparty', 'data', 'data.notional', 'data.trade_type', 'delete_group', 'eq', 'examples', 'filter', 'gte', 'id', 'ids', 'intent', 'json_schema_extra', 'leg1', 'load_filter', 'load_group', 'new_trade_booking', 'notional', 'portfolio_review', 'save_new', 'save_partial', 'save_update', 'schedule', 'search_trades', 'start_date', 'trade', 'trade-123', 'trade-456', 'trade-789', 'trade_correction', 'trade_type', 'trader_123', 'trading_platform', 'update_schedule', 'updates', 'user']

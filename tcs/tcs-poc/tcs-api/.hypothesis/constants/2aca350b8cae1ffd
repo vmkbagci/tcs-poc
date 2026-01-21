@@ -1,0 +1,4 @@
+# file: /projects/trade-capture-service/tcs-poc/tcs-api/src/trade_api/services/trade_service.py
+# hypothesis_version: 6.141.1
+
+['%Y%m%d', '%Y-%m-%d', '-', 'Placeholder', 'Z', 'common', 'executionDateTime', 'executionDetails', 'general', 'inputDate', 'message', 'tradeDate', 'tradeId', 'trade_id', 'trade_type', 'v1', 'validation_timestamp']

@@ -1,0 +1,13 @@
+nohup: ignoring input
+INFO:     Started server process [141556]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:56984 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43570 - "GET /api/v1/trades/new?trade_type=ir-swap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43584 - "GET /api/v1/trades/new?trade_type=commodity-option HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55890 - "GET /api/v1/trades/new?trade_type=index-swap HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [141556]

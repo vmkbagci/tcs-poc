@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  trade-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - TRADE_API_DEBUG=false
+      - TRADE_API_HOST=0.0.0.0
+      - TRADE_API_PORT=8000
+      - TRADE_API_MAX_TRADES_IN_MEMORY=10000
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/trades/new", "-X", "POST", "-H", "Content-Type: application/json", "-d", '{"trade_type": "InterestRateSwap"}']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - trade-api
+    restart: unless-stopped
+    profiles:
+      - with-nginx
+
+volumes:
+  logs:

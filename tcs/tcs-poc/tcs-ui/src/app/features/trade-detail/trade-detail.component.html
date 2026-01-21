@@ -1,0 +1,106 @@
+<div class="trade-detail-container">
+  <!-- Loading Spinner -->
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Loading trade...</p>
+    </div>
+  }
+
+  <!-- Error Message -->
+  @if (error() && !loading()) {
+    <mat-card class="error-card">
+      <mat-card-content>
+        <p class="error-message">
+          <mat-icon>error</mat-icon>
+          {{ error() }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  <!-- Trade Detail Content -->
+  @if (tradeLoaded() && !loading()) {
+    <div class="trade-detail-content">
+      <!-- Header with Actions -->
+      <div class="trade-header">
+        <div class="trade-title">
+          <button mat-icon-button (click)="onBackToHome()" class="back-button">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+          <h1>Trade Details</h1>
+          @if (trade()?.general?.tradeId) {
+            <span class="trade-id">{{ trade()?.general?.tradeId }}</span>
+          }
+        </div>
+        
+        <div class="trade-actions">
+          @if (!editMode()) {
+            <button mat-raised-button color="primary" (click)="onToggleEdit()">
+              <mat-icon>edit</mat-icon>
+              Edit
+            </button>
+          } @else {
+            <button mat-raised-button (click)="onCancel()">
+              <mat-icon>cancel</mat-icon>
+              Cancel
+            </button>
+            <button mat-raised-button (click)="onShowAsJson()">
+              <mat-icon>data_object</mat-icon>
+              As JSON
+            </button>
+            <button mat-raised-button color="accent" (click)="onValidate()">
+              <mat-icon>check_circle</mat-icon>
+              Validate
+            </button>
+            <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!hasUnsavedChanges()">
+              <mat-icon>save</mat-icon>
+              Save
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Trade Core Component -->
+      <app-trade-core 
+        [trade]="trade()" 
+        [isEditMode]="editMode()"
+        (valueChange)="onTradeChange($event)">
+      </app-trade-core>
+
+      <!-- Trade-Specific Components -->
+      @switch (tradeType()) {
+        @case ('ir-swap') {
+          <app-ir-swap-detail
+            [tradeData]="$any(trade())"
+            [editMode]="editMode()"
+            (valueChange)="onTradeChange($event)">
+          </app-ir-swap-detail>
+        }
+        @default {
+          <!-- Other trade types will be added here -->
+        }
+      }
+    </div>
+  }
+
+  <!-- No Trade Loaded -->
+  @if (!tradeLoaded() && !loading() && !error()) {
+    <mat-card class="no-trade-card">
+      <mat-card-content>
+        <p>No trade data available.</p>
+        <button mat-raised-button color="primary" (click)="onBackToHome()">
+          Back to Home
+        </button>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  <!-- Validation Panel (Fixed Right Side) - Only show after first validation -->
+  @if (validationResponse() !== null) {
+    <app-validation-panel
+      [validationResponse]="validationResponse()"
+      (closed)="onValidationPanelClosed()">
+    </app-validation-panel>
+  }
+</div>

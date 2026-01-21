@@ -1,0 +1,4 @@
+# file: /home/kbagci/source/tcs/tcs-poc/tcs-store/src/tcs_store/models/filter.py
+# hypothesis_version: 6.150.2
+
+[1000000, 'IR_SWAP', 'List of trade IDs', 'Single trade ID', '^BANK.*', 'allow', 'data.counterparty', 'data.notional', 'data.trade_type', 'eq', 'examples', 'extra', 'filter', 'gte', 'ids', 'json_schema_extra', 'limit', 'offset', 'regex', 'trade-123', 'trade-456']

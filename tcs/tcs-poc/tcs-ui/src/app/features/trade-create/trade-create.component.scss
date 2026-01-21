@@ -1,0 +1,126 @@
+.trade-create-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trade-create-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 12px;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 20px;
+
+  p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+  }
+}
+
+.error-card {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #ffebee;
+
+  .error-message {
+    color: #c62828;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.trade-form-card {
+  margin-top: 24px;
+
+  mat-card-header {
+    margin-bottom: 24px;
+  }
+
+  mat-card-content {
+    padding: 24px 0;
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 0;
+    border-top: 1px solid #e0e0e0;
+  }
+}
+
+.trade-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+
+  .swap-legs-card {
+    mat-card-header {
+      margin-bottom: 16px;
+    }
+
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 24px;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .trade-create-container {
+    padding: 16px;
+  }
+
+  .trade-create-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    h1 {
+      font-size: 24px;
+    }
+  }
+
+  .trade-form-container {
+    .action-buttons {
+      flex-direction: column;
+      
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

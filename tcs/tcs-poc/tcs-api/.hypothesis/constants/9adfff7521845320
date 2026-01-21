@@ -1,0 +1,4 @@
+# file: /projects/trade-capture-service/tcs-poc/tcs-api/src/trade_api/validation/validators.py
+# hypothesis_version: 6.141.1
+
+['%Y-%m-%d', 'commodityDetails', 'common.book', 'common.counterparty', 'common.inputDate', 'common.tradeDate', 'general.tradeId', 'leg', 'swapDetails', 'swapLegs']

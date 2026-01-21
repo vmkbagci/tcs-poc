@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pytest tests/ -v -k validate)",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(python -m json.tool:*)",
+      "Bash(poetry install:*)",
+      "Bash(python:*)",
+      "Bash(tree:*)",
+      "Bash(find:*)",
+      "Bash(lsof:*)",
+      "Bash(kill:*)",
+      "Bash(jq \".common.book = \"\"MEWEST01HS\"\" | .common.counterparty = \"\"02519916\"\"\")",
+      "Bash(jq:*)",
+      "Bash(pkill:*)",
+      "Bash(poetry add:*)",
+      "Bash(poetry run python:*)",
+      "Bash(ls:*)",
+      "Bash(poetry run pytest:*)",
+      "Bash(wc:*)",
+      "Bash(cloc:*)",
+      "Bash(pytest:*)",
+      "Bash(git stash:*)"
+    ]
+  }
+}

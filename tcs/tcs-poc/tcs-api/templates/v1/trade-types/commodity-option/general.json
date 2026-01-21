@@ -1,0 +1,16 @@
+{
+  "general": {
+    "trade_type": "commodity-option",
+    "tradeType": "CommodityOption",
+    "executionDetails": {
+      "executionVenue": {
+        "executionVenue": null,
+        "venueTransactionID": null,
+        "executionBroker": null,
+        "executionBrokeragePayer": "wePay",
+        "executionVenueMIC": null,
+        "executionVenueType": "OffFacility"
+      }
+    }
+  }
+}

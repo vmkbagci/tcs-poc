@@ -1,0 +1,35 @@
+<div class="trade-create-container">
+  <div class="trade-create-header">
+    <h1>Create New Trade</h1>
+    <div class="header-actions">
+      <button mat-button (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Trade Type Selection -->
+  @if (!selectedTradeType()) {
+    <app-trade-type-selector 
+      (tradeTypeSelected)="onTradeTypeSelected($event)">
+    </app-trade-type-selector>
+  }
+
+  <!-- Loading State -->
+  @if (loading()) {
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Loading trade template...</p>
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error() && !loading()) {
+    <mat-card class="error-card">
+      <mat-card-content>
+        <p class="error-message">{{ error() }}</p>
+        <button mat-raised-button color="primary" (click)="onCancel()">
+          Back to Home
+        </button>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>

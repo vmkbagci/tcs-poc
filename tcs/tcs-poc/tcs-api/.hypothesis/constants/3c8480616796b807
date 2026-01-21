@@ -1,0 +1,4 @@
+# file: /projects/trade-capture-service/tcs-poc/tcs-api/src/trade_api/main.py
+# hypothesis_version: 6.141.1
+
+['*', '/api/v1', '/docs', '/redoc', '0.1.0', 'Trade API', '__main__', 'trade_api.main:app']

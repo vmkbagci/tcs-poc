@@ -1,0 +1,4 @@
+# file: /projects/trade-capture-service/tcs-poc/tcs-api/src/trade_api/api/trades.py
+# hypothesis_version: 6.141.1
+
+[400, 500, '/new', '/save', '/validate', 'Unknown error', 'ir-swap', 'templates', 'v1']

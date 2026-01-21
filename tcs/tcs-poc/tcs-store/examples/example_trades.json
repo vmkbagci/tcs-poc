@@ -1,0 +1,242 @@
+{
+  "description": "Example trade payloads for testing TCS Store API",
+  "trades": [
+    {
+      "name": "Simple IR Swap",
+      "trade": {
+        "id": "trade_ir_swap_001",
+        "data": {
+          "trade_type": "IR_SWAP",
+          "counterparty": "BANK_A",
+          "notional": 1000000,
+          "currency": "USD",
+          "trade_date": "2024-01-15",
+          "maturity_date": "2029-01-15"
+        }
+      }
+    },
+    {
+      "name": "IR Swap with Legs",
+      "trade": {
+        "id": "trade_ir_swap_002",
+        "data": {
+          "trade_type": "IR_SWAP",
+          "counterparty": "BANK_B",
+          "notional": 5000000,
+          "currency": "EUR",
+          "trade_date": "2024-02-01",
+          "maturity_date": "2034-02-01",
+          "leg1": {
+            "type": "fixed",
+            "rate": 0.045,
+            "notional": 5000000,
+            "currency": "EUR",
+            "payment_frequency": "semi-annual",
+            "day_count": "30/360"
+          },
+          "leg2": {
+            "type": "floating",
+            "index": "EURIBOR_6M",
+            "spread": 0.002,
+            "notional": 5000000,
+            "currency": "EUR",
+            "payment_frequency": "semi-annual",
+            "day_count": "ACT/360"
+          }
+        }
+      }
+    },
+    {
+      "name": "IR Swap with Schedule",
+      "trade": {
+        "id": "trade_ir_swap_003",
+        "data": {
+          "trade_type": "IR_SWAP",
+          "counterparty": "BANK_C",
+          "notional": 10000000,
+          "currency": "USD",
+          "trade_date": "2024-03-15",
+          "maturity_date": "2029-03-15",
+          "leg1": {
+            "type": "fixed",
+            "rate": 0.0475,
+            "notional": 10000000,
+            "schedule": {
+              "start_date": "2024-03-15",
+              "end_date": "2029-03-15",
+              "frequency": "quarterly",
+              "business_day_convention": "modified_following",
+              "calendar": "US"
+            }
+          },
+          "leg2": {
+            "type": "floating",
+            "index": "SOFR",
+            "spread": 0.0025,
+            "notional": 10000000,
+            "schedule": {
+              "start_date": "2024-03-15",
+              "end_date": "2029-03-15",
+              "frequency": "quarterly",
+              "business_day_convention": "modified_following",
+              "calendar": "US"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "FX Swap",
+      "trade": {
+        "id": "trade_fx_swap_001",
+        "data": {
+          "trade_type": "FX_SWAP",
+          "counterparty": "BANK_D",
+          "notional": 2000000,
+          "currency_pair": "EUR/USD",
+          "trade_date": "2024-01-20",
+          "near_leg": {
+            "settlement_date": "2024-01-22",
+            "rate": 1.0850,
+            "amount_buy": 2000000,
+            "currency_buy": "EUR",
+            "amount_sell": 2170000,
+            "currency_sell": "USD"
+          },
+          "far_leg": {
+            "settlement_date": "2024-07-22",
+            "rate": 1.0900,
+            "amount_buy": 2170000,
+            "currency_buy": "USD",
+            "amount_sell": 2000000,
+            "currency_sell": "EUR"
+          }
+        }
+      }
+    },
+    {
+      "name": "Commodity Option",
+      "trade": {
+        "id": "trade_commodity_option_001",
+        "data": {
+          "trade_type": "COMMODITY_OPTION",
+          "counterparty": "BANK_E",
+          "notional": 500000,
+          "commodity": "WTI_CRUDE",
+          "option_type": "call",
+          "strike_price": 75.00,
+          "premium": 25000,
+          "trade_date": "2024-01-10",
+          "expiry_date": "2024-12-20",
+          "settlement_type": "cash",
+          "quantity": 10000,
+          "unit": "barrels"
+        }
+      }
+    },
+    {
+      "name": "Trade with Metadata",
+      "trade": {
+        "id": "trade_with_metadata_001",
+        "data": {
+          "trade_type": "IR_SWAP",
+          "counterparty": "BANK_F",
+          "notional": 3000000,
+          "currency": "GBP",
+          "trade_date": "2024-01-25",
+          "maturity_date": "2029-01-25",
+          "broker": "BROKER_X",
+          "trader": "john_smith",
+          "desk": "rates_desk",
+          "metadata": {
+            "tags": ["urgent", "high-value", "regulatory"],
+            "notes": "Requires regulatory approval",
+            "internal_ref": "REF-2024-001",
+            "client_ref": "CLIENT-ABC-123"
+          }
+        }
+      }
+    },
+    {
+      "name": "Minimal Trade",
+      "trade": {
+        "id": "trade_minimal_001",
+        "data": {
+          "trade_type": "IR_SWAP",
+          "counterparty": "BANK_G",
+          "notional": 100000
+        }
+      }
+    },
+    {
+      "name": "Complex Nested Trade",
+      "trade": {
+        "id": "trade_complex_001",
+        "data": {
+          "trade_type": "IR_SWAP",
+          "counterparty": "BANK_H",
+          "notional": 15000000,
+          "currency": "USD",
+          "trade_date": "2024-02-15",
+          "maturity_date": "2034-02-15",
+          "leg1": {
+            "type": "fixed",
+            "rate": 0.05,
+            "notional": 15000000,
+            "schedule": {
+              "start_date": "2024-02-15",
+              "end_date": "2034-02-15",
+              "frequency": "semi-annual",
+              "business_day_convention": "modified_following",
+              "calendar": "US",
+              "payment_dates": [
+                "2024-08-15",
+                "2025-02-15",
+                "2025-08-15"
+              ]
+            },
+            "pricing": {
+              "discount_curve": "USD_OIS",
+              "valuation_date": "2024-02-15",
+              "npv": 125000
+            }
+          },
+          "leg2": {
+            "type": "floating",
+            "index": "SOFR",
+            "spread": 0.003,
+            "notional": 15000000,
+            "schedule": {
+              "start_date": "2024-02-15",
+              "end_date": "2034-02-15",
+              "frequency": "quarterly",
+              "business_day_convention": "modified_following",
+              "calendar": "US",
+              "reset_dates": [
+                "2024-02-15",
+                "2024-05-15",
+                "2024-08-15"
+              ]
+            },
+            "pricing": {
+              "forecast_curve": "USD_SOFR",
+              "valuation_date": "2024-02-15",
+              "npv": -125000
+            }
+          },
+          "collateral": {
+            "type": "CSA",
+            "threshold": 1000000,
+            "minimum_transfer": 100000,
+            "currency": "USD"
+          },
+          "risk_metrics": {
+            "dv01": 15000,
+            "duration": 7.5,
+            "convexity": 0.85
+          }
+        }
+      }
+    }
+  ]
+}

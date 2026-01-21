@@ -1,0 +1,54 @@
+{
+  "leg": {
+    "underlyingAsset": {
+      "indexCode": "",
+      "ISIN": null
+    },
+    "volume": {
+      "volumeType": "notional",
+      "rounding": "2dp"
+    },
+    "fixedFeeLeg": {
+      "dayCountBasis": "ACT/365",
+      "combineFeesTbills": "No",
+      "feeStartDate": "",
+      "settlement": null
+    },
+    "floatingIndexLeg": {
+      "periods": {
+        "singleOrMultiRatesets": "single",
+        "ratesetOn": "commodityBusinessDays",
+        "startDate": "",
+        "endDate": "",
+        "rollDateConvention": "MFBD"
+      },
+      "price": {
+        "priceType": "close",
+        "referenceDate": "",
+        "margin": 0,
+        "rounding": "4dp"
+      },
+      "indexTradeDetails": {
+        "hedgeDisruption": "Yes",
+        "ateTrigger": "No",
+        "reinvesting": "No",
+        "stopLoss": "noStopLoss",
+        "indexFloatingPerformance": "noFloatingPerformance",
+        "linkedTradeableId": null,
+        "exitCost": "noExitCost",
+        "unilateralUnwindRights": "No",
+        "standardIcoh": "Yes",
+        "isBreakable": false
+      }
+    },
+    "payment": {
+      "paymentCcy": "USD",
+      "assetCcy": "USD",
+      "paymentDate": null,
+      "paymentDaysOffset": 2,
+      "dayType": "Business",
+      "calendar": ["NY"],
+      "rounding": "2dp"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "general": {
+    "trade_type": "ir-swap",
+    "tradeType": "InterestRateSwap",
+    "executionDetails": {
+      "executionVenue": null,
+      "venueTransactionID": null,
+      "executionBroker": null,
+      "executionBrokeragePayer": "wePay",
+      "executionVenueMIC": null,
+      "executionVenueType": "OffFacility"
+    }
+  }
+}

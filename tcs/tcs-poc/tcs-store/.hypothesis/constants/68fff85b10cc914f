@@ -1,0 +1,4 @@
+# file: /home/kbagci/source/tcs/tcs-poc/tcs-store/src/tcs_store/models/responses.py
+# hypothesis_version: 6.150.2
+
+['Brief error message', 'Detailed explanation', 'List of trades found', 'Service status', 'Service version']
